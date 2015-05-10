@@ -15,6 +15,9 @@
 ## Menu Index Item
 ![menu-index-item]
 
+## Search Results
+![search-results]
+
 [new-session]: ./wireframes/new_session.png
 [recipe-show]: ./wireframes/recipe_show.png
 [menu-show]: ./wireframes/menu_show.png
