@@ -57,7 +57,6 @@ I'll make sure everything is styled well, and polish all the front-end stuff.  I
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for recipes/menus
 - [ ] Follow other users
 - [ ] Multiple sessions/session management
 - [ ] User avatars
