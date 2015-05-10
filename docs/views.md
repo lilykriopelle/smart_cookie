@@ -3,24 +3,24 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
+## Recipe Show
 ![feed-show]
 
-## Blog Show
+## Menu Show
 ![blog-show]
 
-## Post Show
-![post-show]
+## Recipe Index Item
+![recipe-index-item]
 
-## Post Form
-![post-form]
+## Menu Index Item
+![menu-index-item]
 
 ## Search Results
 ![search-results]
 
 [new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
+[recipe-show]: ./wireframes/recipe_show.png
+[menu-show]: ./wireframes/menu_show.png
+[recipe-index-item]: ./wireframes/recipe_index_item.png
+[menu-index-item]: ./wireframes/menu_index_item.png
 [search-results]: ./wireframes/search_results.png
