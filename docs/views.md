@@ -4,10 +4,10 @@
 ![new-session]
 
 ## Recipe Show
-![feed-show]
+![recipe-show]
 
 ## Menu Show
-![blog-show]
+![menu-show]
 
 ## Recipe Index Item
 ![recipe-index-item]
