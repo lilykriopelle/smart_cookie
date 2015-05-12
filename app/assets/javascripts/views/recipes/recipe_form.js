@@ -12,7 +12,7 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   submit: function() {
     event.preventDefault();
     var formData = this.$el.serializeJSON();
-    this.model.save(formData.recipe, {
+    this.model.save(formData, {
       success: function() {
         this.collection.add(this.model);
       }.bind(this)

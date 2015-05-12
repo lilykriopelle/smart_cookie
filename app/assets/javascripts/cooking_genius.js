@@ -6,7 +6,6 @@ window.CookingGenius = {
   initialize: function(options) {
     this.router = new CookingGenius.Routers.Router({$rootEl: $("#content")});
     this.currentUser = new CookingGenius.Models.User({id: options.userId});
-    // debugger;
     Backbone.history.start();
     this.currentUser.fetch({
       success: function() {
