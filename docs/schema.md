@@ -1,12 +1,39 @@
 # Schema Information
 
 ## recipes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | text      | not null
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+author_id    | integer   | not null, foreign key (references users)
+title        | string    | not null
+instructions | text      | not null
+
+## ingredients
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+name         | string    | not null
+
+## recipes_ingredients
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+ingredient_id | integer   | not null, foreign key (references menus)
+recipe_id     | integer   | not null, foreign key (references recipes)
+quantity      | string    | not null
+
+## dietary_attributes
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+name          | string    | not null
+
+## recipes_dietary_attributes
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+attribute_id  | integer   | not null, foreign key (references dietary_attributes)
+recipe_id     | integer   | not null, foreign key (references recipes)
 
 ## menus
 column name | data type | details
@@ -21,6 +48,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 menu_id     | integer   | not null, foreign key (references menus)
 recipe_id   | integer   | not null, foreign key (references recipes)
+ord         | integer   | not null
 
 ## annotations
 column name    | data type | details
@@ -30,6 +58,7 @@ annotatable_id | integer   | not null, foreign key (references menus/recipes)
 author_id      | integer   | not null, foreign key (references users)
 start_idx      | integer   | not null
 end_idx        | integer   | not null
+body           | string    | not null
 
 ## votes
 column name    | data type | details
