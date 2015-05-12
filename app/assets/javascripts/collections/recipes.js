@@ -1,6 +1,10 @@
-CookingGenius.Collections.Recipes = Backbone.Model.extend({
+CookingGenius.Collections.Recipes = Backbone.Collection.extend({
 
   url: 'api/recipes',
-  model: CookingGenius.Models.Recipe
+  model: CookingGenius.Models.Recipe,
+
+  initialize: function(options) {
+    this.author = options.author;
+  }
 
 });

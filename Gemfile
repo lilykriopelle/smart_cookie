@@ -39,3 +39,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
