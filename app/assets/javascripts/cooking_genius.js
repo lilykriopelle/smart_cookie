@@ -3,8 +3,15 @@ window.CookingGenius = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
+  initialize: function(options) {
     this.router = new CookingGenius.Routers.Router({$rootEl: $("#content")});
+    this.currentUser = new CookingGenius.Models.User({id: options.userId});
+    // debugger;
     Backbone.history.start();
+    this.currentUser.fetch({
+      success: function() {
+        Backbone.history.navigate("/users/" + this.currentUser.id, {trigger: true});
+      }.bind(this)
+    });
   }
 };
