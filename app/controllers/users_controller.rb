@@ -9,25 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in!(@user)
-      redirect_to root_url
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
-    end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-    render :edit
-  end
-
-  def update
-    @user = User.find(params[:id]).update(user_params)
-    if @user.save
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
-      render :edit
+      render :new
     end
   end
 
@@ -38,7 +23,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password, :name)
     end
 
 end

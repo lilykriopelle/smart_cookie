@@ -1,0 +1,9 @@
+<% if current_user %>
+  <h3> You are logged in as <%= user.name %>
+    <form action="<%= session_url%>" method="post">
+      <%= authenticity_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button>Log out!</button>
+    </form>
+  </h3>
+<% end %>
