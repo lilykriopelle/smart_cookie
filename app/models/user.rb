@@ -8,6 +8,8 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  name            :string           not null
+#
 
 class User < ActiveRecord::Base
   attr_reader :password
@@ -17,6 +19,8 @@ class User < ActiveRecord::Base
   validates :email, :name, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :email, uniqueness: true
+
+  has_many :recipes, foreign_key: :author_id
 
   def self.find_by_credentials(email, password)
     user = User.find_by({email: email});
