@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in!(@user)
-      redirect_to root
+      redirect_to user_url(@user)
     else
       render :new
     end

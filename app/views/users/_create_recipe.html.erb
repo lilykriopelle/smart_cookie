@@ -1,0 +1,17 @@
+<h3> Create a New Recipe </h3>
+
+<form class="new-recipe-form" action="<%= recipes_url %>" method="post">
+  <%= authenticity_token %>
+
+  <label>
+    Title
+    <input type="text" name="recipe[title]" value="">
+  </label>
+  <br><br>
+  <label>
+    Instructions
+    <textarea name="recipe[instructions]" value=""></textarea>
+  </label>
+
+  <button>Create Recipe</button>
+</form>
