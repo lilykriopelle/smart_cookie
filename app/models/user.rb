@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :email, uniqueness: true
 
-  has_many :recipes, foreign_key: :author_id
+  has_many :authored_recipes, class_name: "Recipe", foreign_key: :author_id
 
   def self.find_by_credentials(email, password)
     user = User.find_by({email: email});

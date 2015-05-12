@@ -1,9 +1,9 @@
 <h3>My Recipes</h3>
-<% if user.recipes.empty? %>
+<% if user.authored_recipes.empty? %>
   <p> You haven't added any recipes! </p>
 <% else %>
   <ul class="authored-recipes">
-    <% user.recipes.each do |recipe| %>
+    <% user.authored_recipes.each do |recipe| %>
       <li> <a href="#"> <%= recipe.title %> </a> </li>
     <% end %>
   </ul>

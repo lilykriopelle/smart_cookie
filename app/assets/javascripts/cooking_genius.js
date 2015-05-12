@@ -4,10 +4,7 @@ window.CookingGenius = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // alert('Hello from Backbone!');
+    this.router = new CookingGenius.Routers.Router({$rootEl: $("#content")});
+    Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  CookingGenius.initialize();
-});
