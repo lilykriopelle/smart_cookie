@@ -18,7 +18,7 @@ name         | string    | not null
 column name   | data type | details
 --------------|-----------|-----------------------
 id            | integer   | not null, primary key
-ingredient_id | integer   | not null, foreign key (references menus)
+ingredient_id | integer   | not null, foreign key (references ingredients)
 recipe_id     | integer   | not null, foreign key (references recipes)
 quantity      | string    | not null
 
