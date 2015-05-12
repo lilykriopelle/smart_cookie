@@ -3,7 +3,6 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   events: {
     "click .create-recipe": "submit",
     "click .add-ingredient": "addIngredient",
-    "click .delete-ingredient": "deleteIngredient"
   },
 
   tagName: "form",
@@ -23,11 +22,6 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   addIngredient: function(event) {
     event.preventDefault();
     this.addSubview(".ingredients", new CookingGenius.Views.NewIngredient());
-  },
-
-  deleteIngredient: function(event) {
-    event.preventDefault();
-    $(event.currentTarget).parent().remove();
   },
 
   render: function() {
