@@ -10,4 +10,6 @@
 
 class Ingredient < ActiveRecord::Base
   validates :name, presence: true
+  has_many :recipes_ingredients, class_name: "RecipesIngredient", foreign_key: :ingredient_id
+  has_many :recipes, through: :recipes_ingredients, source: :recipe
 end

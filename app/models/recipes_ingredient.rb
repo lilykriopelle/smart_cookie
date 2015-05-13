@@ -11,7 +11,7 @@
 #
 
 class RecipesIngredient < ActiveRecord::Base
-  validates :recipe_id, :ingredient_id, presence: true
+  validates :recipe, :ingredient, presence: true
 
   belongs_to :recipe
   belongs_to :ingredient

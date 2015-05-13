@@ -6,17 +6,19 @@ class Api::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.authored_recipes.new(recipe_params)
+    @recipe = RecipeParser.new().parse(recipe_params)
+    @recipe.author_id = current_user.id
+
     if (@recipe.save)
       render :show
     else
-      render json: @board.errors.full_messages, status: :unprocessable_entity
+      render json: @recipe.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title, :instructions, ingredient_ids: [])
+      params.require(:recipe).permit(:title, :instructions, ingredient_names: [])
     end
 
 end
