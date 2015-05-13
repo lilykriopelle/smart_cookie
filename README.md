@@ -7,8 +7,8 @@
 ## Minimum Viable Product
 Cooking Genius is a Genius clone geared toward annotating recipes and menus built on Rails and Backbone.  Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [x] Create accounts
+- [x] Create sessions (log in)
 - [ ] Create recipes
 - [ ] Organize recipes into menus
 - [ ] Create annotations
@@ -27,17 +27,12 @@ Cooking Genius is a Genius clone geared toward annotating recipes and menus buil
 ## Implementation Timeline
 
 ### Phase 1: User Authentication, Recipe/Menu Creation (~1 day)
-Implement basic Auth. By the end of this phase, users will be able to create recipes using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+Implement basic Auth. By the end of this phase, users will be able to create recipes using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]
 
 ### Phase 2: Viewing Recipes and Menus (~1 days)
-I will add API routes to serve menu and recipe data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create menus and view both menus and recipes. I'd also like to add the ability for users to upload photos to attach to their recipes/menus, which will involve choosing and integrating a photo uploading library.
+First things first, I need to sort out saving ingredients and recipes_ingredients table entries when I save recipes.  I will then add API routes to serve menu and recipe data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to create menus and view both menus and recipes. I'd also like to add the ability for users to upload photos to attach to their recipes/menus, which will involve choosing and integrating a photo uploading library.
 
 [Details][phase-two]
 
