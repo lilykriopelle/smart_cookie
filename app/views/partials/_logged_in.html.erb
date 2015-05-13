@@ -1,9 +1,12 @@
 <% if current_user %>
-  <h3> You are logged in as <%= user.name %>
-    <form action="<%= session_url%>" method="post">
-      <%= authenticity_token %>
-      <input type="hidden" name="_method" value="delete">
-      <button>Log out!</button>
-    </form>
-  </h3>
+ <div class="logged-in group">
+  <form action="<%= session_url%>" method="post">
+    <%= authenticity_token %>
+    <input type="hidden" name="_method" value="delete">
+    <button>log out</button>
+  </form>
+
+  <% user_url =  "#/users/#{user.id}" %>
+  <h3> logged in as <a href="<%= user_url %>"> <%= user.name %> </a></h3>
+ </div>
 <% end %>
