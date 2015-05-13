@@ -1,0 +1,29 @@
+.logged-in {
+  display: block;
+  position: relative;
+  border: 1px solid black;
+  background-color: rgb(41, 41, 41);
+  font-family: sans-serif;
+  color: #eee;
+  height: 35px;
+}
+
+.logged-in a {
+  color: #F5B800;
+}
+
+.logged-in button {
+  float: right;
+  margin: 3px;
+}
+
+.logged-in button:hover {
+  background-color: rgba(153, 153, 153, 0.09019);
+}
+
+.logged-in h3 {
+  float: right;
+  height: 100%;
+  margin-top: 9px;
+  margin-right: 10px;
+}

@@ -7,6 +7,8 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
 
   tagName: "form",
 
+  className: "recipe-form",
+
   template: JST["recipes/recipe_form"],
 
   submit: function() {
