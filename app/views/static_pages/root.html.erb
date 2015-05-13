@@ -8,6 +8,7 @@
 
   <script>
     CookingGenius.units = <%= RecipesIngredient::UNITS.to_json.html_safe %>;
+    CookingGenius.recipeTags = <%= Recipe::TAGS.to_json.html_safe %>;
 
     $(document).ready(function() {
       CookingGenius.initialize({userId: <%= current_user.id %>});

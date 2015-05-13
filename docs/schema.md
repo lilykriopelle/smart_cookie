@@ -7,6 +7,7 @@ id           | integer   | not null, primary key
 author_id    | integer   | not null, foreign key (references users)
 title        | string    | not null
 instructions | text      | not null
+primary_tag  | text      | not null
 
 ## ingredients
 column name  | data type | details

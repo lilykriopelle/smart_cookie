@@ -1,5 +1,19 @@
 <h1> Create a New Recipe </h1>
 
+<div class="primary-tags group">
+
+  <label>
+    Primary Tag
+      <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
+        <% var tag = CookingGenius.recipeTags[i] %>
+        <input type="radio" class="tag" name="recipe[primary_tag]" id="<%= tag %>" value="<%= tag %>">
+        <label for="<%= tag %>" class="tag-label"><%= tag %></label>
+      <% } %>
+  </label>
+
+</div>
+
+
 <label>
   Title
   <input type="text" name="recipe[title]" value="">

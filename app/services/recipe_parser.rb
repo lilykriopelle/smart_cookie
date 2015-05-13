@@ -2,6 +2,7 @@ class RecipeParser
   def parse(params)
     @recipe = Recipe.new({
       title: params[:title],
+      primary_tag: params[:primary_tag],
       instructions: params[:instructions]
     });
     parse_ingredients(params[:recipe_ingredients].values)

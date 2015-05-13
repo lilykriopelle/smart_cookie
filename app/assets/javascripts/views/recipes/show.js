@@ -13,7 +13,11 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
   },
 
   deleteRecipe: function() {
-
+    this.model.destroy({
+      success: function() {
+        Backbone.history.navigate("", { trigger: true });
+      }
+    });
   },
 
   render: function() {

@@ -6,10 +6,42 @@
   margin: 20px;
 }
 
+.new-recipe label {
+  font-weight: bold;
+}
+
 .new-recipe h1 {
   font-weight: bold;
   text-align: center;
   font-size: 24px;
+}
+
+.recipe-form .primary-tags {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.primary-tags .tag {
+  display:none;
+  margin:10px;
+}
+
+.primary-tags .tag + label {
+  display:inline-block;
+  margin:-2px;
+  padding: 4px 12px;
+  border: 1px solid black;
+  background-color: #e7e7e7;
+}
+
+.recipe-form .tag:checked + label {
+   background-image: none;
+   background-color:#d0d0d0;
+}
+
+.recipe-form .tag-label:hover {
+  background-color:#d0d0d0;
+  cursor: pointer;
 }
 
 .recipe-form input, textarea {
@@ -30,7 +62,7 @@
 }
 
 .recipe-form label {
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 

@@ -18,12 +18,12 @@ class Api::RecipesController < ApplicationController
 
   def destroy
     Recipe.find(params[:id]).destroy
-    render :show
+    head :no_content
   end
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title, :instructions,
+      params.require(:recipe).permit(:title, :instructions, :primary_tag, 
       recipe_ingredients: [:name, :quantity, :unit, :optional])
     end
 
