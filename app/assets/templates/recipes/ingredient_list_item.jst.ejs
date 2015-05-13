@@ -1,3 +1,7 @@
-<%= ingredient.escape("name") %>
 <%= ingredient.escape("quantity") %>
 <%= ingredient.escape("unit") %>
+<%= ingredient.escape("name") %>
+
+<% if (ingredient.escape("optional") == true) { %>
+(optional)
+<% } %>
