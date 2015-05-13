@@ -1,0 +1,14 @@
+.errors {
+  display: block;
+  width: 100%;
+  color: #eee;
+  text-align: center;
+}
+
+.errors ul {
+  width: 100%;
+}
+
+.errors li {
+  width: 100%;
+}

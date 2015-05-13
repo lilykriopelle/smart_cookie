@@ -6,13 +6,17 @@
 
     <label>
       Email:
-      <input type="text" name="user[email]" value="">
+      <input type="text" name="user[email]" value="" id="email">
     </label>
 
     <label>
       Password:
-      <input type="password" name="user[password]" value="">
+      <input type="password" name="user[password]" value="" id="password">
     </label>
+
+    <p class="errors">
+      <%= render "errors" %>
+    </p>
 
     <button>Log In!</button>
 
