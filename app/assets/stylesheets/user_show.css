@@ -1,0 +1,8 @@
+.user-show {
+  font-family: sans-serif;
+}
+
+.user-show > h1 {
+  font-weight: bold;
+  font-size: 30px;
+}
