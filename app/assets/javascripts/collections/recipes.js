@@ -5,6 +5,23 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
 
   initialize: function(options) {
     this.author = options.author;
+  },
+
+  getOrFetch: function(id) {
+    var recipe = this.get(id);
+    var recipes = this;
+
+    if (recipe) {
+      recipe.fetch();
+    } else {
+      recipe = new CookingGenius.Models.Recipe({id: id});
+      recipe.fetch({
+        success: function() {
+          recipes.add(recipe);
+        }
+      });
+    }
+    return recipe;
   }
 
 });

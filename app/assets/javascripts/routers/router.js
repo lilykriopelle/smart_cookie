@@ -7,21 +7,25 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "users/new": "new",
-    "users/:id": "show"
+    "users/:id": "showUser",
+    "recipes/:id": "showRecipe"
   },
 
   index: function() {
 
   },
 
-  show: function(id) {
+  showUser: function(id) {
     var user = CookingGenius.users.getOrFetch(id);
     var userShow = new CookingGenius.Views.UserShow({model: user});
     this._swapView(userShow);
   },
 
-  new: function() {
+  showRecipe: function(id) {
+    debugger;
+    var recipe = CookingGenius.users.getOrFetch(id);
+    var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
+    this._swapView(recipeShow);
   },
 
   _swapView: function(view) {
