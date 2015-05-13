@@ -11,12 +11,14 @@ class RecipeParser
   def parse_ingredients(ingredient_names)
     ids = [];
 
-    ingredient_names.each do |name|
-      next if name == ""
-      ingredient = Ingredient.find_by({name: name}) || new_ingredient(name)
-      ingredient.persisted? && (ids << ingredient.id)
+    if ingredient_names
+      ingredient_names.each do |name|
+        next if name == ""
+        ingredient = Ingredient.find_by({name: name}) || new_ingredient(name)
+        ingredient.persisted? && (ids << ingredient.id)
+      end
     end
-
+    
     @recipe.ingredient_ids = ids
   end
 

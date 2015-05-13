@@ -1,11 +1,10 @@
 CookingGenius.Collections.Recipes = Backbone.Collection.extend({
 
   url: 'api/recipes',
+
   model: CookingGenius.Models.Recipe,
 
-  initialize: function(options) {
-    this.author = options.author;
-  },
+  initialize: function(options) {},
 
   getOrFetch: function(id) {
     var recipe = this.get(id);
@@ -25,3 +24,5 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
   }
 
 });
+
+CookingGenius.recipes = new CookingGenius.Collections.Recipes();

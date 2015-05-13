@@ -22,8 +22,7 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
   },
 
   showRecipe: function(id) {
-    debugger;
-    var recipe = CookingGenius.users.getOrFetch(id);
+    var recipe = CookingGenius.recipes.getOrFetch(id);
     var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
     this._swapView(recipeShow);
   },

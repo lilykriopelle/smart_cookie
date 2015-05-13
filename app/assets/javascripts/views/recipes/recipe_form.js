@@ -21,14 +21,14 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
     });
   },
 
-  addIngredient: function(event) {
-    event.preventDefault();
-    this.addSubview(".ingredients", new CookingGenius.Views.NewIngredient());
-  },
-
   render: function() {
     this.$el.html(this.template());
     return this;
+  },
+
+  addIngredient: function(event) {
+    event.preventDefault();
+    this.addSubview(".ingredients", new CookingGenius.Views.NewIngredient());
   }
 
 });
