@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 
   <script>
+    CookingGenius.units = <%= RecipesIngredient::UNITS.to_json.html_safe %>;
+
     $(document).ready(function() {
       CookingGenius.initialize({userId: <%= current_user.id %>});
     });
+
   </script>
 
 </head>

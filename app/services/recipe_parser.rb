@@ -4,21 +4,23 @@ class RecipeParser
       title: params[:title],
       instructions: params[:instructions]
     });
-    parse_ingredients(params[:ingredient_names])
+    parse_ingredients(params[:recipe_ingredients].values)
     @recipe
   end
 
-  def parse_ingredients(ingredient_names)
+  def parse_ingredients(recipe_ingredients)
     ids = [];
 
-    if ingredient_names
-      ingredient_names.each do |name|
+    if recipe_ingredients
+      recipe_ingredients.each do |recipe_ingredient|
+        name = recipe_ingredient[:name]
         next if name == ""
         ingredient = Ingredient.find_by({name: name}) || new_ingredient(name)
         ingredient.persisted? && (ids << ingredient.id)
+        # byebug
       end
     end
-    
+
     @recipe.ingredient_ids = ids
   end
 

@@ -35,10 +35,14 @@
 
 
 .recipe-form .ingredients input {
-  width: 90%;
+  width: 65%;
   border: 1px solid black;
   border-radius: 3px;
   height: 25px;
+}
+
+.recipe-form .ingredients .quantity {
+  width: 50px;
 }
 
 .recipe-form .ingredients button {

@@ -1,2 +1,25 @@
-<input type="text" name=recipe[ingredient_names][]>
+<% var timestamp = new Date().getTime() %>
+
+<label>
+  Name
+  <input type="text" name="recipe[recipe_ingredients][<%= timestamp %>][name]">
+</label>
+
+<!-- params: {
+  recipe: {},
+  recipe_ingredients: {}
+} -->
+<label>
+  Quantity
+  <input class="quantity" type="text" name="recipe[recipe_ingredients][<%= timestamp %>][quantity]" value="">
+</label>
+
+<label>
+  Unit
+  <select name="recipe[recipe_ingredients][<%= timestamp %>][unit]">
+    <%  %>
+    <%  %>
+  </select>
+</label>
+
 <button class="delete-ingredient">Delete</button>
