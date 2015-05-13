@@ -12,7 +12,6 @@
 
 class RecipesIngredient < ActiveRecord::Base
   validates :recipe, :ingredient, presence: true
-
   belongs_to :recipe
   belongs_to :ingredient
 end

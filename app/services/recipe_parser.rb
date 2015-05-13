@@ -12,25 +12,18 @@ class RecipeParser
     ids = [];
 
     ingredient_names.each do |name|
-      ingredient = Ingredient.find_by({name: name})
-
-      if (!ingredient)
-        ingredient = Ingredient.new({name: name})
-        if (ingredient.save!)
-          ids << ingredient.id
-        end
-      else
-        ids << ingredient.id
-      end
-
+      next if name == ""
+      ingredient = Ingredient.find_by({name: name}) || new_ingredient(name)
+      ingredient.persisted? && (ids << ingredient.id)
     end
 
     @recipe.ingredient_ids = ids
   end
 
-  def create_new_ingredient(name)
+  def new_ingredient(name)
     ingredient = Ingredient.new({name: name})
     ingredient.save!
+    ingredient
   end
 
 end
