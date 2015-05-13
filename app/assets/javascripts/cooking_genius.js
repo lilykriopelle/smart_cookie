@@ -9,7 +9,7 @@ window.CookingGenius = {
     Backbone.history.start();
     this.currentUser.fetch({
       success: function() {
-        Backbone.history.navigate("/users/" + this.currentUser.id, {trigger: true});
+        Backbone.history.navigate("#/users/" + this.currentUser.id, {trigger: true});
       }.bind(this)
     });
   }
