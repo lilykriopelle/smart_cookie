@@ -20,21 +20,9 @@ column name   | data type | details
 id            | integer   | not null, primary key
 ingredient_id | integer   | not null, foreign key (references ingredients)
 recipe_id     | integer   | not null, foreign key (references recipes)
+quantity      | float     | not null
+unit          | string    | not null
 optional      | boolean   | not null, default false
-
-
-## quantities
-column name           | data type | details
-----------------------|-----------|-----------------------
-recipe_ingredient_id  | integer   | not null, foreign_key (references recipes_ingredients)
-unit_id               | integer   | not null, foreign_key (references units)
-quantity              | float     | not null
-
-## units
-column name   | data type | details
---------------|-----------|-----------------------
-id            | integer   | not null, primary key
-name          | string    | not null
 
 ## dietary_attributes
 column name   | data type | details
