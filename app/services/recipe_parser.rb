@@ -31,7 +31,6 @@ class RecipeParser
     recipe_ingredient.unit = ri_params[:unit]
     recipe_ingredient.optional = (ri_params[:optional] == "on" ? true : false)
     recipe_ingredient.save!
-    byebug
   end
 
 end

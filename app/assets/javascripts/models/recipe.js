@@ -3,10 +3,10 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
   urlRoot: 'api/recipes',
 
   parse: function(response) {
-    if (response.ingredients) {
-      this.ingredients().set(response.ingredients, { parse: true });
+    if (response.recipes_ingredients) {
+      this.ingredients().set(response.recipes_ingredients, { parse: true });
+      delete response.recipes_ingredients
     }
-
     return response;
   },
 
