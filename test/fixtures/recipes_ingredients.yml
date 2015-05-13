@@ -3,13 +3,13 @@
 # Table name: recipes_ingredients
 #
 #  id            :integer          not null, primary key
-#  recipe_id     :integer          not null
 #  ingredient_id :integer          not null
 #  optional      :boolean          default(FALSE), not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  quantity      :float            not null
 #  unit          :string           not null
+#  recipe_id     :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
