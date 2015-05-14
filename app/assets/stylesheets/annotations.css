@@ -1,0 +1,9 @@
+.annotation-form {
+  position: absolute;
+  border: 1px solid black;
+  right: 100px;
+}
+
+.annotation-form button {
+  display: block;
+}

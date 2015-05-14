@@ -21,13 +21,25 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     });
   },
 
-  popUpAnnotation: function(event) {
+  popUpAnnotation: function() {
     var selection = document.getSelection();
     var startIdx = selection.getRangeAt(0).startOffset;
     var endIdx = selection.getRangeAt(0).endOffset;
+
     if (selection.toString().length > 0) {
-      // Pop up annotation window
-      debugger;
+      var annotation = new CookingGenius.Models.Annotation({
+        annotatable_id: this.model.id,
+        annotatable_type: "Recipe",
+        start_idx: startIdx,
+        end_idx: endIdx,
+        author_id: CookingGenius.currentUser.id
+      });
+
+      var annotationForm = new CookingGenius.Views.NewAnnotation({
+        model: annotation
+      });
+
+      this.addSubview(".annotation-pop-up", annotationForm);
     }
   },
 
@@ -36,7 +48,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     this.model.ingredients().each(function(ingredient) {
       var listItem = new CookingGenius.Views.IngredientListItem({
         model: ingredient,
-        recipe: this.model
+        recipe: this.model,
+        parentView: this
       });
       this.addSubview(".ingredients", listItem);
     }.bind(this));
