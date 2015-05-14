@@ -2,16 +2,16 @@
 
 <h2>category: <%= recipe.get("primary_tag") %></h2>
 
-<div class="annotation-pop-up"></div>
 
 <h3> Ingredients </h3>
 <ul class="ingredients"></ul>
 
 <h3> Instructions </h3>
 
-<pre class="instructions">
+<div class="instructions">
 <%= recipe.escape("instructions") %>
-</pre>
+</div>
 
+<div class="annotation-pop-up"></div>
 
 <button class="delete-recipe">Delete This Recipe</button>

@@ -54,14 +54,14 @@ recipe_id   | integer   | not null, foreign key (references recipes)
 ord         | integer   | not null
 
 ## annotations
-column name    | data type | details
----------------|-----------|-----------------------
-id             | integer   | not null, primary key
-annotatable_id | integer   | not null, foreign key (references menus/recipes)
-author_id      | integer   | not null, foreign key (references users)
-start_idx      | integer   | not null
-end_idx        | integer   | not null
-body           | string    | not null
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+annotatable_id   | integer   | not null, foreign key (references menus/recipes)
+annotatable_type | string    | not null, string
+author_id        | integer   | not null, foreign key (references users)
+span_id          | integer   | not null 
+body             | string    | not null
 
 ## votes
 column name    | data type | details

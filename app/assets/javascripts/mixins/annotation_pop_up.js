@@ -15,8 +15,6 @@ CookingGenius.Mixins.AnnotationPopUp = {
       var annotation = new CookingGenius.Models.Annotation({
         annotatable_id: this.model.id,
         annotatable_type: this.annotatable_type,
-        start_idx: startIdx,
-        end_idx: endIdx,
         author_id: CookingGenius.currentUser.id
       });
 
