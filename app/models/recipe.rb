@@ -19,6 +19,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipes_ingredients, source: :ingredient
   has_many :menus_recipes, class_name: "MenusRecipe"
   has_many :menus, through: :menus_recipes, source: :menu
+  has_many :annotations, as: :annotatable
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 

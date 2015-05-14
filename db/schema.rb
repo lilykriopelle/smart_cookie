@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20150514132700) do
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
-    t.integer  "annotatable_id"
-    t.integer  "author_id"
-    t.integer  "start_idx"
-    t.integer  "end_idx"
-    t.text     "body"
+    t.integer  "annotatable_id", null: false
+    t.integer  "author_id",      null: false
+    t.integer  "start_idx",      null: false
+    t.integer  "end_idx",        null: false
+    t.text     "body",           null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
