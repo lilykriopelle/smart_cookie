@@ -2,20 +2,20 @@
 
 [Heroku link][heroku]
 
-[heroku]:
+[heroku]: https://cookinggenius.herokuapp.com
 
 ## Minimum Viable Product
 Cooking Genius is a Genius clone geared toward annotating recipes and menus built on Rails and Backbone.  Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] Create recipes
+- [x] Create recipes
+- [ ] Search/Filter recipes
 - [ ] Organize recipes into menus
 - [ ] Create annotations
 - [ ] View menus/recipes and their annotations
 - [ ] Reply to annotations
 - [ ] Upvote/Downvote annotations
-- [ ] Search/Filter recipes and menus
 
 ## Design Docs
 * [View Wireframes][views]

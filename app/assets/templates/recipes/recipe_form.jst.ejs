@@ -1,22 +1,23 @@
+<button class="delete-recipe">Delete Recipe</button>
+
 <h1> Create a New Recipe </h1>
 
+<label>
+  Primary Tag
+</label>
+
 <div class="primary-tags group">
-
-  <label>
-    Primary Tag
-      <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
-        <% var tag = CookingGenius.recipeTags[i] %>
-        <input type="radio" class="tag" name="recipe[primary_tag]" id="<%= tag %>" value="<%= tag %>">
-        <label for="<%= tag %>" class="tag-label"><%= tag %></label>
-      <% } %>
-  </label>
-
+  <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
+    <% var tag = CookingGenius.recipeTags[i] %>
+    <input type="radio" class="tag" name="recipe[primary_tag]" id="<%= tag %>" value="<%= tag %>">
+    <label for="<%= tag %>" class="tag-label"><%= tag %></label>
+  <% } %>
 </div>
 
 
 <label>
   Title
-  <input type="text" name="recipe[title]" value="">
+  <input class="title" type="text" name="recipe[title]" value="">
 </label>
 
 <br><br>

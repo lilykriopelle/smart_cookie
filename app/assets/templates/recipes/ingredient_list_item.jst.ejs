@@ -1,5 +1,9 @@
 <%= ingredient.escape("quantity") %>
-<%= ingredient.escape("unit") %>
+
+<% if (ingredient.get("units") != "unit") { %>
+<%= ingredient.escape("units") %>
+<% } %>
+
 <%= ingredient.escape("name") %>
 
 <% if (ingredient.get("optional") == true) { %>

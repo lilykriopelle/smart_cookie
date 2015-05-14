@@ -4,9 +4,21 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
 
   className: "user-show",
 
+  events: {
+    "click .display-recipe-form": "displayRecipeForm"
+  },
+
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.authoredRecipes(), "sync", this.render);
+  },
+
+  displayRecipeForm: function() {
+    var recipeForm = new CookingGenius.Views.RecipeForm({
+      model: new CookingGenius.Models.Recipe(),
+      collection: this.model.authoredRecipes()
+    });
+    this.addSubview(".new-recipe", recipeForm);
   },
 
   render: function() {
@@ -15,12 +27,6 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
       var indexItem = new CookingGenius.Views.AuthoredRecipeIndexItem({model : recipe});
       this.addSubview(".authored-recipes", indexItem);
     }.bind(this));
-
-    var recipeForm = new CookingGenius.Views.RecipeForm({
-      model: new CookingGenius.Models.Recipe(),
-      collection: this.model.authoredRecipes()
-    });
-    this.addSubview(".new-recipe", recipeForm);
     return this;
   }
 
