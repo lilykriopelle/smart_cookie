@@ -20,6 +20,6 @@ class Recipe < ActiveRecord::Base
   has_many :menus_recipes, class_name: "MenusRecipe"
   has_many :menus, through: :menus_recipes, source: :menu
 
-  TAGS = %w(appetizer entree side sandwich soup salad grilling dessert drink snack)
+  TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 
 end
