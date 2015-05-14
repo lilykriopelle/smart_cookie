@@ -5,7 +5,7 @@ class Api::AnnotationsController < ApplicationController
 
   def show
     @annotation = Annotation.find(params[:id])
-    render :showw
+    render :show
   end
 
   def create
@@ -19,7 +19,7 @@ class Api::AnnotationsController < ApplicationController
 
   private
     def annotation_params
-      params.require(:annotation).permit(:annotatable_id, :annotatable_type, :author_id, :start_idx, :end_idx, :span_id, :body)
+      params.require(:annotation).permit(:annotatable_id, :annotatable_type, :author_id, :start_idx, :end_idx, :body)
     end
 
 end

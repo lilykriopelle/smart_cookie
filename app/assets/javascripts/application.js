@@ -15,6 +15,12 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
+//= require log4javascript
+//= require core
+//= require dom
+//= require domrange
+//= require wrappedrange
+//= require wrappedselection
 //= require composite_view
 //= require cooking_genius
 //= require_tree ../templates

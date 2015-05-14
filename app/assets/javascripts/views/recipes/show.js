@@ -5,6 +5,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
   className: "recipe",
 
   events: {
+    "mousedown .instructions" : "stripSpans",
     "mouseup .instructions": "popUpAnnotation",
     "click .delete-recipe": "deleteRecipe"
   },
@@ -22,9 +23,9 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
   },
 
   popUpAnnotation: function(event) {
-    var selection = document.getSelection();
-    var startIdx = selection.getRangeAt(0).startOffset;
-    var endIdx = selection.getRangeAt(0).endOffset;
+    var selection = rangy.getSelection();
+    var startIdx = selection.anchorOffset;
+    var endIdx = selection.focusOffset;
 
     if (selection.toString().length > 0) {
       var annotation = new CookingGenius.Models.Annotation({
@@ -37,7 +38,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
       var annotationForm = new CookingGenius.Views.NewAnnotation({
         $text: $(event.currentTarget),
-        model: annotation
+        model: annotation,
+        collection: this.model.annotations()
       });
 
       this.addSubview(".annotation-pop-up", annotationForm);

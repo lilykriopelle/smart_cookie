@@ -5,7 +5,12 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
   parse: function(response) {
     if (response.ingredients) {
       this.ingredients().set(response.ingredients, { parse: true });
-      delete response.ingredients
+      delete response.ingredients;
+    }
+
+    if (response.annotations) {
+      this.annotations().set(response.annotations, { parse: true });
+      delete response.annotations;
     }
     return response;
   },
@@ -16,6 +21,14 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
     }
 
     return this._ingredients;
+  },
+
+  annotations: function() {
+    if (!this._annotations) {
+      this._annotations = new CookingGenius.Collections.Annotations([], {annotatable: this});
+    }
+
+    return this._annotations;
   }
 
 });

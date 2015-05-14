@@ -32,7 +32,8 @@ CookingGenius.Views.IngredientListItem = Backbone.View.extend({
 
       var annotationForm = new CookingGenius.Views.NewAnnotation({
         $text: $(event.currentTarget),
-        model: annotation
+        model: annotation,
+        collection: this.model.annotations()
       });
 
       this.parentView.addSubview(".annotation-pop-up", annotationForm);
