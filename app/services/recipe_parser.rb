@@ -3,14 +3,10 @@ class RecipeParser
     @recipe = Recipe.new({
       title: params[:title],
       primary_tag: params[:primary_tag],
-      instructions: nl2br(params[:instructions])
+      instructions: params[:instructions]
     });
     parse_ingredients(params[:recipe_ingredients].values)
     @recipe
-  end
-
-  def nl2br(s)
-    s.gsub(/\n/, '<br>')
   end
 
   def parse_ingredients(recipe_ingredients)

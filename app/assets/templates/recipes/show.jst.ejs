@@ -6,8 +6,10 @@
 <ul class="ingredients"></ul>
 
 <h3> Instructions </h3>
-<p class="instructions">
-<%= recipe.get("instructions") %>
-</p>
+
+<pre class="instructions">
+<%= recipe.escape("instructions") %>
+</pre>
+
 
 <button class="delete-recipe">Delete This Recipe</button>

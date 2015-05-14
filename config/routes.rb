@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api , defaults: { format: :json } do
-    resources :recipes
+    resources :recipes do
+      resources :ingredients
+    end
     resources :menus
     resources :users, only: [:show]
   end
