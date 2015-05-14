@@ -18,7 +18,7 @@ class Recipe < ActiveRecord::Base
   has_many :recipes_ingredients, class_name: "RecipesIngredient", foreign_key: :recipe_id, inverse_of: :recipe
   has_many :ingredients, through: :recipes_ingredients, source: :ingredient
   has_many :menus_recipes, class_name: "MenusRecipe"
-  has_many :recipes, through: :menus_recipes, source: :recipe
+  has_many :menus, through: :menus_recipes, source: :menu
 
   TAGS = %w(appetizer entree side sandwich soup salad grilling dessert drink snack)
 

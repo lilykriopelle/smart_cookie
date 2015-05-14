@@ -11,5 +11,5 @@
 
 class Menu < ActiveRecord::Base
   has_many :menus_recipes, class_name: "MenusRecipe"
-  has_many :menus, through: :menus_recipes, source: :menu
+  has_many :recipes, through: :menus_recipes, source: :recipe
 end
