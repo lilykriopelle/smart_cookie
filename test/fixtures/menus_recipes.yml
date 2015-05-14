@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: recipes
+# Table name: menus_recipes
 #
-#  id           :integer          not null, primary key
-#  author_id    :integer          not null
-#  title        :string           not null
-#  instructions :text             not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  primary_tag  :string           not null
+#  id         :integer          not null, primary key
+#  menu_id    :integer          not null
+#  recipe_id  :integer          not null
+#  ord        :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

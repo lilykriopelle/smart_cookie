@@ -8,6 +8,7 @@
 #  instructions :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  primary_tag  :string           not null
 #
 
 require 'test_helper'
