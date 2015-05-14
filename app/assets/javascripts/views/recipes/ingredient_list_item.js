@@ -21,6 +21,18 @@ CookingGenius.Views.IngredientListItem = Backbone.View.extend({
     var endIdx = selection.getRangeAt(0).endOffset;
     if (selection.toString().length > 0) {
       // Pop up annotation window
+      var annotation = new CookingGenius.Models.Annotation();
+      // var annotationForm = new CookingGenius.Views.AnnotationForm({model: annotation});
+
+
+      var attrs = {
+        annotatable_id: this.model.id,
+        annotatable_type: "RecipesIngredient",
+        start_idx: startIdx,
+        end_idx: endIdx,
+        body: "test test test",
+        author_id: CookingGenius.currentUser.id
+      }
       debugger;
     }
   },

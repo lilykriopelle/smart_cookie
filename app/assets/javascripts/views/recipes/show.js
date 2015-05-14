@@ -27,6 +27,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     var endIdx = selection.getRangeAt(0).endOffset;
     if (selection.toString().length > 0) {
       // Pop up annotation window
+      debugger;
     }
   },
 
