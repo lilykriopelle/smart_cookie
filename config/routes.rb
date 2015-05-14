@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api , defaults: { format: :json } do
     resources :recipes
+    resources :menus
     resources :users, only: [:show]
   end
 
