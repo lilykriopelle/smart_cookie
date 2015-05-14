@@ -11,6 +11,8 @@
 #
 
 class MenusRecipe < ActiveRecord::Base
+  validates :menu, :recipe_id, :ord, presence: true
+
   belongs_to :menu
   belongs_to :recipe
 end
