@@ -11,6 +11,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
   },
 
   initialize: function(options) {
+    this.$node = options.$node;
     this.$text = options.$text;
   },
 
@@ -31,14 +32,17 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     var start = this.model.get("start_idx");
     var end = this.model.get("end_idx");
     var selection = this.$text.text().slice(start, end);
-    var wrappedSelection = '<span class="annotation">' + selection + "</span>"
-
+    var wrappedSelection = '<a class="annotation" href="#" data-id="' + this.model.id + '">' + selection + "</a>"
     // HELP! I need to keep the pre as HTML but how do I get the correct start index?
     var pre = this.$text.text().slice(0, start);
     var post = this.$text.html().slice(end);
     var newText = pre + wrappedSelection + post;
     this.$text.html(newText);
-    debugger;
+  },
+
+  calculateHTMLOffset: function(node) {
+    // if there's no HTML element to left, return plain text index, otherwise add length of
+    // html el and recursively hop left?  Is there an easier/better way?
   },
 
   render: function() {
