@@ -1,6 +1,8 @@
 class Api::AnnotationsController < ApplicationController
 
   def index
+    @annotations = Annotation.where({annotatable_id: params[:annotatable_id]})
+    render :index
   end
 
   def show

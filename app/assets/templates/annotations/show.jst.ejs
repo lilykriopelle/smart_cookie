@@ -2,8 +2,8 @@
 <%= annotation.get("body") %>
 </p>
 
-<% var userUrl = "#/users/" + annotation.get("author_id") %>
+<% var userUrl = "#/users/" + annotation.author().id %>
 
 <p>
-by <a href="<%= userUrl %>"> <%= annotation.get("name") %> </a>
+by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
 </p>

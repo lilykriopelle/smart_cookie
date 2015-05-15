@@ -1,11 +1,6 @@
 <% var timestamp = new Date().getTime() %>
 
 <label>
-  Name
-  <input type="text" name="recipe[recipe_ingredients][<%= timestamp %>][name]">
-</label>
-
-<label>
   Quantity
   <input class="quantity" type="text" name="recipe[recipe_ingredients][<%= timestamp %>][quantity]" value="">
 </label>
@@ -17,6 +12,11 @@
       <option value="<%= CookingGenius.units[i] %>"><%= CookingGenius.units[i] %></option>
     <% } %>
   </select>
+</label>
+
+<label>
+  Name
+  <input type="text" name="recipe[recipe_ingredients][<%= timestamp %>][name]">
 </label>
 
 <label for="">

@@ -1,115 +1,49 @@
 CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
-  template: JST["recipes/show"],
+    template: JST["recipes/show"],
 
-  className: "recipe",
+    className: "recipe",
 
-  events: {
-    "mousedown .instructions" : "stripSpans",
-    "mouseup .instructions": "popUpAnnotation",
-    "click .delete-recipe": "deleteRecipe",
-    "click .annotation": "displayAnnotation"
-  },
+    events: {
+      "mouseup .instructions": "popUpAnnotation",
+      "click .delete-recipe": "deleteRecipe",
+      "click .annotation": "displayAnnotation"
+    },
 
-  initialize: function() {
-    this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.annotations(), "add", this.render);
+    initialize: function() {
+      this.annotatableSelector = ".instructions";
+      this.annotatableType = "Recipe";
+      this.listenTo(this.model, "sync", this.render);
+      this.listenTo(this.model.annotations(), "add", this.render);
+      view = this;
+      // console.log(this.model.annotations().cid);
+    },
 
-  },
-
-  deleteRecipe: function() {
-    this.model.destroy({
-      success: function() {
-        Backbone.history.navigate("", { trigger: true });
-      }
-    });
-  },
-
-  // TODO abstract into annotatable mixin - ask for help with this.
-  popUpAnnotation: function(event) {
-
-    var selection = rangy.getSelection();
-
-    if (selection.toString().length > 0) {
-      var endIdx = this.getCaretCharacterOffsetWithin(this.$(".instructions")[0], selection);
-      var length = selection.getRangeAt(0).endOffset - selection.getRangeAt(0).startOffset;
-      var startIdx = endIdx - length;
-
-      var annotation = new CookingGenius.Models.Annotation({
-        start_idx: startIdx,
-        end_idx: endIdx,
-        annotatable_id: this.model.id,
-        annotatable_type: "Recipe",
-        author_id: CookingGenius.currentUser.id
+    deleteRecipe: function() {
+      this.model.destroy({
+        success: function() {
+          Backbone.history.navigate("", { trigger: true });
+        }
       });
+    },
 
-      var annotationForm = new CookingGenius.Views.NewAnnotation({
-        $node: selection.anchorNode,
-        $text: $(event.currentTarget),
-        model: annotation,
-        collection: this.model.annotations()
-      });
-
-      this.addSubview(".annotation-pop-up", annotationForm);
+    render: function() {
+      this.$el.html(this.template({recipe: this.model}));
+      this.model.ingredients().each(function(ingredient) {
+        var listItem = new CookingGenius.Views.IngredientListItem({
+          model: ingredient,
+          recipe: this.model,
+          parentView: this
+        });
+        this.addSubview(".ingredients", listItem);
+      }.bind(this));
+      this.renderAnnotations();
+      console.log(this.model.annotations().length);
+      return this;
     }
-  },
-
-  getCaretCharacterOffsetWithin: function(element, selection) {
-    var caretOffset = 0;
-    var doc = element.ownerDocument || element.document;
-    var win = doc.defaultView || doc.parentWindow;
-    if (selection.rangeCount > 0) {
-        var range = win.getSelection().getRangeAt(0);
-        var preCaretRange = range.cloneRange();
-        preCaretRange.selectNodeContents(element);
-        preCaretRange.setEnd(range.endContainer, range.endOffset);
-        caretOffset = preCaretRange.toString().length;
-    }
-    return caretOffset;
-  },
-
-  displayAnnotation: function(event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data("id");
-    var annotation = this.model.annotations().getOrFetch(id);
-    var showAnnotation = new CookingGenius.Views.AnnotationShow({model: annotation});
-
-    this.subviews(".annotation-pop-up").each(function(subview){
-      subview.remove();
-    });
-    this.addSubview(".annotation-pop-up", showAnnotation);
-  },
-
-  render: function() {
-    this.$el.html(this.template({recipe: this.model}));
-    this.model.ingredients().each(function(ingredient) {
-      var listItem = new CookingGenius.Views.IngredientListItem({
-        model: ingredient,
-        recipe: this.model,
-        parentView: this
-      });
-      this.addSubview(".ingredients", listItem);
-    }.bind(this));
-
-    this.renderAnnotations();
-    return this;
-  },
-
-  renderAnnotations: function() {
-    this.model.annotations().sort().each(function(annotation) {
-      this.wrapAnnotationInSpan(annotation);
-    }.bind(this))
-  },
-
-  wrapAnnotationInSpan: function(annotation) {
-    var start = annotation.get("start_idx");
-    var end = annotation.get("end_idx");
-    var selection = this.$(".instructions").text().slice(start, end);
-    var wrappedSelection = '<a class="annotation" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
-    var pre = this.$(".instructions").text().slice(0, start);
-    var post = this.$(".instructions").html().slice(end);
-    var newText = pre + wrappedSelection + post;
-    this.$(".instructions").html(newText);
-  }
-
 });
+
+_.extend(
+  CookingGenius.Views.RecipeShow.prototype,
+  CookingGenius.Mixins.Annotatable
+);
