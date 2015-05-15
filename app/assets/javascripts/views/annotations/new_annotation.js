@@ -32,8 +32,13 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     var end = this.model.get("end_idx");
     var selection = this.$text.text().slice(start, end);
     var wrappedSelection = '<span class="annotation">' + selection + "</span>"
-    var newText = this.$text.html().slice(0, start) + wrappedSelection + this.$text.html().slice(end);
+
+    // HELP! I need to keep the pre as HTML but how do I get the correct start index?
+    var pre = this.$text.text().slice(0, start);
+    var post = this.$text.html().slice(end);
+    var newText = pre + wrappedSelection + post;
     this.$text.html(newText);
+    debugger;
   },
 
   render: function() {

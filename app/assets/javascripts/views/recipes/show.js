@@ -22,10 +22,12 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     });
   },
 
+  // TODO abstract into annotatable mixin - ask for help with this.
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
-    var startIdx = selection.anchorOffset;
-    var endIdx = selection.focusOffset;
+    var endIdx = this.getCaretCharacterOffsetWithin(this.$(".instructions")[0], selection);
+    var length = selection.getRangeAt(0).endOffset - selection.getRangeAt(0).startOffset
+    var startIdx = endIdx - length;
 
     if (selection.toString().length > 0) {
       var annotation = new CookingGenius.Models.Annotation({
@@ -44,6 +46,20 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
       this.addSubview(".annotation-pop-up", annotationForm);
     }
+  },
+
+  getCaretCharacterOffsetWithin: function(element, selection) {
+    var caretOffset = 0;
+    var doc = element.ownerDocument || element.document;
+    var win = doc.defaultView || doc.parentWindow;
+    if (selection.rangeCount > 0) {
+        var range = win.getSelection().getRangeAt(0);
+        var preCaretRange = range.cloneRange();
+        preCaretRange.selectNodeContents(element);
+        preCaretRange.setEnd(range.endContainer, range.endOffset);
+        caretOffset = preCaretRange.toString().length;
+    }
+    return caretOffset;
   },
 
   render: function() {
