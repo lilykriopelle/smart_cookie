@@ -23,14 +23,6 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     });
   },
 
-  displayAnnotation: function(event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data("id");
-    var annotation = this.model.annotations().getOrFetch(id);
-    console.log(annotation);
-    debugger;
-  },
-
   // TODO abstract into annotatable mixin - ask for help with this.
   popUpAnnotation: function(event) {
 
@@ -72,6 +64,18 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
         caretOffset = preCaretRange.toString().length;
     }
     return caretOffset;
+  },
+
+  displayAnnotation: function(event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+    var annotation = this.model.annotations().getOrFetch(id);
+    var showAnnotation = new CookingGenius.Views.AnnotationShow({model: annotation});
+
+    this.subviews(".annotation-pop-up").each(function(subview){
+      subview.remove();
+    });
+    this.addSubview(".annotation-pop-up", showAnnotation);
   },
 
   render: function() {

@@ -1,0 +1,9 @@
+<p>
+<%= annotation.get("body") %>
+</p>
+
+<% var userUrl = "#/users/" + annotation.get("author_id") %>
+
+<p>
+by <a href="<%= userUrl %>"> <%= annotation.get("name") %> </a>
+</p>
