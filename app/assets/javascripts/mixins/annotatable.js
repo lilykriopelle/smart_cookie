@@ -5,8 +5,15 @@ CookingGenius.Mixins.Annotatable = {
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
 
+    var domEl;
+    if (this.annotatableType == "RecipesIngredient") {
+      domEl = event.currentTarget;
+    } else {
+      domEl = this.$(this.annotatableSelector)[0];
+    }
+
     if (selection.toString().length > 0) {
-      var endIdx = this.getCaretCharacterOffsetWithin(this.$(this.annotatableSelector)[0], selection);
+      var endIdx = this.getCaretCharacterOffsetWithin(domEl, selection);
       var length = selection.getRangeAt(0).endOffset - selection.getRangeAt(0).startOffset;
       var startIdx = endIdx - length;
 
@@ -25,7 +32,7 @@ CookingGenius.Mixins.Annotatable = {
         collection: this.model.annotations()
       });
 
-      this.addSubview(".annotation-pop-up", annotationForm);
+      $(".annotation-pop-up").empty().html(annotationForm.render().$el);
     }
   },
 
@@ -46,14 +53,13 @@ CookingGenius.Mixins.Annotatable = {
   displayAnnotation: function(event) {
     event.preventDefault();
     var id = $(event.currentTarget).data("id");
+    debugger;
     var annotation = this.model.annotations().get(id);
     var showAnnotation = new CookingGenius.Views.AnnotationShow({
       model: annotation
     });
 
-    this.subviews(".annotation-pop-up").each(function(subview){
-      subview.remove();
-    });
+    $(".annotation-pop-up").empty();
     this.addSubview(".annotation-pop-up", showAnnotation);
   },
 
@@ -64,15 +70,14 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   wrapAnnotationInLink: function(annotation) {
-    // debugger;
     var start = annotation.get("start_idx");
     var end = annotation.get("end_idx");
-    var selection = this.$(".instructions").text().slice(start, end);
+    var selection = this.$(this.annotatableSelector).text().slice(start, end);
     var wrappedSelection = '<a class="annotation" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
-    var pre = this.$(".instructions").text().slice(0, start);
-    var post = this.$(".instructions").html().slice(end);
+    var pre = this.$(this.annotatableSelector).text().slice(0, start);
+    var post = this.$(this.annotatableSelector).html().slice(end);
     var newText = pre + wrappedSelection + post;
-    this.$(".instructions").html(newText);
+    this.$(this.annotatableSelector).html(newText);
   }
 
 }

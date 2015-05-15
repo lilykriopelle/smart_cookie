@@ -28,17 +28,6 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     this.remove();
   },
 
-  wrapSelectionInSpan: function() {
-    var start = this.model.get("start_idx");
-    var end = this.model.get("end_idx");
-    var selection = this.$text.text().slice(start, end);
-    var wrappedSelection = '<a class="annotation" href="#" data-id="' + this.model.id + '">' + selection + "</a>"
-    var pre = this.$text.text().slice(0, start);
-    var post = this.$text.html().slice(end);
-    var newText = pre + wrappedSelection + post;
-    this.$text.html(newText);
-  },
-
   render: function() {
     this.$el.html(this.template({annotation: this.model}));
     return this;

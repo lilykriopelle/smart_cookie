@@ -19,7 +19,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
     if (!this._ingredients) {
       this._ingredients = new CookingGenius.Collections.Ingredients([], {recipe: this});
     }
-
     return this._ingredients;
   },
 
@@ -27,7 +26,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
     if (!this._annotations) {
       this._annotations = new CookingGenius.Collections.Annotations([], {annotatable: this});
     }
-
     return this._annotations;
   }
 
