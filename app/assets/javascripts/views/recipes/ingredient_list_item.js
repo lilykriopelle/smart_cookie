@@ -6,6 +6,7 @@ CookingGenius.Views.IngredientListItem = Backbone.CompositeView.extend({
 
   events: {
     "mouseup": "popUpAnnotation",
+    "click .annotationRecipesIngredient": "displayAnnotation"
   },
 
   initialize: function(options) {

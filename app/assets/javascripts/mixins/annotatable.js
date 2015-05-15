@@ -36,6 +36,17 @@ CookingGenius.Mixins.Annotatable = {
     }
   },
 
+  displayAnnotation: function(event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+    var annotation = this.model.annotations().get(id);
+    var showAnnotation = new CookingGenius.Views.AnnotationShow({
+      model: annotation
+    });
+
+    $(".annotation-pop-up").empty().html(showAnnotation.render().$el);
+  },
+
   getCaretCharacterOffsetWithin: function(element, selection) {
     var caretOffset = 0;
     var doc = element.ownerDocument || element.document;
@@ -50,19 +61,6 @@ CookingGenius.Mixins.Annotatable = {
     return caretOffset;
   },
 
-  displayAnnotation: function(event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data("id");
-    debugger;
-    var annotation = this.model.annotations().get(id);
-    var showAnnotation = new CookingGenius.Views.AnnotationShow({
-      model: annotation
-    });
-
-    $(".annotation-pop-up").empty();
-    this.addSubview(".annotation-pop-up", showAnnotation);
-  },
-
   renderAnnotations: function() {
     var annotations = this.model.annotations();
     annotations.sort();
@@ -73,7 +71,8 @@ CookingGenius.Mixins.Annotatable = {
     var start = annotation.get("start_idx");
     var end = annotation.get("end_idx");
     var selection = this.$(this.annotatableSelector).text().slice(start, end);
-    var wrappedSelection = '<a class="annotation" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
+    var className = "annotation" + this.annotatableType;
+    var wrappedSelection = '<a class="' + className + '" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
     var pre = this.$(this.annotatableSelector).text().slice(0, start);
     var post = this.$(this.annotatableSelector).html().slice(end);
     var newText = pre + wrappedSelection + post;

@@ -30,11 +30,11 @@
   display: block;
 }
 
-.annotation {
+.annotationRecipesIngredient, .annotationRecipe {
   background: #eee;
 }
 
-.annotation:hover {
+.annotationRecipesIngredient:hover,  .annotationRecipe:hover{
   background: yellow;
 }
 
