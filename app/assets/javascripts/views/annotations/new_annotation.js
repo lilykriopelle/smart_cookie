@@ -20,7 +20,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     var formAttrs = this.$el.serializeJSON();
     this.model.save(formAttrs, {
       success: function() {
-        this.wrapSelectionInSpan();
+        // this.wrapSelectionInSpan();
         this.collection.add(this.model);
       }.bind(this)
     });
@@ -49,5 +49,5 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     this.$el.html(this.template({annotation: this.model}));
     return this;
   }
-
+  
 });

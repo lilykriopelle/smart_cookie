@@ -13,6 +13,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.annotations(), "add", this.render);
+
   },
 
   deleteRecipe: function() {
@@ -88,7 +90,26 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       });
       this.addSubview(".ingredients", listItem);
     }.bind(this));
+
+    this.renderAnnotations();
     return this;
+  },
+
+  renderAnnotations: function() {
+    this.model.annotations().sort().each(function(annotation) {
+      this.wrapAnnotationInSpan(annotation);
+    }.bind(this))
+  },
+
+  wrapAnnotationInSpan: function(annotation) {
+    var start = annotation.get("start_idx");
+    var end = annotation.get("end_idx");
+    var selection = this.$(".instructions").text().slice(start, end);
+    var wrappedSelection = '<a class="annotation" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
+    var pre = this.$(".instructions").text().slice(0, start);
+    var post = this.$(".instructions").html().slice(end);
+    var newText = pre + wrappedSelection + post;
+    this.$(".instructions").html(newText);
   }
 
 });
