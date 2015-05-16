@@ -8,5 +8,9 @@ window.CookingGenius = {
     this.currentUser = new CookingGenius.Models.User({id: options.userId});
     this.currentUser.fetch();
     Backbone.history.start();
+  },
+
+  currentUserUrl: function() {
+    return "/users/" + this.currentUser.id;
   }
 };

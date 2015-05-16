@@ -7,7 +7,7 @@
 
 <label>
   Unit
-  <select name="recipe[recipe_ingredients][<%= timestamp %>][unit]">
+  <select class="units" name="recipe[recipe_ingredients][<%= timestamp %>][unit]">
     <% for (var i = 0; i < CookingGenius.units.length; i++) { %>
       <option value="<%= CookingGenius.units[i] %>"><%= CookingGenius.units[i] %></option>
     <% } %>
@@ -19,9 +19,10 @@
   <input type="text" name="recipe[recipe_ingredients][<%= timestamp %>][name]">
 </label>
 
-<label for="">
+<label class="checkbox">
   Optional?
   <input id="optional" type="checkbox" name="recipe[recipe_ingredients][<%= timestamp %>][optional]">
+  <span></span>
 </label>
 
 <button class="delete-ingredient"> - </button>
