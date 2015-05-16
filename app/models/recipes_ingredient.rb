@@ -16,7 +16,7 @@ class RecipesIngredient < ActiveRecord::Base
   validates :recipe, :ingredient, presence: true
   belongs_to :recipe
   belongs_to :ingredient
-  has_many :annotations, as: :annotatable
+  has_many :annotations, as: :annotatable, dependent: :destroy
 
   UNITS = %w(units cups tablespoons teaspoons pints quarts gallons pounds ounces loaves slices dash)
 end
