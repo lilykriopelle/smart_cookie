@@ -86,6 +86,16 @@
   width: 50px;
 }
 
+.recipe-form .ingredients .delete-ingredient {
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+
 .recipe-form select {
   /*background: yellow;*/
 }
