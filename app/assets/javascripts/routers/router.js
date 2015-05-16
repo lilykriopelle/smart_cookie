@@ -12,7 +12,8 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    this.$rootEl.html("INDEX VIEW TBD")
+    var homePage = new CookingGenius.Views.Homepage();
+    this._swapView(homePage);
   },
 
   showUser: function(id) {

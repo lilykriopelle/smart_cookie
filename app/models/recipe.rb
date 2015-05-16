@@ -27,8 +27,8 @@ class Recipe < ActiveRecord::Base
   has_many :menus, through: :menus_recipes, source: :menu
   has_many :annotations, as: :annotatable, dependent: :destroy
 
-  scope :by_tag, -> (tag) { where primary_tag: tag }
-  scope :by_author, -> (id) { where author_id: id }
+  scope :primary_tag, -> (tag) { where primary_tag: tag }
+  scope :author_id, -> (id) { where author_id: id }
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 

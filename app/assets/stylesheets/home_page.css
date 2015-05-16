@@ -1,0 +1,21 @@
+.recipe-tag-nav-bar {
+  width: 800px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.tag-links {
+  margin: auto;
+}
+
+.tag-nav-link {
+  float: left;
+  padding: 10px 10px;
+  border-right: 1px solid black;
+}
+
+.tag-nav-link:hover {
+  text-decoration: none;
+  background: #d0d0d0;
+}

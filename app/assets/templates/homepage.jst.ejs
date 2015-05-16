@@ -1,0 +1,13 @@
+<nav class="recipe-tag-nav-bar">
+  <ul class="tag-links group">
+    <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
+      <% var tag = CookingGenius.recipeTags[i]; %>
+      <% var tagURL = "#/recipes/" + tag %>
+      <li> <a class ="tag-nav-link" href="#"><%= tag %></a> </li>
+    <% } %>
+  </ul>
+</nav>
+
+<div class="recipe-feed-container">
+
+</div>

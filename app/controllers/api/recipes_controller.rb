@@ -1,5 +1,14 @@
 class Api::RecipesController < ApplicationController
 
+  def index
+    @recipes = Recipe.where(nil);
+    filters.each do |k, v|
+      @recipes = @recipes.send(k, v) if v.present?
+    end
+
+    render :index
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
     render :show
@@ -25,6 +34,10 @@ class Api::RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:title, :instructions, :primary_tag, :servings,
       recipe_ingredients: [:name, :quantity, :unit, :optional])
+    end
+
+    def filters
+      params.slice(:primary_tag, :author_id)
     end
 
 end
