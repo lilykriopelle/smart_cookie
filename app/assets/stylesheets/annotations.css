@@ -31,7 +31,7 @@
 }
 
 .annotationRecipesIngredient, .annotationRecipe {
-  background: #eee;
+  background: #ccc;
 }
 
 .annotationRecipesIngredient:hover,  .annotationRecipe:hover{

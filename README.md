@@ -10,9 +10,9 @@ Cooking Genius is a Genius clone geared toward annotating recipes and menus buil
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Create recipes
+- [x] Create annotations
 - [ ] Search/Filter recipes
 - [ ] Organize recipes into menus
-- [ ] Create annotations
 - [ ] View menus/recipes and their annotations
 - [ ] Reply to annotations
 - [ ] Upvote/Downvote annotations
@@ -37,7 +37,7 @@ First things first, I need to sort out saving ingredients and recipes_ingredient
 [Details][phase-two]
 
 ### Phase 3: Annotations and Replies (~3 days)
-I'll implement Genius' main feature, annotations.  On the Rails side, this will involve polymorphic associations, since users can annotate recipes and menus. On the front end, I'll write Backbone views for new annotations and to display existing ones.  I'll spend a little time styling here.
+I'll implement Genius' main feature, annotations.  On the Rails side, this will involve polymorphic associations, since users can annotate recipes, ingredients, and menus. On the front end, I'll write Backbone views for new annotations and to display existing ones.  I'll spend a little time styling here.
 
 [Details][phase-three]
 

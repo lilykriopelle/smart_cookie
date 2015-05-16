@@ -3,7 +3,8 @@ class RecipeParser
     @recipe = Recipe.new({
       title: params[:title],
       primary_tag: params[:primary_tag],
-      instructions: params[:instructions]
+      instructions: params[:instructions],
+      servings: params[:servings]
     });
     parse_ingredients(params[:recipe_ingredients].values)
     @recipe

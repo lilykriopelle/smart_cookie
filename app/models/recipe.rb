@@ -12,7 +12,7 @@
 #
 
 class Recipe < ActiveRecord::Base
-  validates :author_id, :title, :instructions, presence: true
+  validates :author_id, :title, :instructions, :servings, presence: true
 
   belongs_to :author, class_name: "User"
   has_many :recipes_ingredients, class_name: "RecipesIngredient", foreign_key: :recipe_id, inverse_of: :recipe
@@ -20,6 +20,9 @@ class Recipe < ActiveRecord::Base
   has_many :menus_recipes, class_name: "MenusRecipe"
   has_many :menus, through: :menus_recipes, source: :menu
   has_many :annotations, as: :annotatable
+
+  scope :by_tag, -> (tag) { where primary_tag: tag }
+  scope :by_author, -> (id) { where author_id: id }
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 

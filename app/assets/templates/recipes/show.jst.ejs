@@ -1,6 +1,7 @@
 <h1 class="recipe-title"><%= recipe.get("title") %> </h1>
-
 <h2>category: <%= recipe.get("primary_tag") %></h2>
+
+<p class="recipe-servings"> Serves <%= recipe.escape("servings") %> </p>
 
 
 <h3> Ingredients </h3>
@@ -14,4 +15,6 @@
 
 <div class="annotation-pop-up"></div>
 
-<button class="delete-recipe">Delete This Recipe</button>
+<% if (CookingGenius.currentUser.id == recipe.get("author_id")) { %>
+  <button class="delete-recipe">Delete This Recipe</button>
+<% } %>

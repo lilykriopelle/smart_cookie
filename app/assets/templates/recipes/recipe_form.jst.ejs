@@ -1,11 +1,10 @@
-<button class="delete-recipe">Delete Recipe</button>
+<button class="minimize">Minimize</button>
 
 <h1> Create a New Recipe </h1>
 
 <label>
   Primary Tag
 </label>
-
 <div class="primary-tags group">
   <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
     <% var tag = CookingGenius.recipeTags[i] %>
@@ -14,6 +13,10 @@
   <% } %>
 </div>
 
+<label>
+  Servings
+  <input class="servings" type="text" name="recipe[servings]" value="">
+</label>
 
 <label>
   Title

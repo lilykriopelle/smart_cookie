@@ -4,7 +4,7 @@
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
+ *             
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
@@ -47,7 +47,7 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   white-space: pre-wrap;
-  word-wrap: break-word; 
+  word-wrap: break-word;
 }
 
 button {
@@ -55,4 +55,8 @@ button {
   border: 1px solid rgb(85, 85, 85);
   border-radius: 3px;
   padding: 5px;
+}
+
+a {
+  text-decoration: none;
 }
