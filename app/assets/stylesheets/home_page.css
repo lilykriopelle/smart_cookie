@@ -5,11 +5,32 @@
   border: 1px solid black;
 }
 
+.author-search {
+  float: left;
+}
+
+.author-search button {
+  font-size: 12px;
+}
+
+.recipe-tag-nav-bar label {
+  font-size: 12px;
+}
+
+.recipe-tag-nav-bar input {
+  width: 100px;
+}
+
 .tag-links {
   margin: auto;
 }
 
+.tag-links li {
+  float: left;
+}
+
 .tag-nav-link {
+  font-size: 14px;
   float: left;
   padding: 10px 10px;
   border-right: 1px solid black;

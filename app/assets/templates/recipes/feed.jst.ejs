@@ -1,6 +1,7 @@
-<h1><%= primaryTag.toUpperCase() %> </h1>
+<% var recipe = recipes.length == 1 ? "recipe" : "recipes"  %>
+
 <p class="num-results">
-Displaying <%= recipes.length %> results for <%= primaryTag %>
+Displaying <%= recipes.length %> <%= primaryTag %> <%= recipe %>.
 </p>
 
 <ul class="recipes-feed"></ul>
