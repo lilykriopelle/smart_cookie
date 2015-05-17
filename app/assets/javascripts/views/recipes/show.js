@@ -7,7 +7,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     events: {
       "mouseup .instructions": "popUpAnnotation",
       "click .delete-recipe": "deleteRecipe",
-      "click .annotationRecipe": "displayAnnotation"
+      "click .annotationRecipe": "displayAnnotation",
+      "click .minimize-annotation": "hideAnnotation"
     },
 
     initialize: function() {

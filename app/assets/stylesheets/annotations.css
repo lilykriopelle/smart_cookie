@@ -38,6 +38,11 @@
   background: yellow;
 }
 
-span {
-  background: green;
+.minimize-annotation {
+  float: right;
+  width: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding-left: 7px;
+  padding-right: 7px;
 }

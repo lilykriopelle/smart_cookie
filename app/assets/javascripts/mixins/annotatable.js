@@ -2,12 +2,15 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 
 CookingGenius.Mixins.Annotatable = {
 
+  hideAnnotation: function(event) {
+    $(".annotation-pop-up").empty();
+  },
+
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
 
     var domEl;
     if (this.annotatableType == "RecipesIngredient") {
-      debugger;
       domEl = event.currentTarget;
     } else {
       domEl = this.$(this.annotatableSelector)[0];

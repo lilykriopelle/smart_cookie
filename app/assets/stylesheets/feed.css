@@ -5,3 +5,32 @@
   margin-top: 20px;
   padding: 10px;
 }
+
+.recipe-feed-item {
+  position: relative;
+  width: 760px;
+  height: 100px;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.recipe-feed-item a {
+  display: block;
+  float: left;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.recipe-feed-item .image-thumb {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+  width: 75px;
+  height: 75px;
+  background: green;
+  margin-right: 20px;
+}

@@ -11,9 +11,9 @@ Cooking Genius is a Genius clone geared toward annotating recipes and menus buil
 - [x] Create sessions (log in)
 - [x] Create recipes
 - [x] Create annotations
-- [ ] Search/Filter recipes
-- [ ] Organize recipes into menus
-- [ ] View menus/recipes and their annotations
+- [x] Filter recipes by primary tag
+- [x] View recipes and their annotations
+- [ ] Search for recipes
 - [ ] Reply to annotations
 - [ ] Upvote/Downvote annotations
 
@@ -52,6 +52,7 @@ I'll make sure everything is styled well, and polish all the front-end stuff.  I
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Organize recipes into menus
 - [ ] Follow other users
 - [ ] Multiple sessions/session management
 - [ ] User avatars

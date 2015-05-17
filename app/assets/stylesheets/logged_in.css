@@ -27,3 +27,11 @@
   margin-top: 9px;
   margin-right: 10px;
 }
+
+.logged-in .home {
+  float: left;
+  height: 100%;
+  margin-top: 9px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
