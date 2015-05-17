@@ -9,6 +9,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  primary_tag  :string           not null
+#  servings     :integer
 #
 
 require 'test_helper'

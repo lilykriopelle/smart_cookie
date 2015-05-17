@@ -9,7 +9,6 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  annotatable_type :string
-#  span_id          :integer
 #  start_idx        :integer          not null
 #  end_idx          :integer          not null
 #
