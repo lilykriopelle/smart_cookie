@@ -1,12 +1,18 @@
 <h1 class="user-name"> <%= user.escape("name") %> </h1>
-<p class="num_votes"> Upvotes: <%= user.votes().length %> </p>
 
+<p class="num_votes"> Upvotes: <%= user.votes().length %> </p>
+<% if  (user.id != CookingGenius.currentUser.id) { %>
+  <button class="upvote-user">Upvote</button>
+<% } %>
+
+<h2>
 <% if (user.authoredRecipes().length > 0) { %>
   <%   if (user.id == CookingGenius.currentUser.id) { %>
     My Recipes
   <% } else { %>
     <%= user.escape("name") %>'s Recipes
   <% } %>
+</h2>
 
 <% } else { %>
   <%   if (user.id == CookingGenius.currentUser.id) { %>

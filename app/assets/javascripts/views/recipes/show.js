@@ -8,7 +8,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       "mouseup .instructions": "popUpAnnotation",
       "click .delete-recipe": "deleteRecipe",
       "click .annotationRecipe": "displayAnnotation",
-      "click .minimize-annotation": "hideAnnotation"
+      "click .minimize-annotation": "hideAnnotation",
+      "click .toggle-recipe-upvote": "toggleRecipeUpvote"
     },
 
     initialize: function() {
@@ -16,6 +17,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       this.annotatableType = "Recipe";
       this.listenTo(this.model, "sync", this.render);
       this.listenTo(this.model.annotations(), "add", this.render);
+      this.listenTo(this.model.votes(), "add remove", this.render);
     },
 
     deleteRecipe: function() {
@@ -23,6 +25,40 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
         success: function() {
           Backbone.history.navigate("", { trigger: true });
         }
+      });
+    },
+
+    toggleRecipeUpvote: function() {
+      vote = this.model.votes().where({voter_id: CookingGenius.currentUser.id});
+      if (vote[0]) {
+        vote[0].destroy();
+      } else {
+        var vote = new CookingGenius.Models.Vote({
+          voter_id: CookingGenius.currentUser.id,
+          voteable_id: this.model.id,
+          voteable_type: "Recipe"
+        });
+
+        vote.save({}, {
+          success: function() {
+            this.model.votes().add(vote);
+          }.bind(this)
+        });
+      }
+    },
+
+    upvoteRecipe: function(event) {
+      event.preventDefault();
+      var vote = new CookingGenius.Models.Vote({
+        voter_id: CookingGenius.currentUser.id,
+        voteable_id: this.model.id,
+        voteable_type: "Recipe"
+      });
+
+      vote.save({}, {
+        success: function() {
+          this.model.votes().add(vote);
+        }.bind(this)
       });
     },
 

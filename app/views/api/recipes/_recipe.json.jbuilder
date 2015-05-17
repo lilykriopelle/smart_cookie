@@ -11,5 +11,5 @@ end
 json.extract! recipe, :instructions
 
 json.votes recipe.votes do |vote|
-  json.extract! vote, :voter_id
+  json.extract! vote, :id, :voter_id
 end

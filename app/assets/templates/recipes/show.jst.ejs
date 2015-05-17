@@ -2,6 +2,7 @@
 <h2>category: <%= recipe.get("primary_tag") %></h2>
 
 <p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
+<button class="toggle-recipe-upvote">Upvote</button>
 
 <p class="servings"> Serves <%= recipe.escape("servings") %> </p>
 

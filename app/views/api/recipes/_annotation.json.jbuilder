@@ -2,5 +2,5 @@ json.extract! annotation, :id, :annotatable_id, :annotatable_type, :start_idx, :
 json.author annotation.author, :name, :id
 
 json.votes annotation.votes do |vote|
-  json.extract! vote, :voter_id
+  json.extract! vote, :id, :voter_id
 end

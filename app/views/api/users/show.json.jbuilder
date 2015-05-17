@@ -5,5 +5,5 @@ json.authored_recipes @user.authored_recipes do |recipe|
 end
 
 json.votes @user.votes do |vote|
-  json.extract! vote, :voter_id
+  json.extract! vote, :id, :voter_id
 end

@@ -1,8 +1,9 @@
 .user-show {
   font-family: sans-serif;
+  padding: 20px 100px;
 }
 
-.user-show > h1 {
+.user-name {
   font-weight: bold;
   font-size: 30px;
 }

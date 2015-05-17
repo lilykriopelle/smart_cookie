@@ -5,12 +5,14 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
   className: "user-show",
 
   events: {
-    "click .display-recipe-form": "displayRecipeForm"
+    "click .display-recipe-form": "displayRecipeForm",
+    "click .upvote-user": "upvoteUser"
   },
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.authoredRecipes(), "sync", this.render);
+    this.listenTo(this.model.votes(), "add", this.render);
   },
 
   displayRecipeForm: function() {
@@ -19,6 +21,21 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
       collection: this.model.authoredRecipes()
     });
     this.addSubview(".new-recipe", recipeForm);
+  },
+
+  upvoteUser: function(event) {
+    event.preventDefault();
+    var vote = new CookingGenius.Models.Vote({
+      voter_id: CookingGenius.currentUser.id,
+      voteable_id: this.model.id,
+      voteable_type: "User"
+    });
+
+    vote.save({}, {
+      success: function() {
+        this.model.votes().add(vote);
+      }.bind(this)
+    });
   },
 
   render: function() {

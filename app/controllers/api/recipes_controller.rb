@@ -10,7 +10,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(recipes_ingredients: :annotations).find(params[:id])
     render :show
   end
 
