@@ -7,6 +7,12 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
       this.author().set(response.author);
       delete response.author;
     }
+
+    if (response.votes) {
+      this.votes().set(response.votes, { parse: true });
+      delete response.votes;
+    }
+
     return response;
   },
 
@@ -15,6 +21,14 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
       this._author = new Backbone.Model();
     }
     return this._author;
+  },
+
+  votes: function() {
+    if (!this._votes) {
+      this._votes = new CookingGenius.Collections.Votes([], { voteable: this});
+    }
+
+    return this._votes;
   }
 
 });

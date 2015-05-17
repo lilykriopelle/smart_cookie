@@ -2,15 +2,19 @@ Rails.application.routes.draw do
 
   root "static_pages#root"
 
-  resources :users, except: [:index, :destroy]
+  resources :users, except: [:index, :destroy, :edit]
   resource :session, only: [:new, :create, :destroy]
 
+
   namespace :api , defaults: { format: :json } do
-    resources :menus
-    resources :recipes do
-      resources :ingredients
+    # resources :menus
+    resources :votes, only: [:create, :destroy]
+
+    resources :recipes, except: [:edit] do
+      resources :ingredients, except: [:edit]
     end
-    resources :annotations
+    resources :annotations, except: [:edit]
+
     resources :users, only: [:show]
   end
 

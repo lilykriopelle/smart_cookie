@@ -9,3 +9,7 @@ json.annotations recipe.annotations do |annotation|
 end
 
 json.extract! recipe, :instructions
+
+json.votes recipe.votes do |vote|
+  json.extract! vote, :voter_id
+end

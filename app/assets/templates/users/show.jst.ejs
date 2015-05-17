@@ -1,4 +1,5 @@
 <h1 class="user-name"> <%= user.escape("name") %> </h1>
+<p class="num_votes"> Upvotes: <%= user.votes().length %> </p>
 
 <% if (user.authoredRecipes().length > 0) { %>
   <%   if (user.id == CookingGenius.currentUser.id) { %>

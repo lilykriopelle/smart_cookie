@@ -1,11 +1,13 @@
-<p>
-<%= annotation.get("body") %>
-</p>
+<p> <%= annotation.get("body") %> </p>
 
 <% var userUrl = "#/users/" + annotation.author().id %>
 
 <p>
 by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
 </p>
+
+<p class="num_votes"> Upvotes: <%= annotation.votes().length %> </p>
+
+<button class="upvote-annotation"> Upvote </button>
 
 <button class="minimize-annotation"> - </button>

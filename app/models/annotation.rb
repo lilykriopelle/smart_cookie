@@ -19,4 +19,8 @@ class Annotation < ActiveRecord::Base
   belongs_to :annotatable, polymorphic: true
   belongs_to :author, class_name: "User"
   has_many :votes, as: :voteable, dependent: :destroy
+
+  def num_votes
+    votes.length
+  end
 end

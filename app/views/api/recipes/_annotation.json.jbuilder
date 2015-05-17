@@ -1,2 +1,6 @@
-json.extract! annotation, :id, :start_idx, :end_idx, :author_id, :body
+json.extract! annotation, :id, :annotatable_id, :annotatable_type, :start_idx, :end_idx, :body
 json.author annotation.author, :name, :id
+
+json.votes annotation.votes do |vote|
+  json.extract! vote, :voter_id
+end

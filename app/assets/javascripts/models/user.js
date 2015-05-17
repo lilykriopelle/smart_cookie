@@ -8,15 +8,27 @@ CookingGenius.Models.User = Backbone.Model.extend({
       delete response.authored_recipes;
     }
 
+    if (response.votes) {
+      this.votes().set(response.votes, {parse: true});
+      delete response.votes;
+    }
+
     return response;
   },
 
   authoredRecipes: function() {
-    if (! this._authoredRecipes) {
+    if (!this._authoredRecipes) {
       this._authoredRecipes = new CookingGenius.Collections.Recipes([], { author: this });
     }
 
     return this._authoredRecipes;
+  },
+
+  votes: function() {
+    if (!this._votes) {
+      this._votes = new CookingGenius.Collections.Votes([], { voteable: this});
+    }
+    return this._votes;
   }
 
 });

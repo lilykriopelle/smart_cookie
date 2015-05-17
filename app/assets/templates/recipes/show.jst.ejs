@@ -1,14 +1,14 @@
 <h1 class="recipe-title"><%= recipe.get("title") %> </h1>
 <h2>category: <%= recipe.get("primary_tag") %></h2>
 
-<p class="servings"> Serves <%= recipe.escape("servings") %> </p>
+<p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
 
+<p class="servings"> Serves <%= recipe.escape("servings") %> </p>
 
 <h3> Ingredients </h3>
 <ul class="ingredients"></ul>
 
 <h3> Instructions </h3>
-
 <pre class="instructions">
 <%= recipe.escape("instructions") %>
 </pre>
