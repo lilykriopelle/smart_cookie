@@ -7,6 +7,7 @@ CookingGenius.Mixins.Annotatable = {
 
     var domEl;
     if (this.annotatableType == "RecipesIngredient") {
+      debugger;
       domEl = event.currentTarget;
     } else {
       domEl = this.$(this.annotatableSelector)[0];
