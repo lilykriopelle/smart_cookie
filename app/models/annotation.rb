@@ -19,4 +19,5 @@ class Annotation < ActiveRecord::Base
   validates :start_idx, :end_idx, :body, presence: true
   belongs_to :annotatable, polymorphic: true
   belongs_to :author, class_name: "User"
+  has_many :votes, as: :voteable
 end

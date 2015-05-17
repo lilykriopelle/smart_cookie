@@ -60,7 +60,7 @@ id               | integer   | not null, primary key
 annotatable_id   | integer   | not null, foreign key (references menus/recipes)
 annotatable_type | string    | not null, string
 author_id        | integer   | not null, foreign key (references users)
-span_id          | integer   | not null 
+span_id          | integer   | not null
 body             | string    | not null
 
 ## votes
@@ -68,6 +68,7 @@ column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
 voteable_id    | integer   | not null, foreign key (references menus/recipes/annotations)
+voteable_type  | string    | not null
 voter_id       | integer   | not null, foreign key (references users)
 vote_value     | integer   | not null, (+- 1)
 

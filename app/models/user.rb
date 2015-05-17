@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :session_token, :email, uniqueness: true
 
   has_many :authored_recipes, class_name: "Recipe", foreign_key: :author_id
+  has_many :votes, as: :voteable
 
   def self.find_by_credentials(email, password)
     user = User.find_by({email: email});

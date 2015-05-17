@@ -13,9 +13,10 @@ Cooking Genius is a Genius clone geared toward annotating recipes and menus buil
 - [x] Create annotations
 - [x] Filter recipes by primary tag
 - [x] View recipes and their annotations
-- [ ] Search for recipes
-- [ ] Reply to annotations
 - [ ] Upvote/Downvote annotations
+- [ ] Reply to annotations
+- [ ] Search for recipes
+
 
 ## Design Docs
 * [View Wireframes][views]

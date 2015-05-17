@@ -1,18 +1,11 @@
 json.extract! recipe, :id, :title, :primary_tag, :author_id, :servings
 
 json.ingredients recipe.recipes_ingredients do |recipe_ingredient|
-  json.extract! recipe_ingredient, :id
-  json.extract! recipe_ingredient.ingredient, :name
-  json.extract! recipe_ingredient, :quantity, :unit, :optional
-  json.annotations recipe_ingredient.annotations do |annotation|
-    json.extract! annotation, :id, :start_idx, :end_idx, :author_id, :body
-    json.author annotation.author, :name, :id
-  end
+  json.partial! 'ingredient', recipe_ingredient: recipe_ingredient
 end
 
 json.annotations recipe.annotations do |annotation|
-  json.extract! annotation, :id, :start_idx, :end_idx, :author_id, :body
-  json.author annotation.author, :name, :id
+  json.partial! 'annotation', annotation: annotation
 end
 
 json.extract! recipe, :instructions
