@@ -34,3 +34,8 @@
   background: green;
   margin-right: 20px;
 }
+
+.recipes-feed {
+  max-height: 1000px;
+  overflow: auto;
+}

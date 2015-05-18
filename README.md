@@ -13,7 +13,7 @@ Cooking Genius is a Genius clone geared toward annotating recipes and menus buil
 - [x] Create annotations
 - [x] Filter recipes by primary tag
 - [x] View recipes and their annotations
-- [ ] Upvote/Downvote annotations
+- [x] Upvote/Downvote annotations
 - [ ] Reply to annotations
 - [ ] Search for recipes
 

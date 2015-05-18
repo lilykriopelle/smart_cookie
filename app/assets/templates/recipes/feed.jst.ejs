@@ -1,7 +1,11 @@
 <% var recipe = recipes.length == 1 ? "recipe" : "recipes"  %>
 
 <p class="num-results">
+<% if (primaryTag != "all") { %>
 Displaying <%= recipes.length %> <%= primaryTag %> <%= recipe %>.
+<% } else { %>
+Displaying all <%= recipes.length %> recipes.
+<% } %>
 </p>
 
 <ul class="recipes-feed"></ul>
