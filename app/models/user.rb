@@ -23,10 +23,6 @@ class User < ActiveRecord::Base
   has_many :authored_recipes, class_name: "Recipe", foreign_key: :author_id
   has_many :votes, as: :voteable, dependent: :destroy
 
-  def num_votes
-    votes.length
-  end
-
   def self.find_by_credentials(email, password)
     user = User.find_by({email: email});
     user.try(:correct_password?, password) ? user : nil

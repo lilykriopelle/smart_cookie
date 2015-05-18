@@ -1,8 +1,14 @@
 <h1 class="user-name"> <%= user.escape("name") %> </h1>
 
 <p class="num_votes"> Upvotes: <%= user.votes().length %> </p>
-<% if  (user.id != CookingGenius.currentUser.id) { %>
-  <button class="upvote-user">Upvote</button>
+<% if (user.id != CookingGenius.currentUser.id) { %>
+<button class="toggle-user-upvote">
+  <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+    Downvote
+  <% } else { %>
+    Upvote
+  <% } %>
+</button>
 <% } %>
 
 <h2>

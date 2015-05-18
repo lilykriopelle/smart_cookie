@@ -34,8 +34,4 @@ class Recipe < ActiveRecord::Base
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 
-  def num_votes
-    votes.length
-  end
-
 end

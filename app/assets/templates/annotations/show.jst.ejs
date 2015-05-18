@@ -8,6 +8,13 @@ by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
 
 <p class="num_votes"> Upvotes: <%= annotation.votes().length %> </p>
 
-<button class="toggle-annotation-upvote"> Upvote </button>
-
+<% if (annotation.author().id != CookingGenius.currentUser.id) { %>
+<button class="toggle-annotation-upvote">
+  <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+    Downvote
+  <% } else { %>
+    Upvote
+  <% } %>
+</button>
+<% } %>
 <button class="minimize-annotation"> - </button>
