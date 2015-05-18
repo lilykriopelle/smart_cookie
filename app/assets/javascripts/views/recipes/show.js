@@ -5,6 +5,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     className: "recipe",
 
     events: {
+      "mousedown .instructions": "stripHTML",
       "mouseup .instructions": "popUpAnnotation",
       "click .delete-recipe": "deleteRecipe",
       "click .annotationRecipe": "displayAnnotation",
@@ -18,6 +19,12 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       this.listenTo(this.model, "sync", this.render);
       this.listenTo(this.model.annotations(), "add", this.render);
       this.listenTo(this.model.votes(), "add remove", this.render);
+    },
+
+    stripHTML: function(event) {
+      if (! $(event.target).is("a")) {
+        $(event.currentTarget).html(this.model.get("instructions"))
+      }
     },
 
     deleteRecipe: function() {

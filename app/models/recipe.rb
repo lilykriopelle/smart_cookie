@@ -13,10 +13,12 @@
 #
 
 class Recipe < ActiveRecord::Base
+  include Annotatable
+
   validates :author_id, :title, :instructions, :servings, :primary_tag, presence: true
   validates :servings, numericality: true
 
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "75x75>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "75x75>" }, :default_url => ":style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :author, class_name: "User"
@@ -30,7 +32,6 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipes_ingredients, source: :ingredient
   has_many :menus_recipes, class_name: "MenusRecipe"
   has_many :menus, through: :menus_recipes, source: :menu
-  has_many :annotations, as: :annotatable, dependent: :destroy
   has_many :votes, as: :voteable, dependent: :destroy
 
   scope :primary_tag, -> (tag) { where primary_tag: tag }

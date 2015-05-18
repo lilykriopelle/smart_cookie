@@ -9,11 +9,14 @@
   border-radius: 5px;
 }
 
-.annotation-show {
+.annotation-pop-up {
   position: fixed;
-  border: 1px solid black;
   right: 75px;
-  top: 75px;
+  top: 75px;  
+}
+
+.annotation-show {
+  border: 1px solid black;
   width: 300px;
   background: #eee;
   padding: 15px;

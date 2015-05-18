@@ -17,3 +17,5 @@ json.extract! recipe, :instructions
 json.votes recipe.votes do |vote|
   json.extract! vote, :id, :voter_id
 end
+
+json.intervals recipe.intervals_hash

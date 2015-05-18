@@ -3,6 +3,12 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
   urlRoot: 'api/recipes',
 
   parse: function(response) {
+
+    if (response.intervals) {
+      this.intervals = response.intervals;
+      delete response.intervals;
+    }
+
     if (response.author) {
       this.author().set(response.author);
       delete response.author;

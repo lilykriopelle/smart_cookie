@@ -48,13 +48,16 @@ CookingGenius.Mixins.Annotatable = {
 
   displayAnnotation: function(event) {
     event.preventDefault();
-    var id = $(event.currentTarget).data("id");
-    var annotation = this.model.annotations().get(id);
-    var showAnnotation = new CookingGenius.Views.AnnotationShow({
-      model: annotation
-    });
+    $(".annotation-pop-up").empty();
+    var ids = $(event.currentTarget).data("ids");
+    for (var i = 0; i < ids.length; i++) {
+      var annotation = this.model.annotations().get(ids[i]);
+      var showAnnotation = new CookingGenius.Views.AnnotationShow({
+        model: annotation
+      });
+      $(".annotation-pop-up").append(showAnnotation.render().$el);
+    }
 
-    $(".annotation-pop-up").empty().html(showAnnotation.render().$el);
   },
 
   getCaretCharacterOffsetWithin: function(element, selection) {
@@ -72,9 +75,11 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   renderAnnotations: function() {
-    var annotations = this.model.annotations();
-    annotations.sort();
-    annotations.each(this.wrapAnnotationInLink.bind(this));
+    var intervals = this.model.intervals || [];
+    for (var i = intervals.length - 1; i >= 0; i--) {
+      var interval = intervals[i];
+      this.wrapIntervalInLink(interval);
+    }
   },
 
   wrapAnnotationInLink: function(annotation) {
@@ -85,6 +90,20 @@ CookingGenius.Mixins.Annotatable = {
     var wrappedSelection = '<a class="' + className + '" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
     var pre = this.$(this.annotatableSelector).text().slice(0, start);
     var post = this.$(this.annotatableSelector).html().slice(end);
+    var newText = pre + wrappedSelection + post;
+    this.$(this.annotatableSelector).html(newText);
+  },
+
+  wrapIntervalInLink: function(interval) {
+    var indices = JSON.parse(Object.keys(interval));
+    var startIdx = indices[0], endIdx = indices[1];
+    var selection = this.$(this.annotatableSelector).text().slice(startIdx, endIdx);
+    var className = "annotation" + this.annotatableType;
+    var keys = Object.keys(interval);
+    var ann_ids = interval[keys[0]];
+    var wrappedSelection = '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>"
+    var pre = this.$(this.annotatableSelector).text().slice(0, startIdx);
+    var post = this.$(this.annotatableSelector).html().slice(endIdx);
     var newText = pre + wrappedSelection + post;
     this.$(this.annotatableSelector).html(newText);
   }
