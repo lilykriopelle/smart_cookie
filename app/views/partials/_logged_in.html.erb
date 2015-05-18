@@ -1,6 +1,6 @@
-
+<div class="header">
 <% if current_user %>
- <div class="logged-in group">
+ <nav class="logged-in group">
 
   <form action="<%= session_url%>" method="post">
     <%= authenticity_token %>
@@ -12,5 +12,6 @@
   <h3> logged in as <a href="<%= user_url %>"> <%= user.name %> </a></h3>
 
   <h3 class="home"><a href="#">LOGO</a></h3>
- </div>
+</nav>
 <% end %>
+</div>

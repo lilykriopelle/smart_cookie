@@ -4,7 +4,7 @@ CookingGenius.Collections.Annotations = Backbone.Collection.extend({
   model: CookingGenius.Models.Annotation,
 
   comparator: function(annotation) {
-    return -annotation.get("end_idx");
+    return -annotation.get("start_idx");
   },
 
   getOrFetch: function(id) {

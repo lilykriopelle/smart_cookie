@@ -1,7 +1,13 @@
+.header {
+  width: 100%;
+  background-color: rgb(41, 41, 41);
+}
+
 .logged-in {
+  width: 800px;
+  margin: auto;
   display: block;
   position: relative;
-  border: 1px solid black;
   background-color: rgb(41, 41, 41);
   font-family: sans-serif;
   color: #eee;

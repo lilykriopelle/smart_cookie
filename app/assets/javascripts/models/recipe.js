@@ -3,6 +3,11 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
   urlRoot: 'api/recipes',
 
   parse: function(response) {
+    if (response.author) {
+      this.author().set(response.author);
+      delete response.author;
+    }
+
     if (response.ingredients) {
       this.ingredients().set(response.ingredients, { parse: true });
       delete response.ingredients;
@@ -19,6 +24,13 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
     }
 
     return response;
+  },
+
+  author: function() {
+    if (!this._author) {
+      this._author = new Backbone.Model();
+    }
+    return this._author;
   },
 
   ingredients: function() {

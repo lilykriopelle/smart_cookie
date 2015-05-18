@@ -1,5 +1,9 @@
 <h1 class="recipe-title"><%= recipe.get("title") %> </h1>
+
 <h3>category: <%= recipe.get("primary_tag") %></h3>
+
+<% var userURL = "#users/" + recipe.author().id %>
+<p>By <a href="<%= userURL %>"> <%= recipe.author().get("name") %> </a></p>
 
 <p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>

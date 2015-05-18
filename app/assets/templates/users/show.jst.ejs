@@ -29,5 +29,8 @@
 <% } %>
 
 <ul class="authored-recipes"></ul>
+
+<% if (user.id == CookingGenius.currentUser.id) { %>
 <button class="display-recipe-form">Create New Recipe</button>
+<% } %>
 <div class="new-recipe"></div>

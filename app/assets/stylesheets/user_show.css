@@ -1,6 +1,8 @@
 .user-show {
   font-family: sans-serif;
   padding: 20px 100px;
+  width: 800px;
+  margin: auto;
 }
 
 .user-name {
