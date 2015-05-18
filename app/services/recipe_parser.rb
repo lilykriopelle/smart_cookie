@@ -6,7 +6,9 @@ class RecipeParser
       instructions: params[:instructions],
       servings: params[:servings]
     });
-    parse_ingredients(params[:recipe_ingredients].values)
+    if params[:recipe_ingredients]
+      parse_ingredients(params[:recipe_ingredients].values)
+    end
     @recipe
   end
 

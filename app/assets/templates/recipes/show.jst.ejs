@@ -1,7 +1,8 @@
 <h1 class="recipe-title"><%= recipe.get("title") %> </h1>
-<h2>category: <%= recipe.get("primary_tag") %></h2>
+<h3>category: <%= recipe.get("primary_tag") %></h3>
 
 <p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
+<% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
 <button class="toggle-recipe-upvote">
   <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
     Downvote
@@ -9,6 +10,7 @@
     Upvote
   <% } %>
 </button>
+<% } %>
 
 <p class="servings"> Serves <%= recipe.escape("servings") %> </p>
 

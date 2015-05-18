@@ -40,8 +40,13 @@
 
 .minimize-annotation {
   float: right;
+  position: absolute;
+  top: -7px;
+  right: -7px;
   width: 30px;
   font-weight: bold;
+  background: #eee;
+  border: 1px solid black;
   border-radius: 50%;
   padding-left: 7px;
   padding-right: 7px;

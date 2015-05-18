@@ -21,7 +21,12 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
       }.bind(this),
 
       error: function(model, response) {
-        // TODO render errors on failed recipe creation
+        this.$(".errors").empty();
+        var errors = JSON.parse(response.error().responseText);
+        this.$(".errors").addClass("active");
+        for (var i = 0; i < errors.length; i++) {
+          this.$(".errors").append("<li>" + errors[i] + "</li>");
+        }
       }.bind(this)
     });
   },

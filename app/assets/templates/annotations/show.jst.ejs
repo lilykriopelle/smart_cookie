@@ -1,3 +1,5 @@
+<button class="minimize-annotation"> x </button>
+
 <p> <%= annotation.get("body") %> </p>
 
 <% var userUrl = "#/users/" + annotation.author().id %>
@@ -17,4 +19,3 @@ by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
   <% } %>
 </button>
 <% } %>
-<button class="minimize-annotation"> - </button>

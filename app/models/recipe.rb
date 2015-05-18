@@ -13,7 +13,8 @@
 #
 
 class Recipe < ActiveRecord::Base
-  validates :author_id, :title, :instructions, :servings, presence: true
+  validates :author_id, :title, :instructions, :servings, :primary_tag, presence: true
+  validates :servings, numericality: true
 
   belongs_to :author, class_name: "User"
 
