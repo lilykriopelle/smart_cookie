@@ -32,7 +32,7 @@ class Api::RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:title, :instructions, :primary_tag, :servings,
+      params.require(:recipe).permit(:title, :image, :instructions, :primary_tag, :servings,
       recipe_ingredients: [:name, :quantity, :unit, :optional])
     end
 

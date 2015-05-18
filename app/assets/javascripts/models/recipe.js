@@ -52,6 +52,16 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
       this._votes = new CookingGenius.Collections.Votes([], { voteable: this});
     }
     return this._votes;
+  },
+
+  toJSON: function(){
+    var json = {recipe: _.clone(this.attributes)} ;
+
+    if (this._image) {
+      json.recipe.image = this._image;
+    }
+
+    return json;
   }
 
 });

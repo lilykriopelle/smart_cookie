@@ -16,6 +16,9 @@ class Recipe < ActiveRecord::Base
   validates :author_id, :title, :instructions, :servings, :primary_tag, presence: true
   validates :servings, numericality: true
 
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "75x75>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   belongs_to :author, class_name: "User"
 
   has_many :recipes_ingredients,

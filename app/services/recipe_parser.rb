@@ -4,7 +4,8 @@ class RecipeParser
       title: params[:title],
       primary_tag: params[:primary_tag],
       instructions: params[:instructions],
-      servings: params[:servings]
+      servings: params[:servings],
+      image: params[:image]
     });
     if params[:recipe_ingredients]
       parse_ingredients(params[:recipe_ingredients].values)

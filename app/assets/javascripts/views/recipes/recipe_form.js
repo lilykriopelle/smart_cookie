@@ -3,7 +3,8 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   events: {
     "click .create-recipe": "submit",
     "click .minimize": "minimize",
-    "click .add-ingredient": "addIngredient"
+    "click .add-ingredient": "addIngredient",
+    "change #recipe-image": "fileInputChange"
   },
 
   tagName: "form",
@@ -14,7 +15,7 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
 
   submit: function() {
     event.preventDefault();
-    var formData = this.$el.serializeJSON();
+    var formData = this.$el.serializeJSON().recipe;
     this.model.save(formData, {
       success: function() {
         this.collection.add(this.model);
@@ -29,6 +30,25 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
         }
       }.bind(this)
     });
+  },
+
+  fileInputChange: function(event) {
+    console.log(event.currentTarget.files[0]);
+
+    var that = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that.model._image = reader.result;
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      that._updatePreview("");
+      delete that.model._image;
+    }
   },
 
   addIngredient: function(event) {

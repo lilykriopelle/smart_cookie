@@ -1,5 +1,7 @@
 <% var recipeURL = "#/recipes/" + recipe.id %>
 
 <a href="<%= recipeURL %>"> <%= recipe.escape("title") %>
-  <figure class="image-thumb"></figure>
+  <figure class="image-thumb">
+    <img src="<%= recipe.get("image_url") %>">
+  </figure>
 </a>

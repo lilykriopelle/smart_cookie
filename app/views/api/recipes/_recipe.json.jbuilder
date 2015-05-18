@@ -1,5 +1,7 @@
 json.extract! recipe, :id, :title, :primary_tag, :author_id, :servings
 
+json.image_url asset_path(recipe.image.url(:original))
+
 json.author recipe.author, :name, :id
 
 json.ingredients recipe.recipes_ingredients do |recipe_ingredient|
