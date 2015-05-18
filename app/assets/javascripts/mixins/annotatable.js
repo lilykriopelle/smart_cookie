@@ -16,10 +16,16 @@ CookingGenius.Mixins.Annotatable = {
       domEl = this.$(this.annotatableSelector)[0];
     }
 
-    if (selection.toString().length > 0) {
+    if (selection.toString().length != 0) {
       var endIdx = this.getCaretCharacterOffsetWithin(domEl, selection);
       var length = selection.getRangeAt(0).endOffset - selection.getRangeAt(0).startOffset;
       var startIdx = endIdx - length;
+
+      if (startIdx > endIdx) {
+        var tmp = startIdx;
+        startIdx = endIdx;
+        endIdx = tmp;
+      }
 
       var annotation = new CookingGenius.Models.Annotation({
         start_idx: startIdx,
