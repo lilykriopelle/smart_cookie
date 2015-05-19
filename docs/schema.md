@@ -60,8 +60,16 @@ id               | integer   | not null, primary key
 annotatable_id   | integer   | not null, foreign key (references menus/recipes)
 annotatable_type | string    | not null, string
 author_id        | integer   | not null, foreign key (references users)
-span_id          | integer   | not null
-body             | string    | not null
+body             | text    | not null
+
+## annotation_replies
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+annotation_id    | integer   | not null, foreign key (references annotations)
+author_id        | integer   | not null, foreign key (references users)
+body             | text    | not null
+
 
 ## votes
 column name    | data type | details
