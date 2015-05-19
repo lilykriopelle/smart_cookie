@@ -15,25 +15,34 @@
   transform: translateY(-30%);
 }
 
+.recipe .header-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .recipe-title {
   font-size: 30px;
   font-weight: 300;
   background: white;
   color: black;
-  display: inline-block;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  margin: 0;
+  display: block;
+  margin-right: 20px;
   padding: 3px;
   border: 1px solid black;
   text-transform: uppercase;
 }
 
-.author, .category {
-  position: absolute;
+.category {
   background: white;
   color: black;
+  width: 110px;
+}
+
+.author {
+  background: white;
+  color: black;
+  width: 75px;
 }
 
 .author{

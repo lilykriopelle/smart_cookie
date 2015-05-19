@@ -1,9 +1,11 @@
 <div class="recipe-image">
 <img src="<%= recipe.get("image_url") %>">
+<div class="header-text">
 <h1 class="recipe-title"><%= recipe.escape("title") %> </h1>
 <h3 class="category">category: <%= recipe.get("primary_tag") %></h3>
 <% var userURL = "#users/" + recipe.author().id %>
 <p class="author">By <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a></p>
+</div>
 </div>
 
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
