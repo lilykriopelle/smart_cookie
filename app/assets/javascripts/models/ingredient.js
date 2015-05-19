@@ -14,6 +14,7 @@ CookingGenius.Models.Ingredient = Backbone.Model.extend({
       delete response.intervals;
     }
 
+    // debugger;
     return response;
   },
 

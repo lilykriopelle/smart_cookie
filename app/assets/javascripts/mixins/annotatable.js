@@ -26,6 +26,7 @@ CookingGenius.Mixins.Annotatable = {
       this.temporarilyHighlight(startIdx, endIdx, element);
 
       var annotation = new CookingGenius.Models.Annotation({
+        annotatable: this.model,
         start_idx: startIdx,
         end_idx: endIdx,
         annotatable_id: this.model.id,
@@ -35,6 +36,7 @@ CookingGenius.Mixins.Annotatable = {
 
       var annotationForm = new CookingGenius.Views.NewAnnotation({
         annotatable: this.model,
+        annotatable_type: this.annotatableType,
         $node: selection.anchorNode,
         $text: $(event.currentTarget),
         model: annotation,
@@ -71,7 +73,7 @@ CookingGenius.Mixins.Annotatable = {
     var wrappedSelection = '<span class="temp-highlight">' + selection + "</span>"
     var pre = element.text().slice(0, startIdx);
     var post = element.html().slice(endIdx);
-    var newText = pre + wrappedSelection + post;
+    var newText = '<p class="ingredient">' + pre + wrappedSelection + post + "</p>";
     element.html(newText);
   },
 
@@ -97,17 +99,18 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   wrapIntervalInLink: function(interval) {
+    var element = this.$(this.annotatableSelector);
     var indices = JSON.parse(Object.keys(interval));
     var startIdx = indices[0], endIdx = indices[1];
-    var selection = this.$(this.annotatableSelector).text().slice(startIdx, endIdx);
+    var selection = element.text().slice(startIdx, endIdx);
     var className = "annotation" + this.annotatableType;
     var keys = Object.keys(interval);
     var ann_ids = interval[keys[0]];
     var wrappedSelection = '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>"
-    var pre = this.$(this.annotatableSelector).text().slice(0, startIdx);
-    var post = this.$(this.annotatableSelector).html().slice(endIdx);
+    var pre = element.text().slice(0, startIdx);
+    var post = element.html().slice(endIdx);
     var newText = pre + wrappedSelection + post;
-    this.$(this.annotatableSelector).html(newText);
+    element.html(newText);
   },
 
   removeHighlighting: function() {
