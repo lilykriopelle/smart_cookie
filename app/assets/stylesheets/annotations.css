@@ -43,7 +43,11 @@
 }
 
 .annotationRecipe.active, .annotationRecipesIngredient.active, .temp-highlight {
-  background: yellow;
+  background: rgba(255, 235, 0, .4);
+}
+
+.annotationRecipe.opaque, .annotationRecipesIngredient.opaque {
+  background: rgba(255, 235, 0, 1);
 }
 
 .minimize-annotation {

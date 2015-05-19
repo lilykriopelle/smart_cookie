@@ -115,11 +115,13 @@ CookingGenius.Mixins.Annotatable = {
 
   removeHighlighting: function() {
     this.$(".annotation" + this.annotatableType).removeClass("active");
+    this.$(".annotation" + this.annotatableType).removeClass("opaque");
   },
 
   highlightAnnotationLinks: function(event) {
+    this.displayAnnotation(event);
     var $link = $(event.currentTarget)
-    $link.addClass("active");
+    $link.addClass("active opaque");
     var ids = $link.data("ids");
     var links = $link.siblings();
     for (var i = 0; i < links.length; i ++){
@@ -128,6 +130,9 @@ CookingGenius.Mixins.Annotatable = {
         var id = ids[j];
         if (link.data("ids").indexOf(id) > -1) {
           link.addClass("active");
+          if (link.data("ids").length > 1) {
+            link.addClass("opaque");
+          }
         }
       }
     }
