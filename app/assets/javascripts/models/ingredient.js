@@ -9,6 +9,11 @@ CookingGenius.Models.Ingredient = Backbone.Model.extend({
       delete response.annotations;
     }
 
+    if (response.intervals) {
+      this.intervals = response.intervals;
+      delete response.intervals;
+    }
+
     return response;
   },
 

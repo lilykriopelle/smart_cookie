@@ -82,18 +82,6 @@ CookingGenius.Mixins.Annotatable = {
     }
   },
 
-  wrapAnnotationInLink: function(annotation) {
-    var start = annotation.get("start_idx");
-    var end = annotation.get("end_idx");
-    var selection = this.$(this.annotatableSelector).text().slice(start, end);
-    var className = "annotation" + this.annotatableType;
-    var wrappedSelection = '<a class="' + className + '" href="#" data-id="' + annotation.id + '">' + selection + "</a>"
-    var pre = this.$(this.annotatableSelector).text().slice(0, start);
-    var post = this.$(this.annotatableSelector).html().slice(end);
-    var newText = pre + wrappedSelection + post;
-    this.$(this.annotatableSelector).html(newText);
-  },
-
   wrapIntervalInLink: function(interval) {
     var indices = JSON.parse(Object.keys(interval));
     var startIdx = indices[0], endIdx = indices[1];
@@ -106,6 +94,26 @@ CookingGenius.Mixins.Annotatable = {
     var post = this.$(this.annotatableSelector).html().slice(endIdx);
     var newText = pre + wrappedSelection + post;
     this.$(this.annotatableSelector).html(newText);
+  },
+
+  removeHighlighting: function() {
+    this.$(".annotation" + this.annotatableType).removeClass("active");
+  },
+
+  highlightAnnotationLinks: function(event) {
+    var $link = $(event.currentTarget)
+    $link.addClass("active");
+    var ids = $link.data("ids");
+    var links = $link.siblings();
+    for (var i = 0; i < links.length; i ++){
+      var link = links.eq(i);
+      for (var j = 0; j < ids.length; j++) {
+        var id = ids[j];
+        if (link.data("ids").indexOf(id) > -1) {
+          link.addClass("active");
+        }
+      }
+    }
   }
 
 }

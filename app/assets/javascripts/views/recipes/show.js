@@ -56,26 +56,6 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       }
     },
 
-    highlightAnnotationLinks: function(event) {
-      var $link = $(event.currentTarget)
-      $link.addClass("active");
-      var ids = $link.data("ids");
-      var links = $link.siblings();
-      for (var i = 0; i < links.length; i ++){
-        var link = links.eq(i);
-        for (var j = 0; j < ids.length; j++) {
-          var id = ids[j];
-          if (link.data("ids").indexOf(id) > -1) {
-            link.addClass("active");
-          }
-        }
-      }
-    },
-
-    removeHighlighting: function() {
-      this.$(".annotationRecipe").removeClass("active");
-    },
-
     upvoteRecipe: function(event) {
       event.preventDefault();
       var vote = new CookingGenius.Models.Vote({
