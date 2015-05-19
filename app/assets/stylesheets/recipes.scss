@@ -2,6 +2,7 @@
   font-family: sans-serif;
   width: 800px;
   margin: auto;
+  background: white;
 }
 
 .recipe-image {
@@ -9,10 +10,12 @@
   height: 300px;
   overflow: hidden;
   position: relative;
+  border-bottom: 2px solid #eee;
 }
 
 .recipe-image img {
-  transform: translateY(-30%);
+  transform: translateY(-35%);
+  overflow: hidden;
 }
 
 .recipe .header-text {
@@ -42,6 +45,7 @@
 .author {
   background: white;
   color: black;
+  margin-top: 0;
   width: 75px;
 }
 
@@ -50,17 +54,21 @@
    left: 20px;
    padding: 3px;
    border: 1px solid black;
+
 }
 
 .category {
   font-size: 16px;
-  top: 90px;
-  left: 20px;
   padding: 3px;
   border: 1px solid black;
+  margin-bottom: 20px;
 }
 
 .servings, h3 {
+  margin: 0;
+  border-bottom: 2px solid #eee;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 20px;
 }
 
@@ -75,10 +83,16 @@
 
 .delete-recipe {
   float: right;
+  margin: 10px;
+}
+
+.delete-recipe:hover {
+  background: #ddd;
 }
 
 .toggle-recipe-upvote {
   width: 45px;
+  background: white;
 }
 
 .toggle-recipe-upvote p {

@@ -2,7 +2,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
     template: JST["recipes/show"],
 
-    className: "recipe",
+    className: "recipe group",
 
     events: {
       "mousedown .instructions": "stripHTML",

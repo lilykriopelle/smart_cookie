@@ -12,6 +12,7 @@
   font-family: sans-serif;
   color: #eee;
   height: 35px;
+  padding-bottom: 15px;
 }
 
 .logged-in a {
@@ -21,6 +22,7 @@
 .logged-in button {
   float: right;
   margin: 3px;
+  margin-top: 10px;
 }
 
 .logged-in button:hover {
