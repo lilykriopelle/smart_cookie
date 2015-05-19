@@ -35,6 +35,7 @@
 
 .new-recipe .servings {
   width: 50px;
+  height: 7px;
   font-size: 16px;
 }
 
@@ -173,4 +174,31 @@
 .checkbox input:checked + span {
   background-image: url(check.png) 0 0px no-repeat;
   border: 1px solid red;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    border: 1px solid black;
+    background: white;
+    width: 115px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+.fileUpload:hover {
+  background: #eee;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }

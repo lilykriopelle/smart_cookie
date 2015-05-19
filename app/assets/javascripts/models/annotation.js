@@ -13,8 +13,14 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
       delete response.votes;
     }
 
+    if (response.replies) {
+      this.replies().set(response.replies)
+      delete response.replies
+    }
+
     return response;
   },
+
 
   author: function() {
     if (!this._author) {
@@ -29,6 +35,15 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
     }
 
     return this._votes;
+  },
+
+  replies: function() {
+
+    if (!this._replies) {
+      this._replies = new CookingGenius.Collections.AnnotationReplies([], {annotation: this});
+    }
+
+    return this._replies;
   }
 
 });

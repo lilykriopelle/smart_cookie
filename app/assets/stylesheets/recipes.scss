@@ -1,7 +1,6 @@
 .recipe {
   font-family: sans-serif;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   width: 760px;
   margin: auto;
   background: white;
@@ -115,11 +114,12 @@
 }
 
 .upvotes {
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 30px;
   background: white;
   border-radius: 50%;
   padding-top: 7px;
   padding-left: 7px;
+  padding-right: 10px;
   border: 1px solid black;
 }

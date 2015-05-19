@@ -5,15 +5,16 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :destroy, :edit]
   resource :session, only: [:new, :create, :destroy]
 
-
   namespace :api , defaults: { format: :json } do
-    # resources :menus
     resources :votes, only: [:create, :destroy]
 
     resources :recipes, except: [:edit] do
       resources :ingredients, except: [:edit]
     end
-    resources :annotations, except: [:edit]
+
+    resources :annotations, except: [:edit] do
+      resources :annotation_replies, only: [:index, :create, :destroy]
+    end
 
     resources :users, only: [:show]
   end

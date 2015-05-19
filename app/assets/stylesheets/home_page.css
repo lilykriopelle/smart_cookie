@@ -1,3 +1,12 @@
+.main {
+  width: 850px;
+  margin: auto;
+  margin-top: 25px;
+  padding: 25px;
+  background: white;
+  border: 1px solid black;
+}
+
 .recipe-tag-nav-bar {
   width: 800px;
   margin: auto;
@@ -23,6 +32,7 @@
 
 .tag-links {
   margin: auto;
+  background: white;
 }
 
 .tag-links li {
@@ -38,5 +48,6 @@
 
 .tag-nav-link:hover {
   text-decoration: none;
-  background: #d0d0d0;
+  color: white;
+  background: #228B22;
 }

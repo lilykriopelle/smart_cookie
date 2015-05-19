@@ -3,7 +3,7 @@ class CreateAnnotationReplies < ActiveRecord::Migration
     create_table :annotation_replies do |t|
       t.integer :annotation_id, null: false
       t.integer :author_id, null: false
-      t.text :body
+      t.text :body, null: false
 
       t.timestamps null: false
     end

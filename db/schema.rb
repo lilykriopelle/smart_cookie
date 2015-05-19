@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150519162125) do
   create_table "annotation_replies", force: :cascade do |t|
     t.integer  "annotation_id", null: false
     t.integer  "author_id",     null: false
-    t.text     "body"
+    t.text     "body",          null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
