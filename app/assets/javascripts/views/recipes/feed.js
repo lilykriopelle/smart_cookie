@@ -15,6 +15,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
       recipes: this.collection,
       primaryTag: this.primaryTag
     }));
+
     this.collection.each(function(recipe) {
       var recipeFeedItem = new CookingGenius.Views.RecipeFeedItem({
         model: recipe
