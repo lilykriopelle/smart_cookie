@@ -1,17 +1,18 @@
-<h1 class="user-name"> <%= user.escape("name") %> </h1>
 
-<% if (user.id != CookingGenius.currentUser.id) { %>
-<button class="toggle-user-upvote group">
-  <p class="num_votes"> <%= user.votes().length %> </p>
-  <p class="arrow">
-    <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
-        &#8609;
-    <% } else { %>
-        &#8607;
-    <% } %>
-  </p>
-</button>
-<% } %>
+<h1 class="user-name group"> <%= user.escape("name") %>
+  <% if (user.id != CookingGenius.currentUser.id) { %>
+  <button class="toggle-user-upvote group">
+    <p class="num_votes"> <%= user.votes().length %> </p>
+    <p class="arrow">
+      <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+          &#8609;
+      <% } else { %>
+          &#8607;
+      <% } %>
+    </p>
+  </button>
+  <% } %>
+</h1>
 
 <h2>
 <% if (user.authoredRecipes().length > 0) { %>

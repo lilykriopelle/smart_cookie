@@ -7,12 +7,16 @@
 
 .user-name {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 36px;
 }
 
 .toggle-user-upvote {
-  width: 45px;
+  width: 55px;
   background: white;
+  border-radius: 50%;
+  padding-left: 11px;
+  padding-right: 10px;
+  margin-left: 15px;
 }
 
 .toggle-user-upvote p {
