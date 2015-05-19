@@ -21,7 +21,6 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     var formAttrs = this.$el.serializeJSON();
     this.model.save(formAttrs, {
       success: function() {
-        // TODO - add interval to anntation intervals?
         this.collection.add(this.model);
       }.bind(this)
     });

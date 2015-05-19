@@ -19,7 +19,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       this.annotatableSelector = ".instructions";
       this.annotatableType = "Recipe";
       this.listenTo(this.model, "sync", this.render);
-      this.listenTo(this.model.annotations(), "add", this.render);
+      this.listenTo(this.model.annotations(), "add", this.renderAnnotations);
       this.listenTo(this.model.votes(), "add remove", this.render);
     },
 

@@ -8,7 +8,6 @@ CookingGenius.Mixins.Annotatable = {
 
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
-
     var domEl;
     if (this.annotatableType == "RecipesIngredient") {
       domEl = event.currentTarget;
@@ -17,9 +16,8 @@ CookingGenius.Mixins.Annotatable = {
     }
 
     if (selection.toString().length != 0) {
-      var endIdx = this.getCaretCharacterOffsetWithin(domEl, selection);
-      var length = selection.getRangeAt(0).endOffset - selection.getRangeAt(0).startOffset;
-      var startIdx = endIdx - length;
+      var startIdx = selection.getRangeAt(0).startOffset;
+      var endIdx = selection.getRangeAt(0).endOffset;
 
       if (startIdx > endIdx) {
         var tmp = startIdx;
@@ -57,21 +55,6 @@ CookingGenius.Mixins.Annotatable = {
       });
       $(".annotation-pop-up").append(showAnnotation.render().$el);
     }
-
-  },
-
-  getCaretCharacterOffsetWithin: function(element, selection) {
-    var caretOffset = 0;
-    var doc = element.ownerDocument || element.document;
-    var win = doc.defaultView || doc.parentWindow;
-    if (selection.rangeCount > 0) {
-        var range = win.getSelection().getRangeAt(0);
-        var preCaretRange = range.cloneRange();
-        preCaretRange.selectNodeContents(element);
-        preCaretRange.setEnd(range.endContainer, range.endOffset);
-        caretOffset = preCaretRange.toString().length;
-    }
-    return caretOffset;
   },
 
   renderAnnotations: function() {
