@@ -10,7 +10,9 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       "click .delete-recipe": "deleteRecipe",
       "click .annotationRecipe": "displayAnnotation",
       "click .minimize-annotation": "hideAnnotation",
-      "click .toggle-recipe-upvote": "toggleRecipeUpvote"
+      "click .toggle-recipe-upvote": "toggleRecipeUpvote",
+      'mouseenter .annotationRecipe': "highlightAnnotationLinks",
+      'mouseleave .annotationRecipe': "removeHighlighting"
     },
 
     initialize: function() {
@@ -52,6 +54,26 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
           }.bind(this)
         });
       }
+    },
+
+    highlightAnnotationLinks: function(event) {
+      var $link = $(event.currentTarget)
+      $link.addClass("active");
+      var ids = $link.data("ids");
+      var links = $link.siblings();
+      for (var i = 0; i < links.length; i ++){
+        var link = links.eq(i);
+        for (var j = 0; j < ids.length; j++) {
+          var id = ids[j];
+          if (link.data("ids").indexOf(id) > -1) {
+            link.addClass("active");
+          }
+        }
+      }
+    },
+
+    removeHighlighting: function() {
+      this.$(".annotationRecipe").removeClass("active");
     },
 
     upvoteRecipe: function(event) {

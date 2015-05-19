@@ -12,7 +12,7 @@
 .annotation-pop-up {
   position: fixed;
   right: 75px;
-  top: 75px;  
+  top: 75px;
 }
 
 .annotation-show {
@@ -37,7 +37,11 @@
   background: #ccc;
 }
 
-.annotationRecipesIngredient:hover,  .annotationRecipe:hover{
+.annotationRecipesIngredient:hover, .annotationRecipe:hover {
+  font-weight: normal;
+}
+
+.annotationRecipe.active, .annotationRecipe.active {
   background: yellow;
 }
 
