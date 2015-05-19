@@ -42,7 +42,7 @@
   font-weight: normal;
 }
 
-.annotationRecipe.active, .annotationRecipesIngredient.active {
+.annotationRecipe.active, .annotationRecipesIngredient.active, .temp-highlight {
   background: yellow;
 }
 

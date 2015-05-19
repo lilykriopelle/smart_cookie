@@ -11,6 +11,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
   },
 
   initialize: function(options) {
+    this.annotatable = options.annotatable;
     this.$node = options.$node;
     this.$text = options.$text;
   },
@@ -21,6 +22,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     this.model.save(formAttrs, {
       success: function() {
         this.collection.add(this.model);
+        this.annotatable.fetch();
       }.bind(this)
     });
 

@@ -8,12 +8,8 @@ CookingGenius.Mixins.Annotatable = {
 
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
-    var domEl;
-    if (this.annotatableType == "RecipesIngredient") {
-      domEl = event.currentTarget;
-    } else {
-      domEl = this.$(this.annotatableSelector)[0];
-    }
+
+    var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector)
 
     if (selection.toString().length != 0) {
       var startIdx = selection.getRangeAt(0).startOffset;
@@ -25,8 +21,9 @@ CookingGenius.Mixins.Annotatable = {
         endIdx = tmp;
       }
 
-      startIdx = this.snapToDelimeters(startIdx, "left", domEl);
-      endIdx = this.snapToDelimeters(endIdx, "right", domEl);
+      startIdx = this.snapToDelimeters(startIdx, "left", element);
+      endIdx = this.snapToDelimeters(endIdx, "right", element);
+      this.temporarilyHighlight(startIdx, endIdx, element);
 
       var annotation = new CookingGenius.Models.Annotation({
         start_idx: startIdx,
@@ -37,6 +34,7 @@ CookingGenius.Mixins.Annotatable = {
       });
 
       var annotationForm = new CookingGenius.Views.NewAnnotation({
+        annotatable: this.model,
         $node: selection.anchorNode,
         $text: $(event.currentTarget),
         model: annotation,
@@ -44,18 +42,20 @@ CookingGenius.Mixins.Annotatable = {
       });
 
       $(".annotation-pop-up").empty().html(annotationForm.render().$el);
+    } else if (! $(event.target).is("a")) {
+        this.renderAnnotations();
     }
   },
 
-  snapToDelimeters: function(index, dir, domEl) {
+  snapToDelimeters: function(index, dir, element) {
     if (dir == "left") {
       i = 0;
-      while (!this.isDelimeter($(domEl).text()[index + i - 1])) {
+      while (!this.isDelimeter($(element).text()[index + i - 1])) {
         i = i - 1;
       }
     } else {
       i = 0;
-      while (!this.isDelimeter($(domEl).text()[index + i])) {
+      while (!this.isDelimeter($(element).text()[index + i])) {
         i = i + 1;
       }
     }
@@ -63,7 +63,16 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   isDelimeter(char) {
-    return [" ", ",", ".", "!", ";", ":", "\n", ].indexOf(char) > -1;
+    return [" ", ",", ".", "!", ";", ":", "\n", undefined].indexOf(char) > -1;
+  },
+
+  temporarilyHighlight: function(startIdx, endIdx, element) {
+    var selection = element.text().slice(startIdx, endIdx);
+    var wrappedSelection = '<span class="temp-highlight">' + selection + "</span>"
+    var pre = element.text().slice(0, startIdx);
+    var post = element.html().slice(endIdx);
+    var newText = pre + wrappedSelection + post;
+    element.html(newText);
   },
 
   displayAnnotation: function(event) {
