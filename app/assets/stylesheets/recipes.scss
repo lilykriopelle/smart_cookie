@@ -51,12 +51,12 @@
   border: 1px solid black;
 }
 
-.recipe h2 {
-  font-size: 24px;
+.servings, h3 {
+  font-size: 20px;
 }
 
-.servings {
-  font-size: 20px;
+.recipe .ingredient {
+  margin: 0;
 }
 
 .instructions {
@@ -66,4 +66,23 @@
 
 .delete-recipe {
   float: right;
+}
+
+.toggle-recipe-upvote {
+  width: 45px;
+}
+
+.toggle-recipe-upvote p {
+  font-size: 15px;
+  float: left;
+}
+
+.toggle-recipe-upvote .arrow {
+  float: right;
+  font-size: 25px;
+  padding-top: 5px;
+  margin: 0;
+  left: 0;
+  top: 0;
+  text-align: center;
 }

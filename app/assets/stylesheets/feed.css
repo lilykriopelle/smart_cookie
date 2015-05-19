@@ -22,6 +22,7 @@
   float: left;
   margin-left: 20px;
   margin-top: 40px;
+  text-transform: uppercase;
 }
 
 .recipe-feed-item .image-thumb {

@@ -45,7 +45,7 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
   render: function() {
     this.$el.html(this.template({user: this.model}));
     this.model.authoredRecipes().each(function(recipe) {
-      var indexItem = new CookingGenius.Views.AuthoredRecipeIndexItem({model : recipe});
+      var indexItem = new CookingGenius.Views.RecipeFeedItem({model : recipe});
       this.addSubview(".authored-recipes", indexItem);
     }.bind(this));
     return this;

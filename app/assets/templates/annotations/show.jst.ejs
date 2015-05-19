@@ -12,10 +12,13 @@ by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
 
 <% if (annotation.author().id != CookingGenius.currentUser.id) { %>
 <button class="toggle-annotation-upvote">
-  <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
-    Downvote
-  <% } else { %>
-    Upvote
-  <% } %>
+  <p class="num_votes"> <%= annotation.votes().length %> </p>
+  <p class="arrow">
+    <% if (annotation.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+        &#8609;
+    <% } else { %>
+        &#8607;
+    <% } %>
+  </p>
 </button>
 <% } %>

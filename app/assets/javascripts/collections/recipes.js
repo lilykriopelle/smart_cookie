@@ -21,6 +21,10 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
       });
     }
     return recipe;
+  },
+
+  comparator: function(recipe) {
+    return recipe.votes().length;
   }
 
 });

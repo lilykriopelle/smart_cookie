@@ -6,14 +6,16 @@
 <p class="author">By <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a></p>
 </div>
 
-<p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
 <button class="toggle-recipe-upvote">
-  <% if (this.model.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
-    Downvote
-  <% } else { %>
-    Upvote
-  <% } %>
+  <p class="num_votes"> <%= recipe.votes().length %> </p>
+  <p class="arrow">
+    <% if (recipe.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+        &#8609;
+    <% } else { %>
+        &#8607;
+    <% } %>
+  </p>
 </button>
 <% } %>
 
