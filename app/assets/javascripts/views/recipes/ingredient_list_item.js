@@ -17,7 +17,7 @@ CookingGenius.Views.IngredientListItem = Backbone.CompositeView.extend({
     this.annotatableType = "RecipesIngredient";
     this.recipe = options.recipe;
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.annotations(), "add", this.render);
+    this.listenTo(this.model.annotations(), "add", this.renderAnnotations);
     this.parentView = options.parentView;
   },
 

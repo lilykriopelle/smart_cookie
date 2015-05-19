@@ -6,9 +6,6 @@
 <p class="author">By <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a></p>
 </div>
 
-
-
-
 <p class="num_votes"> Upvotes: <%= recipe.votes().length %> </p>
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
 <button class="toggle-recipe-upvote">

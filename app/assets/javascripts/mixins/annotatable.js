@@ -25,6 +25,9 @@ CookingGenius.Mixins.Annotatable = {
         endIdx = tmp;
       }
 
+      startIdx = this.snapToDelimeters(startIdx, "left", domEl);
+      endIdx = this.snapToDelimeters(endIdx, "right", domEl);
+
       var annotation = new CookingGenius.Models.Annotation({
         start_idx: startIdx,
         end_idx: endIdx,
@@ -42,6 +45,25 @@ CookingGenius.Mixins.Annotatable = {
 
       $(".annotation-pop-up").empty().html(annotationForm.render().$el);
     }
+  },
+
+  snapToDelimeters: function(index, dir, domEl) {
+    if (dir == "left") {
+      i = 0;
+      while (!this.isDelimeter($(domEl).text()[index + i - 1])) {
+        i = i - 1;
+      }
+    } else {
+      i = 0;
+      while (!this.isDelimeter($(domEl).text()[index + i])) {
+        i = i + 1;
+      }
+    }
+    return index + i;
+  },
+
+  isDelimeter(char) {
+    return [" ", ",", ".", "!", ";", ":", "\n", ].indexOf(char) > -1;
   },
 
   displayAnnotation: function(event) {
