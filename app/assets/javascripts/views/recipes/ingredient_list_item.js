@@ -25,8 +25,8 @@ CookingGenius.Views.IngredientListItem = Backbone.CompositeView.extend({
     if (! $(event.target).is("a")) {
       var $li = $(event.currentTarget)
       $li.html($(event.currentTarget).text());
-      $li.siblings().each(function(li){
-        $(li).html($(event.currentTarget).text());
+      $li.siblings().each(function(index, li){
+        $(li).html($(li).text());
       })
     }
   },
