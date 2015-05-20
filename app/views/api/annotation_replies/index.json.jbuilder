@@ -1,10 +1,1 @@
-json.array! @replies do |reply|
-  json.extract! reply, :id, :body
-  json.author do
-    json.extract! reply.author, :id, :name
-  end
-
-  json.votes reply.votes do |vote|
-    json.extract! vote, :id, :voter_id
-  end
-end
+json.partial! 'api/annotation_replies/show', collection: @replies, as: :reply

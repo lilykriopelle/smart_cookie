@@ -15,6 +15,10 @@ CookingGenius.Collections.SearchResults = Backbone.Collection.extend({
     var type = attrs._type;
     delete attrs._type;
     return new CookingGenius.Models[type](attrs);
+  },
+
+  comparator: function(result) {
+    return result.votes().length;
   }
 
 });

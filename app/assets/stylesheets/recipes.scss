@@ -89,37 +89,3 @@
 .delete-recipe:hover {
   background: #ddd;
 }
-
-.toggle-recipe-upvote {
-  width: 55px;
-  background: white;
-  border-radius: 50%;
-  padding-left: 11px;
-  padding-right: 10px;
-}
-
-.toggle-recipe-upvote p {
-  font-size: 15px;
-  float: left;
-}
-
-.toggle-recipe-upvote .arrow {
-  float: right;
-  font-size: 25px;
-  padding-top: 5px;
-  margin: 0;
-  left: 0;
-  top: 0;
-  text-align: center;
-}
-
-.upvotes {
-  width: 25px;
-  height: 30px;
-  background: white;
-  border-radius: 50%;
-  padding-top: 7px;
-  padding-left: 7px;
-  padding-right: 10px;
-  border: 1px solid black;
-}

@@ -9,6 +9,8 @@
 #
 
 class Ingredient < ActiveRecord::Base
+  include PgSearch
+
   validates :name, presence: true
   has_many :recipes_ingredients, class_name: "RecipesIngredient", foreign_key: :ingredient_id
   has_many :recipes, through: :recipes_ingredients, source: :recipe

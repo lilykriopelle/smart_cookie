@@ -2,9 +2,12 @@
 <%= reply.escape("body") %>
 </p>
 
-<% var userURL = "#/users/" + reply.author().id %>
+<% var authorID = reply.author().id || CookingGenius.currentUser.id %>
+<% var authorURL = "#/users/" + authorID %>
+<% var authorName = reply.author().get("name") || CookingGenius.currentUser.get("name") %>
+
 <p class="reply-author">
-by <a href="<%= userURL %>"> <%= reply.author().get("name") %> </a>
+by <a href="<%= authorURL %>"> <%= authorName %> </a>
 </p>
 
 <div class="group">

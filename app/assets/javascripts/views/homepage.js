@@ -6,7 +6,7 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
 
   events: {
     "click .tag-nav-link": "displayFilteredRecpies",
-    "click .open-search": "search"
+    "click .search": "search"
   },
 
   initialize: function() {
