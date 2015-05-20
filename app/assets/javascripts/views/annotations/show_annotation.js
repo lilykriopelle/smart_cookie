@@ -19,16 +19,15 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   submitReply: function() {
     var replyBody = this.$(".reply-text").val();
-    // debugger;
-    // if (replyBody.length > 0) {
+    if (replyBody.length > 0) {
       var attrs = {
         body: replyBody,
         author_id: CookingGenius.currentUser.id,
         annotation_id: this.model.id
-      }
+      };
 
       this.model.replies().create(attrs);
-    // }
+    }
   },
 
   toggleAnnotationUpvote: function() {

@@ -74,7 +74,7 @@
   background: #228B22;
 }
 
-.toggle-annotation-upvote {
+.toggle-annotation-upvote, .toggle-reply-upvote {
   width: 55px;
   background: white;
   border-radius: 50%;
@@ -83,17 +83,17 @@
   float: left;
 }
 
-.toggle-annotation-upvote:hover {
+.toggle-annotation-upvote:hover, .toggle-annotation-upvote:hover {
   background: #aaa;
 }
 
 
-.toggle-annotation-upvote p {
+.toggle-annotation-upvote p, .toggle-reply-upvote p {
   font-size: 15px;
   float: left;
 }
 
-.toggle-annotation-upvote .arrow {
+.toggle-annotation-upvote .arrow, .toggle-reply-upvote .arrow{
   float: right;
   font-size: 25px;
   padding-top: 5px;

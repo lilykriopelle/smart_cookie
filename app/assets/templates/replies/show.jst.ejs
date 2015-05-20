@@ -6,3 +6,20 @@
 <p class="reply-author">
 by <a href="<%= userURL %>"> <%= reply.author().get("name") %> </a>
 </p>
+
+<div class="group">
+<% if (reply.author().id != CookingGenius.currentUser.id) {%>
+<button class="toggle-reply-upvote">
+  <p class="num_votes"> <%= reply.votes().length %> </p>
+  <p class="arrow">
+    <% if (reply.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
+        &#8609;
+    <% } else { %>
+        &#8607;
+    <% } %>
+  </p>
+</button>
+<% } else { %>
+  <div class="upvotes"> <%= reply.votes().length %> &#8607; </div>
+<% } %>
+</div>
