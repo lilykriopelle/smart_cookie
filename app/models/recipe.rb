@@ -41,7 +41,9 @@ class Recipe < ActiveRecord::Base
   scope :author_id, -> (id) { where author_id: id }
 
   multisearchable against: :title
-  pg_search_scope :ingredient_search, associated_against: { ingredients: :name }
+  pg_search_scope :ingredient_search,
+                  associated_against: { ingredients: :name },
+                  using: { :tsearch => { prefix: true } }
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 

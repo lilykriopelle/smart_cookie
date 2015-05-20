@@ -18,7 +18,7 @@ CookingGenius.Collections.SearchResults = Backbone.Collection.extend({
   },
 
   comparator: function(result) {
-    return result.votes().length;
+    return result.num_votes;
   }
 
 });

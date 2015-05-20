@@ -1,11 +1,10 @@
 .toggle-annotation-upvote, .toggle-reply-upvote,
 .toggle-recipe-upvote, .toggle-user-upvote {
-  width: 55px;
+  width: 40px;
   background: white;
-  border-radius: 50%;
-  padding-left: 11px;
-  padding-right: 10px;
+  border-radius: 3px;
   float: left;
+  margin-top: 10px;
 }
 
 .toggle-annotation-upvote:hover, .toggle-reply-upvote:hover {

@@ -15,6 +15,7 @@ CookingGenius.Views.Search = Backbone.View.extend({
 	template: JST["search"],
 
 	render: function () {
+		this.collection.sort();
 		var content = this.template({
 			page: this.collection.searchInfo.page,
 			totalPages: this.collection.searchInfo.totalPages

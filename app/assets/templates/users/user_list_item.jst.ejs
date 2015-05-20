@@ -1,5 +1,5 @@
 <% var userURL = "#/users/" + user.id %>
 <a href="<%= userURL %>" class="group">
   <%= user.escape("name") %>
-  <div class="upvotes"> <%= user.votes().length %> &#8607; </div>
+  <div class="upvotes"> <%= user.get("num_votes") %> &#8607; </div>
 </a>
