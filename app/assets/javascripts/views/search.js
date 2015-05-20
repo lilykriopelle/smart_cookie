@@ -1,12 +1,13 @@
 CookingGenius.Views.Search = Backbone.View.extend({
 
 	initialize: function () {
-		this.listenTo(this.collection, "sync", this.renderResults);
+		this.listenTo(this.collection, "sync", this.render);
 	},
 
 	events: {
 		"click button": "search",
-		"click .next-page": "nextPage"
+		"click .next-page": "nextPage",
+		"click .previous-page": "previousPage"
 	},
 
   className: "search-window",
@@ -14,8 +15,12 @@ CookingGenius.Views.Search = Backbone.View.extend({
 	template: JST["search"],
 
 	render: function () {
-		var content = this.template();
+		var content = this.template({
+			page: this.collection.searchInfo.page,
+			totalPages: this.collection.searchInfo.totalPages
+		});
 		this.$el.html(content);
+		this.renderResults();
 		return this;
 	},
 
@@ -37,8 +42,16 @@ CookingGenius.Views.Search = Backbone.View.extend({
 		});
 	},
 
+	previousPage: function() {
+		this.changePage(-1);
+	},
+
 	nextPage: function () {
-		this.collection.searchInfo.page++;
+		this.changePage(1);
+	},
+
+	changePage: function(dir) {
+		this.collection.searchInfo.page = this.collection.searchInfo.page + dir;
 		this.collection.fetch({
 			data: this.collection.searchInfo
 		});

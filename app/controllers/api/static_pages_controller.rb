@@ -4,6 +4,7 @@ class Api::StaticPagesController < ApplicationController
     @search_results = PgSearch
       .multisearch(params[:query])
       .page(params[:page])
+      .per(10)
   end
 
 end
