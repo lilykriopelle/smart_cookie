@@ -9,6 +9,7 @@
 .user-name {
   font-weight: bold;
   font-size: 36px;
+  float: left;
 }
 
 .toggle-user-upvote {
@@ -33,4 +34,19 @@
   left: 0;
   top: 0;
   text-align: center;
+}
+
+.display-recipe-form {
+  float: left;
+  margin-top: 30px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 18px;
+  width: 20px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.display-recipe-form:hover {
+  background: #eee;
 }

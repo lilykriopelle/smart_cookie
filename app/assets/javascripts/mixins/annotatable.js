@@ -49,25 +49,6 @@ CookingGenius.Mixins.Annotatable = {
     }
   },
 
-  snapToDelimeters: function(index, dir, element) {
-    if (dir == "left") {
-      i = 0;
-      while (!this.isDelimeter($(element).text()[index + i - 1])) {
-        i = i - 1;
-      }
-    } else {
-      i = 0;
-      while (!this.isDelimeter($(element).text()[index + i])) {
-        i = i + 1;
-      }
-    }
-    return index + i;
-  },
-
-  isDelimeter: function(char) {
-    return [" ", ",", ".", "!", ";", ":", "\n", undefined].indexOf(char) > -1;
-  },
-
   temporarilyHighlight: function(startIdx, endIdx, element) {
     var selection = element.text().slice(startIdx, endIdx);
     var wrappedSelection = '<span class="temp-highlight">' + selection + "</span>";
@@ -78,6 +59,7 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   displayAnnotation: function(event) {
+    event.preventDefault();
     $(".annotation-pop-up").empty();
     var ids = $(event.currentTarget).data("ids");
     for (var i = 0; i < ids.length; i++) {
@@ -98,18 +80,21 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   wrapIntervalInLink: function(interval) {
-    var element = this.$(this.annotatableSelector);
-    var indices = JSON.parse(Object.keys(interval));
-    var startIdx = indices[0], endIdx = indices[1];
-    var selection = element.text().slice(startIdx, endIdx);
-    var className = "annotation" + this.annotatableType;
-    var keys = Object.keys(interval);
-    var ann_ids = interval[keys[0]];
-    var wrappedSelection = '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>";
-    var pre = element.text().slice(0, startIdx);
-    var post = element.html().slice(endIdx);
-    var newText = pre + wrappedSelection + post;
-    element.html(newText);
+    var element = this.$(this.annotatableSelector),
+        keys = Object.keys(interval),
+        indices = JSON.parse(keys),
+        startIdx = indices[0],
+        endIdx = indices[1],
+        selection = element.text().slice(startIdx, endIdx),
+        pre = element.text().slice(0, startIdx),
+        post = element.html().slice(endIdx);
+        newText = pre + this.wrappedSelection(keys, interval, selection) + post;
+    return element.html(newText);
+  },
+
+  wrappedSelection: function(keys, interval, selection) {
+    var className = "annotation" + this.annotatableType, ann_ids = interval[keys[0]];
+    return '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>";
   },
 
   removeHighlighting: function() {
@@ -135,5 +120,23 @@ CookingGenius.Mixins.Annotatable = {
         }
       }
     }
+  },
+
+  snapToDelimeters: function(index, dir, element) {
+    var i = 0;
+    if (dir == "left") {
+      while (!this.isDelimeter($(element).text()[index + i - 1])) {
+        i = i - 1;
+      }
+    } else {
+      while (!this.isDelimeter($(element).text()[index + i])) {
+        i = i + 1;
+      }
+    }
+    return index + i;
+  },
+
+  isDelimeter: function(char) {
+    return [" ", ",", ".", "!", ";", ":", "\n", undefined].indexOf(char) > -1;
   }
 };

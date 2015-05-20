@@ -1,5 +1,6 @@
+<div class="group">
 
-<h1 class="user-name group"> <%= user.escape("name") %>
+<h1 class="user-name group"> <%= user.escape("name") %>'s Recipes
   <% if (user.id != CookingGenius.currentUser.id) { %>
   <button class="toggle-user-upvote group">
     <p class="num_votes"> <%= user.votes().length %> </p>
@@ -13,6 +14,14 @@
   </button>
   <% } %>
 </h1>
+
+<% if (user.id == CookingGenius.currentUser.id) { %>
+<button class="display-recipe-form"> + </button>
+<% } %>
+
+</div>
+
+<div class="new-recipe"></div>
 
 <h2>
 <% if (user.authoredRecipes().length > 0) { %>
@@ -31,9 +40,5 @@
   <% } %>
 <% } %>
 
-<ul class="authored-recipes"></ul>
 
-<% if (user.id == CookingGenius.currentUser.id) { %>
-<button class="display-recipe-form">Create New Recipe</button>
-<% } %>
-<div class="new-recipe"></div>
+<ul class="authored-recipes"></ul>

@@ -8,7 +8,7 @@ by <a href="<%= userURL %>"> <%= reply.author().get("name") %> </a>
 </p>
 
 <div class="group">
-<% if (reply.author().id != CookingGenius.currentUser.id) {%>
+<% if (reply.author().id !== CookingGenius.currentUser.id && reply.author().id !== undefined) {%>
 <button class="toggle-reply-upvote">
   <p class="num_votes"> <%= reply.votes().length %> </p>
   <p class="arrow">
