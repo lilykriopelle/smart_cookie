@@ -16,9 +16,9 @@ CookingGenius.Views.Search = Backbone.View.extend({
 	render: function () {
 		var content = this.template();
 		this.$el.html(content);
-
 		return this;
 	},
+
 
 	renderResults: function () {
 		this.renderSearchInfo();
@@ -38,7 +38,7 @@ CookingGenius.Views.Search = Backbone.View.extend({
 	},
 
 	nextPage: function () {
-		this.collection.searchInfo.page ++;
+		this.collection.searchInfo.page++;
 		this.collection.fetch({
 			data: this.collection.searchInfo
 		});

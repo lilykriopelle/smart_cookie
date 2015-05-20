@@ -16,16 +16,16 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
   search: function (event) {
 		event.preventDefault();
     this.$(".recipe-feed-container").empty();
-    var results = new CookingGenius.Collections.SearchResults();
+    this.results = new CookingGenius.Collections.SearchResults();
 		var $input = this.$("#query");
-    results.searchInfo.query = $input.val();
-    results.searchInfo.page = 1;
+    this.results.searchInfo.query = $input.val();
+    this.results.searchInfo.page = 1;
 
-    results.fetch({
-			data: results.searchInfo,
+    this.results.fetch({
+			data: this.results.searchInfo,
       success: function() {
         var searchResults = new CookingGenius.Views.Search({
-          collection: results
+          collection: this.results
         });
         this.addSubview(".recipe-feed-container", searchResults);
       }.bind(this)
