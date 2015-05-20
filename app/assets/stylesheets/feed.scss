@@ -45,3 +45,30 @@
   max-height: 1000px;
   overflow: auto;
 }
+
+.tag-links {
+  float: left;
+}
+
+.open-search {
+  border-radius: 0px;
+  float: right;
+  height: 38px;
+  width: 38px;
+  border: 0;
+  padding: 3px;
+  border-left: 1px solid black;
+  background-image: asset-url("search.png");
+  background-size: 17px;
+}
+
+#query {
+  border: 1px solid black;
+  height: 30px;
+  width: 200px;
+}
+
+.search-window {
+  width: 800px;
+  margin: 20px;
+}

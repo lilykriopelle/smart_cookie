@@ -84,7 +84,7 @@
 }
 
 .toggle-annotation-upvote:hover, .toggle-annotation-upvote:hover {
-  background: #aaa;
+  background: #eee;
 }
 
 
@@ -112,6 +112,11 @@
 .reply {
   height: 35px;
   background: white;
+  float: right;
+}
+
+.reply-list-item {
+  width: 250px;
   float: right;
 }
 

@@ -53,7 +53,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({ annotation: this.model }));
     this.model.replies().each(function(reply){
       var replyShow = new CookingGenius.Views.ReplyShow({model: reply});
-      this.addSubview(".replies", replyShow);
+      this.addSubview(".replies", replyShow, true);
     }.bind(this));
     return this;
   }

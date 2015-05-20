@@ -1,7 +1,7 @@
 <div class="main">
 <h1 class="logo">Smart Cookie</h1>
 
-<nav class="recipe-tag-nav-bar">
+<nav class="recipe-tag-nav-bar group">
   <ul class="tag-links group">
     <% for (var i = 0; i < CookingGenius.recipeTags.length; i++) { %>
       <% var tag = CookingGenius.recipeTags[i]; %>
@@ -10,15 +10,8 @@
     <% } %>
     <li> <a class ="tag-nav-link" href="#">all</a> </li>
   </ul>
+  <button class="open-search"></button>
 </nav>
-
-<!-- <form class="author-search" action="index.html" method="post">
-  <label>
-    Search by Author:
-    <input type="text" name="name">
-  </label>
-  <button>Go!</button>
-</form> -->
 
 <div class="recipe-feed-container"></div>
 </div>

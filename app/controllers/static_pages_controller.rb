@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
     render :root
   end
 
+  def search
+    render :search
+  end
+
 end

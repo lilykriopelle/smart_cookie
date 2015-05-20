@@ -17,7 +17,7 @@
 #
 
 class Recipe < ActiveRecord::Base
-  include Annotatable, Voteable
+  include Annotatable, Voteable, PgSearch
 
   validates :author_id, :title, :instructions, :servings, :primary_tag, presence: true
   validates :servings, numericality: true
@@ -36,9 +36,11 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipes_ingredients, source: :ingredient
   has_many :menus_recipes, class_name: "MenusRecipe"
   has_many :menus, through: :menus_recipes, source: :menu
-  
+
   scope :primary_tag, -> (tag) { where primary_tag: tag }
   scope :author_id, -> (id) { where author_id: id }
+
+  multisearchable against: :title
 
   TAGS = %w(appetizer entree side sandwich soup salad drink cake cookie pie)
 

@@ -5,15 +5,22 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
   tagName: "main",
 
   events: {
-    "click .tag-nav-link": "displayFilteredRecpies"
+    "click .tag-nav-link": "displayFilteredRecpies",
+    "click .open-search": "searchView"
   },
 
   initialize: function() {
     this.displayFilteredRecpies();
   },
 
+  searchView: function() {
+    this.$(".recipe-feed-container").empty();
+    var searchView = new CookingGenius.Views.Search();
+    this.addSubview(".recipe-feed-container", searchView);
+  },
+
   displayFilteredRecpies: function(event) {
-    var tag = event ? $(event.currentTarget).text(): "";
+    var tag = event ? $(event.currentTarget).text(): "all";
     this.$(".recipe-feed-container").empty();
     filtered = new CookingGenius.Collections.Recipes();
     filtered.fetch({

@@ -1,1 +1,1 @@
-json.partial! 'recipe', collection: @recipes, as: :recipe
+json.partial! 'api/recipes/recipe', collection: @recipes, as: :recipe
