@@ -8,6 +8,19 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     "click .tag-nav-link": "displayFilteredRecpies"
   },
 
+  initialize: function() {
+    var allRecipes =  new CookingGenius.Collections.Recipes();
+    allRecipes.fetch({
+      success: function() {
+        var recipeFeed = new CookingGenius.Views.RecipeFeed({
+          collection: allRecipes,
+          primary_tag: "all"
+        });
+        this.addSubview(".recipe-feed-container", recipeFeed);
+      }.bind(this)
+    });
+  },
+
   displayFilteredRecpies: function(event) {
     var tag = $(event.currentTarget).text();
     this.$(".recipe-feed-container").empty();
@@ -37,7 +50,6 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     }
   },
 
-  initialize: function() {},
 
   render: function() {
     this.$el.html(this.template());
