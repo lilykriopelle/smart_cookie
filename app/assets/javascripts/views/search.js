@@ -1,7 +1,6 @@
 CookingGenius.Views.Search = Backbone.View.extend({
 
 	initialize: function () {
-		this.collection = new CookingGenius.Collections.SearchResults();
 		this.listenTo(this.collection, "sync", this.renderResults);
 	},
 
@@ -19,17 +18,6 @@ CookingGenius.Views.Search = Backbone.View.extend({
 		this.$el.html(content);
 
 		return this;
-	},
-
-	search: function (event) {
-		event.preventDefault();
-		var $input = this.$("#query");
-		this.collection.searchInfo.query = $input.val();
-		this.collection.searchInfo.page = 1;
-
-		this.collection.fetch({
-			data: this.collection.searchInfo
-		});
 	},
 
 	renderResults: function () {

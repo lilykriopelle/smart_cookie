@@ -6,18 +6,31 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
 
   events: {
     "click .tag-nav-link": "displayFilteredRecpies",
-    "click .open-search": "searchView"
+    "click .open-search": "search"
   },
 
   initialize: function() {
     this.displayFilteredRecpies();
   },
 
-  searchView: function() {
+  search: function (event) {
+		event.preventDefault();
     this.$(".recipe-feed-container").empty();
-    var searchView = new CookingGenius.Views.Search();
-    this.addSubview(".recipe-feed-container", searchView);
-  },
+    var results = new CookingGenius.Collections.SearchResults();
+		var $input = this.$("#query");
+    results.searchInfo.query = $input.val();
+    results.searchInfo.page = 1;
+
+    results.fetch({
+			data: results.searchInfo,
+      success: function() {
+        var searchResults = new CookingGenius.Views.Search({
+          collection: results
+        });
+        this.addSubview(".recipe-feed-container", searchResults);
+      }.bind(this)
+		});
+	},
 
   displayFilteredRecpies: function(event) {
     var tag = event ? $(event.currentTarget).text(): "all";
