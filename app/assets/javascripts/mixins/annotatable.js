@@ -9,9 +9,9 @@ CookingGenius.Mixins.Annotatable = {
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
 
-    var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector)
+    var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
 
-    if (selection.toString().length != 0) {
+    if (selection.toString().length !== 0) {
       var startIdx = selection.getRangeAt(0).startOffset;
       var endIdx = selection.getRangeAt(0).endOffset;
 
@@ -64,13 +64,13 @@ CookingGenius.Mixins.Annotatable = {
     return index + i;
   },
 
-  isDelimeter(char) {
+  isDelimeter: function(char) {
     return [" ", ",", ".", "!", ";", ":", "\n", undefined].indexOf(char) > -1;
   },
 
   temporarilyHighlight: function(startIdx, endIdx, element) {
     var selection = element.text().slice(startIdx, endIdx);
-    var wrappedSelection = '<span class="temp-highlight">' + selection + "</span>"
+    var wrappedSelection = '<span class="temp-highlight">' + selection + "</span>";
     var pre = element.text().slice(0, startIdx);
     var post = element.html().slice(endIdx);
     var newText = '<p class="ingredient">' + pre + wrappedSelection + post + "</p>";
@@ -106,7 +106,7 @@ CookingGenius.Mixins.Annotatable = {
     var className = "annotation" + this.annotatableType;
     var keys = Object.keys(interval);
     var ann_ids = interval[keys[0]];
-    var wrappedSelection = '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>"
+    var wrappedSelection = '<a class="' + className + '" href="#" data-ids="[' + ann_ids + ']">' + selection + "</a>";
     var pre = element.text().slice(0, startIdx);
     var post = element.html().slice(endIdx);
     var newText = pre + wrappedSelection + post;
@@ -120,7 +120,7 @@ CookingGenius.Mixins.Annotatable = {
 
   highlightAnnotationLinks: function(event) {
     this.displayAnnotation(event);
-    var $link = $(event.currentTarget)
+    var $link = $(event.currentTarget);
     $link.addClass("active opaque");
     var ids = $link.data("ids");
     var links = $link.siblings();
@@ -137,5 +137,4 @@ CookingGenius.Mixins.Annotatable = {
       }
     }
   }
-
-}
+};

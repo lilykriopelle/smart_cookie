@@ -5,7 +5,7 @@ CookingGenius.Collections.AnnotationReplies = Backbone.Collection.extend({
   },
 
   url: function() {
-    return '/api/annotations/' + this.annotation.id + '/annotation_replies'
+    return '/api/annotations/' + this.annotation.id + '/annotation_replies';
   },
 
   model: CookingGenius.Models.AnnotationReply
