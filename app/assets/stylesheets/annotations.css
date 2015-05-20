@@ -33,6 +33,15 @@
 
 .annotation-form textarea {
   margin: auto;
+  margin-bottom: 10px;
+  width: 250px;
+  height: 30px;
+  transition: height .75s;
+  resize: none;
+
+}
+
+.annotation-form textarea:focus {
   width: 250px;
   height: 250px;
 }
@@ -60,9 +69,9 @@
 .minimize-annotation {
   border: 3px solid #228B22;
   border-radius: 0px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  right: 437px;
+  top: 118px;
   width: 30px;
   font-weight: bold;
   background: #aaa;
@@ -98,6 +107,7 @@
   height: 30px;
   border: 1px solid black;
   resize: none;
+  transition: height .75s;
 }
 
 .reply-text:focus {
