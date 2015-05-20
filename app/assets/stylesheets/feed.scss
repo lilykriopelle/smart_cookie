@@ -50,6 +50,10 @@
   float: left;
 }
 
+.tag-nav-link:hover {
+  font-weight: normal;
+}
+
 .open-search {
   border-radius: 0px;
   float: right;
@@ -65,7 +69,8 @@
 #query {
   border: 1px solid black;
   height: 30px;
-  width: 200px;
+  width: 148px;
+  border: none;
 }
 
 .search-window {
