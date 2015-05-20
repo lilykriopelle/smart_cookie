@@ -10,11 +10,7 @@
 <button class="toggle-recipe-upvote">
   <p class="num_votes"> <%= recipe.votes().length %> </p>
   <p class="arrow">
-    <% if (recipe.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
-        &#8609;
-    <% } else { %>
-        &#8607;
-    <% } %>
+    &#8607;
   </p>
 </button>
 <% } else { %>

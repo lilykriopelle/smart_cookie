@@ -12,11 +12,7 @@ by <a href="<%= userURL %>"> <%= reply.author().get("name") %> </a>
 <button class="toggle-reply-upvote">
   <p class="num_votes"> <%= reply.votes().length %> </p>
   <p class="arrow">
-    <% if (reply.votes().where({voter_id: CookingGenius.currentUser.id}).length > 0) { %>
-        &#8609;
-    <% } else { %>
-        &#8607;
-    <% } %>
+    &#8607;
   </p>
 </button>
 <% } else { %>
