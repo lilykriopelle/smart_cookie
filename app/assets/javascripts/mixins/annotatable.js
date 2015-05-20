@@ -78,7 +78,6 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   displayAnnotation: function(event) {
-    event.preventDefault();
     $(".annotation-pop-up").empty();
     var ids = $(event.currentTarget).data("ids");
     for (var i = 0; i < ids.length; i++) {

@@ -25,7 +25,7 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
     stripHTML: function(event) {
       if (! $(event.target).is("a")) {
-        $(event.currentTarget).html(this.model.get("instructions"))
+        $(event.currentTarget).html(this.model.get("instructions"));
       }
     },
 
