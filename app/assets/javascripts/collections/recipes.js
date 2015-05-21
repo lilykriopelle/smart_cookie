@@ -10,8 +10,9 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
     if (response.total_pages) {
       this.totalPages = response.total_pages;
       delete response.total_pages;
+      return response.recipes;
     }
-    return response.recipes;
+    return response;
   },
 
   getOrFetch: function(id) {

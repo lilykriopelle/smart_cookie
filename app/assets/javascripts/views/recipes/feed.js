@@ -27,10 +27,12 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
     }));
 
     this.collection.each(function(recipe) {
-      var recipeFeedItem = new CookingGenius.Views.RecipeFeedItem({
-        model: recipe
-      });
-      this.addSubview(".recipes-feed", recipeFeedItem);
+      if (recipe.id !== undefined) {
+        var recipeFeedItem = new CookingGenius.Views.RecipeFeedItem({
+          model: recipe
+        });
+        this.addSubview(".recipes-feed", recipeFeedItem);
+      }
     }.bind(this));
     return this;
   },
