@@ -1,7 +1,12 @@
 <% var recipeURL = "#/recipes/" + recipe.id %>
 
 <a href="<%= recipeURL %>"> <%= recipe.escape("title") %>
-  <figure class="image-thumb">
-  <img src="<%= recipe.escape("image_url") %>">
-  </figure>
+
+  <% var missing = "/assets/original/missing-54d0e73cadce0df6743e82adf43836959cc9fe642c2eb7c649a08da2f6b201f3.png" %>
+
+  <% if (recipe.get("image_url") != missing) { %>
+    <figure class="image-thumb">
+      <img src="<%= recipe.escape("image_url") %>">
+    </figure>
+  <% } %>
 </a>
