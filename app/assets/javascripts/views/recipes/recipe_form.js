@@ -9,7 +9,7 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
 
   tagName: "form",
 
-  className: "recipe-form",
+  className: "recipe-form group",
 
   template: JST["recipes/recipe_form"],
 
@@ -33,15 +33,14 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   fileInputChange: function(event) {
-    console.log(event.currentTarget.files[0]);
-
     var that = this;
     var file = event.currentTarget.files[0];
+    this.$(".filename").text(file.name);
     var reader = new FileReader();
 
     reader.onloadend = function(){
       that.model._image = reader.result;
-    }
+    };
 
     if (file) {
       reader.readAsDataURL(file);

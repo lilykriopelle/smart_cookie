@@ -180,14 +180,14 @@
     overflow: hidden;
     border-radius: 3px;
     border: 1px solid black;
-    background: white;
-    width: 115px;
     padding: 5px;
+    width: 32px;
+    height: 32px;
     font-weight: normal;
-}
-
-.fileUpload:hover {
-  background: #eee;
+    background: asset-url("camera.png");
+    background-size: 38px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fileUpload input.upload {
@@ -200,4 +200,13 @@
     cursor: pointer;
     opacity: 0;
     filter: alpha(opacity=0);
+}
+
+.filename {
+  margin: 0;
+  font-weight: bold;
+}
+
+.create-recipe {
+  float: right;
 }

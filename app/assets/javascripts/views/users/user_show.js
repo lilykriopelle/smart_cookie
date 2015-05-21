@@ -16,6 +16,7 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   displayRecipeForm: function() {
+    this.$(".new-recipe").empty();
     var recipeForm = new CookingGenius.Views.RecipeForm({
       model: new CookingGenius.Models.Recipe(),
       collection: this.model.authoredRecipes()
