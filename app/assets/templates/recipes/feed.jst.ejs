@@ -1,11 +1,19 @@
 <% var recipe = recipes.length == 1 ? "recipe" : "recipes"  %>
 
-<p class="num-results">
-<% if (primaryTag != "all") { %>
-Displaying <%= recipes.length %> <%= primaryTag %> <%= recipe %>.
-<% } else { %>
-Displaying all <%= recipes.length %> recipes.
-<% } %>
+<% if (totalPages > 0) { %>
+<p>
+  Page <%= page %> of <%= totalPages %>
 </p>
+<% } else { %>
+  No results.
+<% } %>
+
+<% if (page > 1) { %>
+  <a href="javascript:void(0)" class="previous-page page"> Previous Page </a>
+<% } %>
+
+<% if (page < totalPages) { %>
+  <a href="javascript:void(0)" class="next-page page"> Next Page </a>
+<% } %>
 
 <ul class="recipes-feed"></ul>

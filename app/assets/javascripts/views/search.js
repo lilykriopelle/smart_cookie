@@ -7,7 +7,7 @@ CookingGenius.Views.Search = Backbone.View.extend({
 	events: {
 		"click button": "search",
 		"click .next-page": "nextPage",
-		"click .previous-page": "previousPage"		
+		"click .previous-page": "previousPage"
 	},
 
   className: "search-window",

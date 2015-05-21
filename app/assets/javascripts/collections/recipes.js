@@ -6,6 +6,14 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
 
   initialize: function(options) {},
 
+  parse: function(response) {
+    if (response.total_pages) {
+      this.totalPages = response.total_pages;
+      delete response.total_pages;
+    }
+    return response.recipes;
+  },
+
   getOrFetch: function(id) {
     var recipe = this.get(id);
     var recipes = this;

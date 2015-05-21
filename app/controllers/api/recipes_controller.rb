@@ -5,8 +5,7 @@ class Api::RecipesController < ApplicationController
     filters.each do |k, v|
       @recipes = @recipes.send(k, v) if v.present?
     end
-    @recipes.page(params[:page]).per(10)
-
+    @recipes = @recipes.page(params[:page]).per(10)
     render :index
   end
 

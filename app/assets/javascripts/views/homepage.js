@@ -6,7 +6,6 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
 
   events: {
     "click .tag-nav-link": "displayFilteredRecpies",
-    "blur #query": "replacePrompt",
     "click .search": "search",
     "keypress #query": "searchIfEnter",
     "click #query": "clearPrompt"
@@ -42,12 +41,17 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     var tag = event ? $(event.currentTarget).text(): "all";
     this.$(".recipe-feed-container").empty();
     filtered = new CookingGenius.Collections.Recipes();
+
     filtered.fetch({
-      data: { primary_tag: tag == "all" ? "" : tag},
+      data: {
+        primary_tag: tag == "all" ? "" : tag,
+        page: 1
+      },
       success: function() {
         var recipeFeed = new CookingGenius.Views.RecipeFeed({
           collection: filtered,
-          primary_tag: tag
+          primary_tag: tag,
+          page: 1
         });
         this.addSubview(".recipe-feed-container", recipeFeed);
       }.bind(this)
@@ -62,10 +66,6 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
 
   clearPrompt: function() {
     this.$("#query").val("");
-  },
-
-  replacePrompt: function() {
-    // this.$("#query").val("search!");
   },
 
   render: function() {
