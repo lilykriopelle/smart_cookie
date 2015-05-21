@@ -8,6 +8,12 @@
   margin-top: 20px;
 }
 
+.toggle-recipe-upvote {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
 .toggle-annotation-upvote:hover, .toggle-reply-upvote:hover {
   background: #eee;
 }

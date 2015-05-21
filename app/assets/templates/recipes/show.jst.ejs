@@ -20,6 +20,8 @@
     by <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a>
   </strong>
 </h3>
+</div>
+
 
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
 <button class="toggle-recipe-upvote">
@@ -31,8 +33,6 @@
 <% } else { %>
   <div class="upvotes"> <%= recipe.votes().length %> &#8607; </div>
 <% } %>
-
-</div>
 </div>
 
 <h3 class="servings"> Serves <%= recipe.escape("servings") %> </h3>
