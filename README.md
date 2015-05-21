@@ -53,6 +53,7 @@ I'll make sure everything is styled well, and polish all the front-end stuff.  I
 [Details][phase-five]
 
 ### Bonus Features (TBD)
+- [ ] Log in with Twitter/Facebook
 - [ ] Follow other users
 - [ ] Multiple sessions/session management
 - [ ] User avatars

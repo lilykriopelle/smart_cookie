@@ -1,10 +1,8 @@
 .main {
   width: 850px;
-  margin: auto;
-  padding: 25px;
-  background: white;
-  border: 1px solid black;
+  margin: auto;  background: white;
   border-top: 0;
+  borderbottom: 1px solid #eee;
 }
 
 .recipe-tag-nav-bar {
@@ -51,5 +49,5 @@
 .tag-nav-link:hover {
   text-decoration: none;
   color: white;
-  background: #228B22;
+  background: #fbad18;
 }

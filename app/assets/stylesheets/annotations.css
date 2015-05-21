@@ -59,11 +59,11 @@
 }
 
 .annotationRecipe.active, .annotationRecipesIngredient.active {
-  background: rgba(255, 235, 0, .3);
+  background: rgba(255, 211, 25, .3);
 }
 
 .annotationRecipe.opaque, .annotationRecipesIngredient.opaque, .temp-highlight {
-  background: rgba(255, 235, 0, 1);
+  background: rgba(255, 211, 25, 1);
 }
 
 .annotation-image {
@@ -78,6 +78,7 @@
 
 .annotation-form .filename {
   padding-top: 15px;
+  padding-left: 10px;
 }
 
 .create-annotation {

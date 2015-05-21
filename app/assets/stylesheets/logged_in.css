@@ -1,28 +1,33 @@
 .header {
   width: 100%;
-  background-color: rgb(41, 41, 41);
 }
 
 .logged-in {
-  width: 900px;
-  margin: auto;
+  width: 802px;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   position: relative;
-  background-color: rgb(41, 41, 41);
   font-family: sans-serif;
-  color: #eee;
-  height: 35px;
+  color: black;
+  height: 55px;
   padding-bottom: 15px;
+  background: white;
+  border-bottom: 1px solid #eee;
 }
 
 .logged-in a {
-  color: #F5B800;
+  color: #ee2346;
+}
+
+.logged-in a:hover {
+  color: #fbad18;
 }
 
 .logged-in button {
   float: right;
   margin: 3px;
-  margin-top: 10px;
+  margin-top: 26px;
 }
 
 .logged-in button:hover {
@@ -32,7 +37,7 @@
 .logged-in h3 {
   float: right;
   height: 100%;
-  margin-top: 6px;
+  margin-top: 21px;
   margin-right: 10px;
 }
 
@@ -42,4 +47,23 @@
   margin-top: 9px;
   margin-right: 10px;
   margin-left: 5px;
+}
+
+.home a {
+  display: block;
+  position: absolute;
+  top: 10px;
+  width: 400px;
+  height: 60px;
+  background-image: url("logo.png");
+  background-repeat: no-repeat;
+  background-size: 376px 180px;
+}
+
+.home a:hover {
+  background-position: 0 -60px;
+}
+
+.home a:active {
+  background-position: 0 -120px;
 }
