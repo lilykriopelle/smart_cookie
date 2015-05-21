@@ -77,9 +77,11 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       });
     },
 
+
     render: function() {
       this.$el.html(this.template({recipe: this.model}));
-      this.splitTag(this.$(".recipe-title strong"))
+
+      this.splitTag(this.$(".recipe-title strong"));
 
       this.model.ingredients().each(function(ingredient) {
         var listItem = new CookingGenius.Views.IngredientListItem({

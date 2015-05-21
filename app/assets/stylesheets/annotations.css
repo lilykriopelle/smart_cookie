@@ -13,12 +13,12 @@
   position: fixed;
   right: 125px;
   top: 125px;
-  max-height: 500px;
+  max-height: 600px;
   overflow: auto;
 }
 
 .annotation-show {
-  border-left: 3px solid #ee2346;
+  border-left: 3px solid  #ad0047;
   border-bottom: 1px solid #aaa;
 
   width: 300px;
@@ -35,7 +35,7 @@
   margin-bottom: 10px;
   width: 250px;
   height: 30px;
-  transition: height .75s;
+  transition: height .5s;
   resize: none;
 
 }
@@ -85,7 +85,7 @@
 }
 
 .minimize-annotation {
-  border: 3px solid #ee2346;
+  border: 3px solid #ad0047;
   position: fixed;
   right: 437px;
   top: 118px;
@@ -96,8 +96,7 @@
 }
 
 .minimize-annotation:hover {
-  color: black;
-  background: #ee2346;
+  background: #ad0047;
 }
 
 .reply-form {
@@ -124,7 +123,7 @@
   height: 30px;
   border: 1px solid black;
   resize: none;
-  transition: height .75s;
+  transition: height .5s;
 }
 
 .reply-text:focus {

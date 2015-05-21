@@ -14,8 +14,6 @@
 <% } %>
 </div>
 
-<div class="new-recipe"></div>
-
 <h2>
 <% if (user.authoredRecipes().length > 0) { %>
   <% if (user.id == CookingGenius.currentUser.id) { %>
@@ -31,6 +29,8 @@
     <%= user.escape("name") %> has not added any recipes!
   <% } %>
 <% } %>
+
+<div class="new-recipe"></div>
 
 <% if (user.id == CookingGenius.currentUser.id) { %>
 <button class="display-recipe-form"> Add a Recipe </button>
