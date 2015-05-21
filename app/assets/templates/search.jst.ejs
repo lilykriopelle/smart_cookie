@@ -1,7 +1,10 @@
+<% if (totalPages > 0) { %>
 <p>
   Page <%= page %> of <%= totalPages %>
 </p>
-
+<% } else { %>
+  No results.
+<% } %>
 
 <% if (page > 1) { %>
   <a href="javascript:void(0)" class="previous-page page"> Previous Page </a>

@@ -1,10 +1,10 @@
 .main {
   width: 850px;
   margin: auto;
-  margin-top: 25px;
   padding: 25px;
   background: white;
   border: 1px solid black;
+  border-top: 0;
 }
 
 .recipe-tag-nav-bar {

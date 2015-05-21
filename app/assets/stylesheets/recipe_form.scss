@@ -64,8 +64,7 @@
 }
 
 .recipe-form .tag:checked + .tag-label {
-   background-image: none;
-   background: #F5B800;
+  background: #F5B800;
 }
 
 .recipe-form .tag-label:hover {
@@ -170,10 +169,10 @@
     border-radius: 3px;
 }
 
-/* TODO actually use picture of check */
 .checkbox input:checked + span {
-  background-image: url(check.png) 0 0px no-repeat;
-  border: 1px solid red;
+   background: asset-url("check.png");
+   background-position: -5px;
+   background-size: 31px;
 }
 
 .fileUpload {

@@ -7,7 +7,9 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
   events: {
     "click .tag-nav-link": "displayFilteredRecpies",
     "click .search": "search",
-    "click #query": "clearText"
+    "keypress #query": "searchIfEnter",
+    "click #query": "clearPrompt",
+    "blur #query": "replacePrompt"
   },
 
   initialize: function() {
@@ -52,8 +54,18 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     });
   },
 
-  clearText: function() {
+  searchIfEnter: function(event) {
+    if (event.charCode == 13) {
+      this.search(event);
+    }
+  },
+
+  clearPrompt: function() {
     this.$("#query").val("");
+  },
+
+  replacePrompt: function() {
+    this.$("#query").val("search!");
   },
 
   render: function() {

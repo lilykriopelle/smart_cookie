@@ -53,10 +53,10 @@ I'll make sure everything is styled well, and polish all the front-end stuff.  I
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] Organize recipes into menus
 - [ ] Follow other users
 - [ ] Multiple sessions/session management
 - [ ] User avatars
+- [ ] Organize recipes into menus
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
