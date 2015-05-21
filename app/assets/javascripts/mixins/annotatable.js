@@ -3,7 +3,9 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 CookingGenius.Mixins.Annotatable = {
 
   hideAnnotation: function(event) {
+    event.preventDefault();
     $(".annotation-pop-up").empty();
+    this.render();
   },
 
   popUpAnnotation: function(event) {
@@ -112,7 +114,7 @@ CookingGenius.Mixins.Annotatable = {
       var link = links.eq(i);
       for (var j = 0; j < ids.length; j++) {
         var id = ids[j];
-        if (link.data("ids").indexOf(id) > -1) {
+        if (link.data("ids") && link.data("ids").indexOf(id) > -1) {
           link.addClass("active");
           if (link.data("ids").length > 1) {
             link.addClass("opaque");

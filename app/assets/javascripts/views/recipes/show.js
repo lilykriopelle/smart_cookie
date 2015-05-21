@@ -12,7 +12,14 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
       "click .minimize-annotation": "hideAnnotation",
       "click .toggle-recipe-upvote": "toggleRecipeUpvote",
       'mouseenter .annotationRecipe': "highlightAnnotationLinks",
-      'mouseleave .annotationRecipe': "removeHighlighting"
+      'mouseleave .annotationRecipe': "removeHighlighting",
+      'mouseup .ingredients': "highLightIngredientAnnotations"
+    },
+
+    highLightIngredientAnnotations: function(event) {
+      this.eachSubview(function(subview) {
+        subview.renderAnnotations();
+      });
     },
 
     initialize: function() {

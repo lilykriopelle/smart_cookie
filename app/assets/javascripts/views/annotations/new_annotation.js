@@ -7,7 +7,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
   className: "annotation-form",
 
   events: {
-    "click button": "submit"
+    "click .create-annotation": "submit"
   },
 
   initialize: function(options) {
