@@ -1,12 +1,11 @@
 .annotation-form {
-  border: 1px solid black;
   position: fixed;
   right: 125px;
   top: 125px;
   width: 300px;
   background: #eee;
   padding: 15px;
-  border-radius: 5px;
+  border-left: 3px solid #ee2346;
 }
 
 .annotation-pop-up {
@@ -19,7 +18,7 @@
 }
 
 .annotation-show {
-  border-left: 3px solid #228B22;
+  border-left: 3px solid #ee2346;
   border-bottom: 1px solid #aaa;
 
   width: 300px;
@@ -86,7 +85,7 @@
 }
 
 .minimize-annotation {
-  border: 3px solid #228B22;
+  border: 3px solid #ee2346;
   position: fixed;
   right: 437px;
   top: 118px;
@@ -98,7 +97,7 @@
 
 .minimize-annotation:hover {
   color: black;
-  background: #228B22;
+  background: #ee2346;
 }
 
 .reply-form {
