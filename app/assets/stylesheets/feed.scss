@@ -77,20 +77,21 @@
 }
 
 .search {
-  border-radius: 0px;
   float: right;
   height: 32px;
   width: 32px;
+  padding: 4px;
   border: 0;
-  padding: 3px;
-  border-left: 1px solid black;
   background: asset-url("search.png");
-  background-size: 32px;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 6px, 3px;
   overflow: hidden;
 }
 
 .search:hover {
-  background-color: yellow;
+  background-color: #fbad18;
+  background-image: asset-url("search.png");
 }
 
 #query {
