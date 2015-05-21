@@ -1,17 +1,17 @@
-<div class="pop-up">
-  <h1>Sign In</h1>
+<div class="background-image"></div>
 
-  <form action="<%= session_url %>" method="post">
+<div class="pop-up">
+  <h1 class="logo">Smart Cookie</h1>
+
+  <form class="group" action="<%= session_url %>" method="post">
     <%= authenticity_token %>
 
     <label>
-      Email:
-      <input type="text" name="user[email]" value="" id="email">
+      <input type="text" name="user[email]" value="" id="email" placeholder="Email">
     </label>
 
     <label>
-      Password:
-      <input type="password" name="user[password]" value="" id="password">
+      <input type="password" name="user[password]" value="" id="password" placeholder="Password">
     </label>
 
     <p class="errors">

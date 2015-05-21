@@ -1,0 +1,89 @@
+.background-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: asset-url("background.jpg");
+  background-repeat: no-repeat;
+}
+
+.pop-up {
+  width: 482px;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 250px;
+  font-family: sans-serif;
+  background: rgba(255, 255, 255, .85);
+}
+
+.pop-up form {
+  position: relative;
+  width: 330px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid rgb(85, 85, 85);
+  border-radius: 10px;
+  background: #eee;
+}
+
+.pop-up h1 {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  margin: 10px;
+  color: #ee2346;
+}
+
+.pop-up label {
+  display: block;
+  margin-top: 10px;
+}
+
+.pop-up input {
+  padding: 5px;
+  display: block;
+  width: 320px;
+  height: 25px;
+  border: 1px solid rgba(85, 85, 85, .5);
+  border-radius: 5px;
+  background: white;
+}
+
+.pop-up button {
+  background: white;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.pop-up button:hover {
+  color: #ee2346;
+}
+
+.pop-up button:active {
+  color: white;
+  background-color: #ccc;
+}
+
+.pop-up p {
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.pop-up a {
+  color: #ee2346;
+}
+
+.pop-up .logo {
+  overflow: hidden;
+  display: block;
+  width: 400px;
+  margin-left: 50px;
+  background: image-url("logo.png");
+  background-repeat: no-repeat;
+  background-size: 376px 180px;
+  height: 0;
+  padding-top: 60px;
+}

@@ -64,10 +64,6 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     }
   },
 
-  clearPrompt: function() {
-    this.$("#query").val("");
-  },
-
   render: function() {
     this.$el.html(this.template());
     return this;

@@ -39,7 +39,13 @@ img {
 }
 
 body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   font-family: 'Oxygen', sans-serif;
+  z-index: -20;
 }
 
 h1, h2, h3 {
@@ -57,6 +63,10 @@ pre {
   white-space: -o-pre-wrap;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 button {
