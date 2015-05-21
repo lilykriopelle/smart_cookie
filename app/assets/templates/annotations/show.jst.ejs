@@ -21,6 +21,12 @@
   <% } %>
 </div>
 
+<div class="annotation-image">
+  <% if (annotation.get("image_url") != "/images/original/missing.png") { %>
+    <img src="<%= annotation.get("image_url") %>">
+  <% } %>
+</div>
+
 <form class="reply-form group">
   <textarea class="reply-text" rows="1" cols="150"></textarea>
   <button class="reply">Reply</button>

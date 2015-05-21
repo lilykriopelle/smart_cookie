@@ -7,7 +7,8 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
   className: "annotation-form",
 
   events: {
-    "click .create-annotation": "submit"
+    "click .create-annotation": "submit",
+    "change #annotation-image": "fileInputChange"
   },
 
   initialize: function(options) {
@@ -19,7 +20,7 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
 
   submit: function(event) {
     event.preventDefault();
-    var formAttrs = this.$el.serializeJSON();
+    var formAttrs = this.$el.serializeJSON().annotation;
     this.model.save(formAttrs, {
       success: function() {
         this.collection.add(this.model);
@@ -28,10 +29,31 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
         } else {
           CookingGenius.recipes.getOrFetch(this.annotatable.get("recipe_id"));
         }
-      }.bind(this)
+      }.bind(this),
+
+      error: function(model, response) {
+        debugger;
+      }
     });
 
     this.remove();
+  },
+
+  fileInputChange: function(event) {
+    var that = this;
+    var file = event.currentTarget.files[0];
+    this.$(".filename").text(file.name);
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that.model._image = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      delete that.model._image;
+    }
   },
 
   render: function() {

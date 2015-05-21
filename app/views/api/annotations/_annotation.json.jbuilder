@@ -1,4 +1,5 @@
 json.extract! annotation, :id, :annotatable_id, :annotatable_type, :start_idx, :end_idx, :body
+json.image_url asset_path(annotation.image.url(:original))
 json.author annotation.author, :name, :id
 
 json.votes annotation.votes do |vote|

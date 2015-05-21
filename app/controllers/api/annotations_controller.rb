@@ -21,7 +21,7 @@ class Api::AnnotationsController < ApplicationController
 
   private
     def annotation_params
-      params.require(:annotation).permit(:annotatable_id, :annotatable_type, :author_id, :start_idx, :end_idx, :body)
+      params.require(:annotation).permit(:annotatable_id, :annotatable_type, :author_id, :start_idx, :end_idx, :body, :image)
     end
 
 end

@@ -45,7 +45,6 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      that._updatePreview("");
       delete that.model._image;
     }
   },

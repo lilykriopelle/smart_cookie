@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520175138) do
+ActiveRecord::Schema.define(version: 20150521150825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,14 +28,18 @@ ActiveRecord::Schema.define(version: 20150520175138) do
   add_index "annotation_replies", ["author_id"], name: "index_annotation_replies_on_author_id", using: :btree
 
   create_table "annotations", force: :cascade do |t|
-    t.integer  "annotatable_id",   null: false
-    t.integer  "author_id",        null: false
-    t.text     "body",             null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "annotatable_id",     null: false
+    t.integer  "author_id",          null: false
+    t.text     "body",               null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "annotatable_type"
-    t.integer  "start_idx",        null: false
-    t.integer  "end_idx",          null: false
+    t.integer  "start_idx",          null: false
+    t.integer  "end_idx",            null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "annotations", ["annotatable_id"], name: "index_annotations_on_annotatable_id", using: :btree

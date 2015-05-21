@@ -66,6 +66,24 @@
   background: rgba(255, 235, 0, 1);
 }
 
+.annotation-image {
+  width: 275px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.annotation-form .fileUpload, .annotation-form .filename {
+  float: left;
+}
+
+.annotation-form .filename {
+  padding-top: 15px;
+}
+
+.create-annotation {
+  float: right;
+}
+
 .minimize-annotation {
   border: 3px solid #228B22;
   border-radius: 0px;

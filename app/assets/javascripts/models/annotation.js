@@ -44,6 +44,16 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
     }
 
     return this._replies;
+  },
+
+  toJSON: function(){
+    var json = { annotation: _.clone(this.attributes) } ;
+
+    if (this._image) {
+      json.annotation.image = this._image;
+    }
+
+    return json;
   }
 
 });

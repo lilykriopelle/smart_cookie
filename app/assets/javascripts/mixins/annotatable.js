@@ -28,13 +28,14 @@ CookingGenius.Mixins.Annotatable = {
       this.temporarilyHighlight(startIdx, endIdx, element);
 
       var annotation = new CookingGenius.Models.Annotation({
-        annotatable: this.model,
         start_idx: startIdx,
         end_idx: endIdx,
         annotatable_id: this.model.id,
         annotatable_type: this.annotatableType,
         author_id: CookingGenius.currentUser.id
       });
+
+      annotation.annotatable = this.model;
 
       var annotationForm = new CookingGenius.Views.NewAnnotation({
         annotatable: this.model,
