@@ -44,26 +44,14 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     },
 
     toggleRecipeUpvote: function() {
-      vote = this.model.votes().where({voter_id: CookingGenius.currentUser.id});
-      if (vote[0]) {
-        vote[0].destroy();
+      if (this.model.get("can_vote") == true) {
+        this.upvote();
       } else {
-        var vote = new CookingGenius.Models.Vote({
-          voter_id: CookingGenius.currentUser.id,
-          voteable_id: this.model.id,
-          voteable_type: "Recipe"
-        });
-
-        vote.save({}, {
-          success: function() {
-            this.model.votes().add(vote);
-          }.bind(this)
-        });
+        this.downvote();
       }
     },
 
-    upvoteRecipe: function(event) {
-      event.preventDefault();
+    upvote: function() {
       var vote = new CookingGenius.Models.Vote({
         voter_id: CookingGenius.currentUser.id,
         voteable_id: this.model.id,
@@ -72,11 +60,20 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
       vote.save({}, {
         success: function() {
-          this.model.votes().add(vote);
+          this.model.fetch();
         }.bind(this)
       });
     },
 
+    downvote: function() {
+      $.ajax({
+        url: '/api/votes/' + this.model.get("vote_id"),
+        type: 'DELETE',
+        success: function() {
+          this.model.fetch();
+        }.bind(this)
+      });
+    },
 
     render: function() {
       this.$el.html(this.template({recipe: this.model}));

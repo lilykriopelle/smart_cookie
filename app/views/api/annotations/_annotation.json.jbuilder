@@ -2,13 +2,10 @@ json.extract! annotation, :id, :annotatable_id, :annotatable_type, :start_idx, :
 json.image_url asset_path(annotation.image.url(:original))
 json.author annotation.author, :name, :id
 
-json.votes annotation.votes do |vote|
-  json.extract! vote, :id, :voter_id
-end
+json.num_votes annotation.votes().size
+json.can_vote annotation.can_vote(current_user)
+json.vote_id !annotation.can_vote(current_user) ? annotation.vote_id(current_user) : nil
 
 json.replies annotation.replies do |reply|
-  json.extract! reply, :id, :body
-  json.author do
-    json.extract! reply.author, :id, :name
-  end
+  json.partial! 'api/annotation_replies/reply', reply: reply
 end

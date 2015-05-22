@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :annotations, except: [:edit] do
-      resources :annotation_replies, only: [:index, :create, :destroy]
+      resources :annotation_replies, only: [:index, :create, :destroy, :show]
     end
 
     resources :users, only: [:show]

@@ -25,13 +25,13 @@
 
 <% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
 <button class="toggle-recipe-upvote">
-  <p class="num_votes"> <%= recipe.votes().length %> </p>
+  <p class="num_votes"> <%= recipe.get("num_votes") %> </p>
   <p class="arrow">
     &#8607;
   </p>
 </button>
 <% } else { %>
-  <div class="upvotes"> <%= recipe.votes().length %> &#8607; </div>
+  <div class="upvotes"> <%= recipe.get("num_votes") %> &#8607; </div>
 <% } %>
 </div>
 

@@ -8,11 +8,6 @@ CookingGenius.Models.Annotation = Backbone.Model.extend({
       delete response.author;
     }
 
-    if (response.votes) {
-      this.votes().set(response.votes, { parse: true });
-      delete response.votes;
-    }
-
     if (response.replies) {
       this.replies().set(response.replies, { parse: true });
       delete response.replies;

@@ -13,12 +13,12 @@
 <div class="group">
 <% if (reply.author().id !== CookingGenius.currentUser.id && reply.author().id !== undefined) {%>
 <button class="toggle-reply-upvote">
-  <p class="num_votes"> <%= reply.votes().length %> </p>
+  <p class="num_votes"> <%= reply.get("num_votes") %> </p>
   <p class="arrow">
     &#8607;
   </p>
 </button>
 <% } else { %>
-  <div class="upvotes"> <%= reply.votes().length %> &#8607; </div>
+  <div class="upvotes"> <%= reply.get("num_votes") %> &#8607; </div>
 <% } %>
 </div>

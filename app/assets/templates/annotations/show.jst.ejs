@@ -11,13 +11,13 @@
 
   <% if (annotation.author().id != CookingGenius.currentUser.id) { %>
   <button class="toggle-annotation-upvote">
-    <p class="num_votes"> <%= annotation.votes().length %> </p>
+    <p class="num_votes"> <%= annotation.get("num_votes") %> </p>
     <p class="arrow">
       &#8607;
     </p>
   </button>
   <% } else { %>
-    <div class="upvotes"> <%= annotation.votes().length %> &#8607; </div>
+    <div class="upvotes"> <%= annotation.get("num_votes") %> &#8607; </div>
   <% } %>
 </div>
 

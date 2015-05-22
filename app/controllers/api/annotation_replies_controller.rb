@@ -19,6 +19,11 @@ class Api::AnnotationRepliesController < ApplicationController
     render :index
   end
 
+  def show
+    @reply = Annotation.find(params[:annotation_id]).replies.find(params[:id])
+    render :index
+  end
+
   private
     def reply_params
       params.require(:annotation_reply).permit(:annotation_id, :author_id, :body)

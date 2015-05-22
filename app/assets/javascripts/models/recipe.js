@@ -24,10 +24,10 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
       delete response.annotations;
     }
 
-    if (response.votes) {
-      this.votes().set(response.votes, {parse: true});
-      delete response.votes;
-    }
+    // if (response.votes) {
+    //   this.votes().set(response.votes, {parse: true});
+    //   delete response.votes;
+    // }
 
     return response;
   },

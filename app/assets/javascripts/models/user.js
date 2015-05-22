@@ -8,11 +8,6 @@ CookingGenius.Models.User = Backbone.Model.extend({
       delete response.authored_recipes;
     }
 
-    if (response.votes) {
-      this.votes().set(response.votes, {parse: true});
-      delete response.votes;
-    }
-
     return response;
   },
 

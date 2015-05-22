@@ -12,9 +12,9 @@ end
 
 json.extract! recipe, :instructions
 
-json.votes recipe.votes do |vote|
-  json.extract! vote, :id, :voter_id
-end
+json.num_votes recipe.votes.size
+json.can_vote recipe.can_vote(current_user)
+json.vote_id !recipe.can_vote(current_user) ? recipe.vote_id(current_user) : nil
 
 json.intervals recipe.intervals_hash
 
