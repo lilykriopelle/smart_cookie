@@ -6,7 +6,7 @@ class Api::AnnotationsController < ApplicationController
   end
 
   def show
-    @annotation = Annotation.find(params[:id])
+    @annotation = Annotation.includes(:replies, :votes).find(params[:id])
     render :show
   end
 

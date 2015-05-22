@@ -21,7 +21,7 @@ class Api::AnnotationRepliesController < ApplicationController
 
   def show
     @reply = Annotation.find(params[:annotation_id]).replies.find(params[:id])
-    render :index
+    render :show
   end
 
   private

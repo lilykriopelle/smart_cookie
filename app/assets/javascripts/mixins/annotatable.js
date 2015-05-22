@@ -4,7 +4,7 @@ CookingGenius.Mixins.Annotatable = {
 
   hideAnnotation: function(event) {
     event.preventDefault();
-    $(".annotation-pop-up").empty();
+    $(event.currentTarget).parent().empty();
     this.render();
   },
 

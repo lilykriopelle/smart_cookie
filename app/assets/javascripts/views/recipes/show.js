@@ -24,9 +24,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
     initialize: function() {
       this.annotatableSelector = ".instructions";
       this.annotatableType = "Recipe";
-      this.listenTo(this.model, "sync", this.render);
+      this.listenTo(this.model, "sync change", this.render);
       this.listenTo(this.model.annotations(), "add", this.renderAnnotations);
-      this.listenTo(this.model.votes(), "add remove", this.render);
     },
 
     stripHTML: function(event) {
@@ -60,7 +59,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
       vote.save({}, {
         success: function() {
-          this.model.fetch();
+          var num_votes = this.model.get("num_votes") + 1;
+          this.model.set({can_vote: false, vote_id: vote.id, num_votes: num_votes});
         }.bind(this)
       });
     },
@@ -70,7 +70,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
         url: '/api/votes/' + this.model.get("vote_id"),
         type: 'DELETE',
         success: function() {
-          this.model.fetch();
+          var num_votes = this.model.get("num_votes") - 1;
+          this.model.set({can_vote: true, vote_id: null, num_votes: num_votes});
         }.bind(this)
       });
     },

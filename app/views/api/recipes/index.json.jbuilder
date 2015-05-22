@@ -3,5 +3,5 @@ if @recipes.try(:total_pages)
 end
 
 json.recipes do
-   json.partial! 'api/recipes/recipe', collection: @recipes, as: :recipe
+   json.partial! 'api/recipes/recipe_search_result', collection: @recipes, as: :recipe
 end
