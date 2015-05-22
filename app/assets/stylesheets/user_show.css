@@ -8,13 +8,28 @@
 .user-name {
   font-weight: bold;
   font-size: 36px;
+  margin-bottom: 0;
+}
+
+.user-show p {
+  padding-top: 0;
 }
 
 .display-recipe-form {
-  margin-left: 10px;
+  margin-top: 10px;
   padding: 10px;
 }
 
 .display-recipe-form:hover {
   background: #eee;
+}
+
+.authored-recipes {
+  width: 800px;
+  margin: auto;
+}
+
+.authored-recipes .recipe-feed-item {
+  margin: 0;
+  margin-bottom: 20px;
 }
