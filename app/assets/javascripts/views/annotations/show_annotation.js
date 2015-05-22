@@ -1,7 +1,7 @@
 CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   template: JST["annotations/show"],
-  className: "annotation-show group",
+  className: "annotation-show group draggable",
 
   events: {
     "click .upvote-annotation": "upvoteAnnotation",

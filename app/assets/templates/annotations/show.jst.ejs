@@ -6,7 +6,7 @@
   <% var userUrl = "#/users/" + annotation.author().id %>
 
   <p>
-  by <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
+  - <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
   </p>
 
   <% if (annotation.author().id != CookingGenius.currentUser.id) { %>

@@ -80,9 +80,6 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
 
     render: function() {
       this.$el.html(this.template({recipe: this.model}));
-
-      this.splitTag(this.$(".recipe-title strong"));
-
       this.model.ingredients().each(function(ingredient) {
         var listItem = new CookingGenius.Views.IngredientListItem({
           model: ingredient,
@@ -92,19 +89,8 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
         this.addSubview(".ingredients", listItem);
       }.bind(this));
       this.renderAnnotations();
+      this.$(".annotation-pop-up").draggable();
       return this;
-    },
-
-    splitTag: function(tag) {
-      if (tag.width() < 600) {
-        return;
-      } else {
-        var words = tag.text().split(/\s+/);
-        words = words.slice(1, words.length-1);
-        var tag1 = "<strong>" + words.slice(0, Math.floor(words.length/2)).join(" ") + "</strong><br><br>";
-        var tag2 = "<strong>" + words.slice(Math.floor(words.length/2)).join(" ") + "</strong>";
-        tag.replaceWith(tag1 + tag2);
-      }
     }
 });
 

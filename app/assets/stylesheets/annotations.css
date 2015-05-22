@@ -17,6 +17,10 @@
   overflow: auto;
 }
 
+.show-annotation {
+  text-align: left;
+}
+
 .annotation-show {
   border-left: 3px solid  #ad0047;
   border-bottom: 1px solid #aaa;
@@ -86,9 +90,9 @@
 
 .minimize-annotation {
   border: 3px solid #ad0047;
-  position: fixed;
-  right: 437px;
-  top: 118px;
+  absolute: fixed;
+  top: 0;
+  left: 0;
   width: 30px;
   font-weight: bold;
   background: #aaa;
