@@ -11,7 +11,6 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model, "change", this.render);
     this.listenTo(this.model.authoredRecipes(), "sync", this.render);
   },
 
@@ -42,6 +41,7 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
     vote.save({}, {
       success: function() {
         var num_votes = this.model.get("num_votes") + 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: false, vote_id: vote.id, num_votes: num_votes});
       }.bind(this)
     });
@@ -53,6 +53,7 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
       type: 'DELETE',
       success: function() {
         var num_votes = this.model.get("num_votes") - 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: true, vote_id: null, num_votes: num_votes});
       }.bind(this)
     });

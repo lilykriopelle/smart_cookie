@@ -11,10 +11,6 @@ CookingGenius.Views.ReplyShow = Backbone.View.extend({
     "click .toggle-reply-upvote": "toggleReplyUpvote",
   },
 
-  initialize: function() {
-    this.listenTo(this.model, "change", this.render);
-  },
-
   render: function() {
     this.$el.html(this.template({ reply: this.model }));
     return this;
@@ -38,6 +34,7 @@ CookingGenius.Views.ReplyShow = Backbone.View.extend({
     vote.save({}, {
       success: function() {
         var num_votes = this.model.get("num_votes") + 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: false, vote_id: vote.id, num_votes: num_votes});
       }.bind(this)
     });
@@ -49,6 +46,7 @@ CookingGenius.Views.ReplyShow = Backbone.View.extend({
       type: 'DELETE',
       success: function() {
         var num_votes = this.model.get("num_votes") - 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: true, vote_id: null, num_votes: num_votes});
       }.bind(this)
     });

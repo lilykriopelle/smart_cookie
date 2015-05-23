@@ -12,7 +12,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
 
   initialize: function() {
-    this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add", this.render);
   },
 
@@ -21,6 +21,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     var replyBody = this.$(".reply-text").val();
     if (replyBody.length > 0) {
       var attrs = {
+        num_votes: 0,
         body: replyBody,
         author_id: CookingGenius.currentUser.id,
         annotation_id: this.model.id
@@ -47,6 +48,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     vote.save({}, {
       success: function() {
         var num_votes = this.model.get("num_votes") + 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: false, vote_id: vote.id, num_votes: num_votes});
       }.bind(this)
     });
@@ -58,6 +60,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
       type: 'DELETE',
       success: function() {
         var num_votes = this.model.get("num_votes") - 1;
+        this.$(".num-votes").html(num_votes);
         this.model.set({can_vote: true, vote_id: null, num_votes: num_votes});
       }.bind(this)
     });
