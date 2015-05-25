@@ -7,7 +7,7 @@ class Api::RecipesController < ApplicationController
     end
 
     if (params[:page])
-      @recipes = @recipes.page(params[:page]).per(10)
+      @recipes = @recipes.page(params[:page]).per(6)
     end
 
     render :index

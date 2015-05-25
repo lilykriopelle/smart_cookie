@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     get "search", to: "static_pages#search"
   end
 
+  get "auth/:provider/callback", to: "sessions#omniauth"
 end
