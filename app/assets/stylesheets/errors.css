@@ -1,8 +1,7 @@
 .errors {
   display: block;
   width: 100%;
-  color: #eee;
-  text-align: center;
+  color: black;
 }
 
 .errors ul {
@@ -11,4 +10,5 @@
 
 .errors li {
   width: 100%;
+  text-align: center;
 }

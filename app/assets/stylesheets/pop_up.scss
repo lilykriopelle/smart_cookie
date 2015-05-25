@@ -19,11 +19,6 @@
 
 .pop-up .blurb {
   width: 300px;
-  margin: 0 auto;
-}
-
-.sign-up .blurb {
-  width: 300px;
   margin: 20px auto;
 }
 
@@ -53,6 +48,10 @@
   display: block;
 }
 
+.pop-up button {
+  margin-top: 20px;
+}
+
 .pop-up .guest-login {
   background: transparent;
   position: absolute;
@@ -60,6 +59,12 @@
   left: 50%;
   transform: translateX(-50%);
   border: 0;
+}
+
+
+.pop-up .twitter-login {
+  position: absolute;
+  bottom: 55px;
 }
 
 .pop-up .guest-login button {
@@ -79,6 +84,7 @@
 .sign-in input {
   margin-top: 15px;
 }
+
 
 .pop-up button {
   background: white;
@@ -106,7 +112,7 @@
   color: #ee2346;
 }
 
-.pop-up .twitter-login, .pop-up .guest-login button {
+.pop-up .twitter-login, .pop-up .twitter-signup, .pop-up .guest-login button {
   display: block;
   box-sizing: border-box;
   background: #ee2346;

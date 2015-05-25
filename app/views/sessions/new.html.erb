@@ -1,6 +1,9 @@
 <div class="background-image"></div>
 <div class="pop-up">
   <h1 class="logo">Smart Cookie</h1>
+
+  <div class="errors"> <%= render "errors" %> </div>
+
   <form class="sign-in group" action="<%= session_url %>" method="post">
     <%= authenticity_token %>
 
@@ -12,23 +15,18 @@
       <input type="password" name="user[password]" value="" id="password" placeholder="Password">
     </label>
 
-    <p class="errors">
-      <%= render "errors" %>
-    </p>
+    <a class="twitter-login" href="/auth/twitter">Sign In with Twitter</a>
 
-    <div class="group">
+    <div>
       <button>Log In!</button>
     </div>
 
-    <a class="twitter-login" href="/auth/twitter">Sign In with Twitter</a>
   </form>
 
   <form class="guest-login" action="<%= session_demo_url %>" method="post">
     <%= authenticity_token %>
     <button>Sign In as Demo User</button>
   </form>
-
-  <br>
 
   <p class="blurb">
     SmartCookie is a collaborative recipe development platform inspired by Genius.

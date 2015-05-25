@@ -1,7 +1,8 @@
 <div class="background-image"></div>
-
 <div class="pop-up sign-up">
   <h1 class="logo">Smart Cookie</h1>
+
+  <div class="errors"> <%= render "errors" %> </div>
 
   <form class="group" action="<%= users_url %>" method="post">
     <%= authenticity_token %>
@@ -22,16 +23,11 @@
     </label>
     <br>
 
-    <div class="group">
+    <div class="sign-up-button group">
       <button>Sign Up!</button>
     </div>
 
-    <a class="twitter-login" href="/auth/twitter">Sign Up with Twitter</a>
-
-    <div class="errors">
-      <%= render "errors" %>
-    </div>
-
+    <a class="twitter-signup" href="/auth/twitter">Sign Up with Twitter</a>
   </form>
 
   <p class="blurb">
