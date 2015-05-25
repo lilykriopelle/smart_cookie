@@ -37,7 +37,6 @@
 
 .pop-up label {
   display: block;
-  margin-top: 10px;
 }
 
 .pop-up input {
@@ -50,10 +49,14 @@
   background: white;
 }
 
+.sign-in input {
+  margin-top: 15px;
+}
+
 .pop-up button {
   background: white;
   float: right;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .pop-up button:hover {
@@ -74,6 +77,20 @@
 
 .pop-up a {
   color: #ee2346;
+}
+
+.pop-up .twitter-login {
+  display: block;
+  box-sizing: border-box;
+  background: #ee2346;
+  color: white;
+  padding-top: 9px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+  height: 35px;
+  width: 330px;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .pop-up .logo {

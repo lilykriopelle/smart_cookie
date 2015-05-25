@@ -3,7 +3,7 @@
 <div class="pop-up">
   <h1 class="logo">Smart Cookie</h1>
 
-  <form class="group" action="<%= session_url %>" method="post">
+  <form class="sign-in group" action="<%= session_url %>" method="post">
     <%= authenticity_token %>
 
     <label>
@@ -18,10 +18,11 @@
       <%= render "errors" %>
     </p>
 
-    <a href="/auth/twitter">Sign In with Twitter</a>
+    <div class="group">
+      <button>Log In!</button>
+    </div>
 
-    <button>Log In!</button>
-
+    <a class="twitter-login" href="/auth/twitter">Sign In with Twitter</a>
   </form>
 
   <br>
