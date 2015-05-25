@@ -1,23 +1,17 @@
 .main {
   width: 850px;
-  margin: auto;  background: white;
+  margin: auto;
+  background: white;
   border-top: 0;
   borderbottom: 1px solid #eee;
 }
 
 .recipe-tag-nav-bar {
   width: 800px;
-  margin: auto;
-  margin-top: 20px;
+  height: 31px;
+  margin: 20px auto;
   border: 1px solid black;
-}
-
-.author-search {
-  float: left;
-}
-
-.author-search button {
-  font-size: 12px;
+  overflow: hidden;
 }
 
 .recipe-tag-nav-bar label {
@@ -29,25 +23,36 @@
 }
 
 .tag-links {
-  margin: auto;
+  display: block;
+  float: left;
+  height: 100%;
+  margin: -4px auto;
   background: white;
+}
+
+.recipe-tag-nav-bar .tag-nav-link:active {
+  background: #ad0047;
 }
 
 .tag-links li {
   float: left;
+  height: 31px;
+}
+
+.tag-links li a {
+  height: 31px;
 }
 
 .tag-nav-link {
   display: block;
   font-size: 14px;
   float: left;
-  padding: 7px 8px;
+  padding: 10px 8px;
   border-right: 1px solid black;
   height: 100%;
 }
 
 .tag-nav-link:hover {
-  text-decoration: none;
   color: white;
   background: #fbad18;
 }

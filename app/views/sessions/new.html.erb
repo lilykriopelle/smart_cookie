@@ -1,5 +1,4 @@
 <div class="background-image"></div>
-
 <div class="pop-up">
   <h1 class="logo">Smart Cookie</h1>
 
@@ -23,6 +22,11 @@
     </div>
 
     <a class="twitter-login" href="/auth/twitter">Sign In with Twitter</a>
+  </form>
+
+  <form class="guest-login" action="<%= session_demo_url %>" method="post">
+    <%= authenticity_token %>
+    <button>Sign In as Demo User</button>
   </form>
 
   <br>

@@ -27,6 +27,10 @@
   background: #eee;
 }
 
+.pop-up .sign-in {
+  height: 250px;
+}
+
 .pop-up h1 {
   font-weight: bold;
   font-size: 28px;
@@ -37,6 +41,11 @@
 
 .pop-up label {
   display: block;
+}
+
+.pop-up .guest-login {
+  border: 0;
+  background: transparent;
 }
 
 .pop-up input {
@@ -79,18 +88,24 @@
   color: #ee2346;
 }
 
-.pop-up .twitter-login {
+.pop-up .twitter-login, .pop-up .guest-login button {
   display: block;
   box-sizing: border-box;
   background: #ee2346;
   color: white;
-  padding-top: 9px;
-  padding-bottom: 1px;
+  padding-top: 7px;
+  padding-bottom: 5px;
   margin-bottom: 10px;
   height: 35px;
   width: 330px;
   text-align: center;
   border-radius: 5px;
+}
+
+.guest-login button {
+  position: absolute;
+  top: -50px;
+  border: 0;
 }
 
 .pop-up .logo {

@@ -7,9 +7,6 @@
   padding: 10px;
 }
 
-.recipe-tag-nav-bar {
-  position: relative;
-}
 
 .recipe-feed-item, .user-list-item {
   background: white;
@@ -55,14 +52,6 @@
   overflow: auto;
 }
 
-.tag-links {
-  float: left;
-}
-
-.tag-nav-link:hover {
-  font-weight: normal;
-}
-
 .user-list-item .upvotes {
   position: absolute;;
   right: 35px;
@@ -70,13 +59,13 @@
 }
 
 .search-bar {
-  position: absolute;
-  top: 0;
-  right: 0;
   float: right;
+  height: 100%;
+  margin-top: -3px;
 }
 
 .search {
+  box-sizing: border-box;
   float: right;
   height: 32px;
   width: 32px;
