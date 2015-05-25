@@ -17,6 +17,16 @@
   background: rgba(255, 255, 255, .85);
 }
 
+.pop-up .blurb {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.sign-up .blurb {
+  width: 300px;
+  margin: 20px auto;
+}
+
 .pop-up form {
   position: relative;
   width: 330px;
@@ -44,8 +54,16 @@
 }
 
 .pop-up .guest-login {
-  border: 0;
   background: transparent;
+  position: absolute;
+  bottom: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0;
+}
+
+.pop-up .guest-login button {
+  border: 0;
 }
 
 .pop-up input {
@@ -100,12 +118,6 @@
   width: 330px;
   text-align: center;
   border-radius: 5px;
-}
-
-.guest-login button {
-  position: absolute;
-  top: -50px;
-  border: 0;
 }
 
 .pop-up .logo {

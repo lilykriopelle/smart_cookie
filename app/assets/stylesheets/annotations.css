@@ -24,7 +24,7 @@
 .annotation-show {
   border-left: 3px solid  #ad0047;
   border-bottom: 1px solid #aaa;
-  width: 300px;
+  width: 350px;
   background: #eee;
   padding: 15px;
 }
@@ -89,9 +89,9 @@
 
 .minimize-annotation {
   border: 3px solid #ad0047;
-  absolute: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 30px;
   font-weight: bold;
   background: #aaa;
@@ -121,7 +121,7 @@
 
 .reply-text {
   float: left;
-  width: 200px;
+  width: 250px;
   background: white;
   height: 30px;
   border: 1px solid black;
@@ -131,6 +131,10 @@
 
 .reply-text:focus {
   height: 150px;
+}
+
+.reply-form button:hover {
+  background: #ddd;
 }
 
 .reply-list-item {

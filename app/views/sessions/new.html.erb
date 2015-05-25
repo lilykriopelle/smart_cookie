@@ -1,7 +1,6 @@
 <div class="background-image"></div>
 <div class="pop-up">
   <h1 class="logo">Smart Cookie</h1>
-
   <form class="sign-in group" action="<%= session_url %>" method="post">
     <%= authenticity_token %>
 
@@ -31,6 +30,11 @@
 
   <br>
 
-  <p>Don't have an account? <a href="<%= new_user_url %>">Sign Up!</a></p>
+  <p class="blurb">
+    SmartCookie is a collaborative recipe development platform inspired by Genius.
+  </p>
+  <p>
+    Don't have an account? <a href="<%= new_user_url %>">Sign Up!</a>
+  </p>
 
 </div>
