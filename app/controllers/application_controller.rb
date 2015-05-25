@@ -4,17 +4,18 @@ class ApplicationController < ActionController::Base
   helper_method :sign_in!, :current_user, :logged_in?, :log_out!, :require_login
 
   def sign_in!(user)
-    session[:session_token] = user.reset_session_token!
-    user.save
+    session[:session_token] = Session.generate_session_token
+    user.sessions.create!({session_token: session[:session_token]})
   end
 
   def log_out!(user)
-    session[:session_token] = nil
-    user.reset_session_token!
+    @session = Session.find_by({session_token: session[:session_token]})
+    @session.destroy
   end
 
   def current_user
-    User.find_by({session_token: session[:session_token]});
+    current_session = Session.find_by({session_token: session[:session_token]})
+    current_session ? current_session.user : nil
   end
 
   def logged_in?

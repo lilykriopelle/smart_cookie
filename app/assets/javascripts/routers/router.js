@@ -6,12 +6,12 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "index",
+    "": "homepage",
     "users/:id": "showUser",
     "recipes/:id": "showRecipe"
   },
 
-  index: function() {
+  homepage: function() {
     var homePage = new CookingGenius.Views.Homepage();
     this._swapView(homePage);
   },
