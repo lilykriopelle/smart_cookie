@@ -8,6 +8,10 @@
   border-left: 3px solid #ee2346;
 }
 
+.annotation-form h1 {
+  margin-top: 25px;
+}
+
 .annotation-pop-up {
   text-align: right;
   position: fixed;

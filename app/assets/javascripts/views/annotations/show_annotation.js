@@ -6,12 +6,12 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
   events: {
     "click .upvote-annotation": "upvoteAnnotation",
     "click .remove-upvote": "removeUpvote",
-    "click .toggle-annotation-upvote": "toggleAnnotationUpvote",
+    "click .toggle-annotation-upvote": "toggleUpvote",
     "click .reply": "submitReply"
   },
 
-
   initialize: function() {
+    this.voteableType = "Annotation";
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add", this.render);
   },
@@ -30,42 +30,6 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     }
   },
 
-  toggleAnnotationUpvote: function() {
-    if (this.model.get("can_vote") == true) {
-      this.upvote();
-    } else {
-      this.downvote();
-    }
-  },
-
-  upvote: function() {
-    var vote = new CookingGenius.Models.Vote({
-      voter_id: CookingGenius.currentUser.id,
-      voteable_id: this.model.id,
-      voteable_type: "Annotation"
-    });
-
-    vote.save({}, {
-      success: function() {
-        var num_votes = this.model.get("num_votes") + 1;
-        this.$(".num-votes").html(num_votes);
-        this.model.set({can_vote: false, vote_id: vote.id, num_votes: num_votes});
-      }.bind(this)
-    });
-  },
-
-  downvote: function() {
-    $.ajax({
-      url: '/api/votes/' + this.model.get("vote_id"),
-      type: 'DELETE',
-      success: function() {
-        var num_votes = this.model.get("num_votes") - 1;
-        this.$(".num-votes").html(num_votes);
-        this.model.set({can_vote: true, vote_id: null, num_votes: num_votes});
-      }.bind(this)
-    });
-  },
-
   render: function() {
     this.$el.html(this.template({ annotation: this.model }));
     this.model.replies().each(function(reply){
@@ -75,3 +39,8 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     return this;
   }
 });
+
+_.extend(
+  CookingGenius.Views.AnnotationShow.prototype,
+  CookingGenius.Mixins.Voteable
+);
