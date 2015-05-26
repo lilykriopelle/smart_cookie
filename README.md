@@ -1,7 +1,8 @@
 # Cooking Genius
 
-[Live link][live]
-[live]: www.smart-cookie.co
+[Heroku link][heroku]
+
+[heroku]: https://cookinggenius.herokuapp.com
 
 ## Minimum Viable Product
 Cooking Genius is a Genius clone geared toward annotating recipes built on Rails and Backbone.  Users can:
