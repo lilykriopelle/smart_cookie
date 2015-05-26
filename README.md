@@ -5,7 +5,7 @@
 [heroku]: https://cookinggenius.herokuapp.com
 
 ## Minimum Viable Product
-Cooking Genius is a Genius clone geared toward annotating recipes and menus built on Rails and Backbone.  Users can:
+Cooking Genius is a Genius clone geared toward annotating recipes built on Rails and Backbone.  Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
@@ -53,10 +53,10 @@ I'll make sure everything is styled well, and polish all the front-end stuff.  I
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] Log in with Twitter/Facebook
-- [ ] Follow other users
-- [ ] Multiple sessions/session management
+- [x] Multiple sessions/session management
+- [x] Log in with Twitter/Facebook
 - [ ] User avatars
+- [ ] Follow other users
 - [ ] Organize recipes into menus
 
 [phase-one]: ./docs/phases/phase1.md

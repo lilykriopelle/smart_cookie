@@ -44,7 +44,6 @@
   height: 77px;
   margin-right: 20px;
   overflow: hidden;
-  border: 1px solid black;
 }
 
 .recipes-feed {
@@ -67,8 +66,8 @@
 .search {
   box-sizing: border-box;
   float: right;
-  height: 33px;
-  width: 33px;
+  height: 34px;
+  width: 34px;
   padding: 4px;
   border: 0;
   background: asset-url("search.png");
