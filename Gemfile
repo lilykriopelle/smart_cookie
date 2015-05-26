@@ -37,10 +37,11 @@ gem 'paperclip', "~> 4.2"
 gem 'pg_search'
 gem 'kaminari'
 
-
 gem 'omniauth-twitter'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'annotate'

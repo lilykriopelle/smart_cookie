@@ -10,7 +10,6 @@ CookingGenius.Mixins.Annotatable = {
 
   popUpAnnotation: function(event) {
     var selection = rangy.getSelection();
-
     var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
 
     if (selection.toString().length !== 0) {
@@ -142,4 +141,5 @@ CookingGenius.Mixins.Annotatable = {
   isDelimeter: function(char) {
     return [" ", ",", ".", "!", ";", ":", "\n", undefined].indexOf(char) > -1;
   }
+
 };

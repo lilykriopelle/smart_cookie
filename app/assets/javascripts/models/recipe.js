@@ -24,11 +24,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
       delete response.annotations;
     }
 
-    // if (response.votes) {
-    //   this.votes().set(response.votes, {parse: true});
-    //   delete response.votes;
-    // }
-
     return response;
   },
 
@@ -51,13 +46,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
       this._annotations = new CookingGenius.Collections.Annotations([], {annotatable: this});
     }
     return this._annotations;
-  },
-
-  votes: function() {
-    if (!this._votes) {
-      this._votes = new CookingGenius.Collections.Votes([], { voteable: this});
-    }
-    return this._votes;
   },
 
   toJSON: function(){

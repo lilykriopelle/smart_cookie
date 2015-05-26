@@ -40,6 +40,9 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.0)
+    autoprefixer-rails (5.1.11)
+      execjs
+      json
     aws-sdk (1.64.0)
       aws-sdk-v1 (= 1.64.0)
     aws-sdk-v1 (1.64.0)
@@ -202,6 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  autoprefixer-rails
   aws-sdk (< 2.0)
   backbone-on-rails
   bcrypt (~> 3.1.7)
