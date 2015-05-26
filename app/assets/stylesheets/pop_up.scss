@@ -13,6 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%, -50%);
   font-family: sans-serif;
   background: rgba(255, 255, 255, .85);
 }
@@ -58,6 +59,7 @@
   bottom: 85px;
   left: 50%;
   transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
   border: 0;
 }
 
