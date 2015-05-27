@@ -1,6 +1,9 @@
 CookingGenius.Views.ReplyShow = Backbone.View.extend({
+
   tagName: "li",
+
   className: "reply-list-item group",
+
   template: JST["replies/show"],
 
   events: {
@@ -8,7 +11,7 @@ CookingGenius.Views.ReplyShow = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.voteableType = "AnnotationReply"
+    this.voteableType = "AnnotationReply";
   },
 
   render: function() {

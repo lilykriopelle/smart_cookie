@@ -1,4 +1,5 @@
 .annotation-form {
+  display: block;
   position: fixed;
   right: 125px;
   top: 125px;
@@ -17,6 +18,8 @@
   position: fixed;
   right: 125px;
   top: 125px;
+  width: 350px;
+  height: 600px;
   max-height: 600px;
   overflow: auto;
 }

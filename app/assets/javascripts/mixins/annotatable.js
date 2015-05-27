@@ -45,7 +45,7 @@ CookingGenius.Mixins.Annotatable = {
         collection: this.model.annotations()
       });
 
-      $(".annotation-pop-up").empty().html(annotationForm.render().$el);
+      $(".annotation-pop-up").append(annotationForm.render().$el);
     } else if (! $(event.target).is("a")) {
         this.renderAnnotations();
     }
