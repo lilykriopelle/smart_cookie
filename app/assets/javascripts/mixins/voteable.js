@@ -2,7 +2,7 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 
 CookingGenius.Mixins.Voteable = {
   toggleUpvote: function() {
-    if (window.CookingGenius.currentUser.id == null) {
+    if (CookingGenius.currentUser.id == null || !CookingGenius.currentUser.get("can_vote")) {
       return;
     }
     if (this.model.get("can_vote") == true) {
