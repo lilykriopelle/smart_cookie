@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:show]
+    resource :session, only: [:show]
 
     get "search", to: "static_pages#search"
   end

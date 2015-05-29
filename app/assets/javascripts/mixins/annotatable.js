@@ -9,6 +9,10 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   popUpAnnotation: function(event) {
+    if (! window.CookingGenius.currentUser.id) {
+      return;
+    }
+
     var selection = rangy.getSelection();
     var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
 

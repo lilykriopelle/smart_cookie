@@ -13,7 +13,7 @@
     CookingGenius.recipeTags = <%= Recipe::TAGS.to_json.html_safe %>;
 
     $(document).ready(function() {
-      CookingGenius.initialize({userId: <%= current_user.id %>});
+      CookingGenius.initialize({});
     });
 
     $body = $("body");

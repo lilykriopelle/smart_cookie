@@ -6,11 +6,17 @@ module Voteable
   end
 
   def can_vote(user)
-    !(self.is_a?(User) && self.id == user.id) && votes.find_by({voter_id: user.id}).nil?
+    if user
+      !(self.is_a?(User) && self.id == user.id) && votes.find_by({voter_id: user.id}).nil?
+    else
+      false
+    end
   end
 
   def vote_id(user)
-    votes.find_by({voter_id: user.id}).id if votes.find_by({voter_id: user.id})
+    if user
+      votes.find_by({voter_id: user.id}).id if votes.find_by({voter_id: user.id})
+    end
   end
 
 end

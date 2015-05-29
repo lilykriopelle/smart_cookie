@@ -54,7 +54,6 @@ CookingGenius.Views.RecipeShow = Backbone.CompositeView.extend({
         this.addSubview(".ingredients", listItem);
       }.bind(this));
       this.renderAnnotations();
-      // this.$(".annotation-pop-up").draggable();
       return this;
     }
 });
