@@ -1,16 +1,22 @@
 <button class="minimize-annotation">X</button>
 
-<h1>Annotate!</h1>
+<% if (CookingGenius.currentUser.id) { %>
+  <h1>Annotate!</h1>
 
-<textarea name="annotation[body]"></textarea>
+  <textarea name="annotation[body]"></textarea>
 
-<div class="group">
-<label>
-  <div class="fileUpload">
-    <input type="file" class="upload" name="annotation[image]" id="annotation-image">
+  <div class="group">
+  <label>
+    <div class="fileUpload">
+      <input type="file" class="upload" name="annotation[image]" id="annotation-image">
+    </div>
+  </label>
+  <p class="filename">no file chosen</p>
   </div>
-</label>
-<p class="filename">no file chosen</p>
-</div>
 
-<button class="create-annotation">Create Annotation</button>
+  <button class="create-annotation">Create Annotation</button>
+<% } else { %>
+  <h1>
+    <a class="sign-in-link" href="/session/new"> Sign in </a> to add your own annotations.
+  </h1>
+<% } %>

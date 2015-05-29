@@ -6,7 +6,7 @@
   width: 300px;
   background: #eee;
   padding: 15px;
-  border-left: 3px solid #ee2346;
+  border-left: 3px solid  #ad0047;
 }
 
 .annotation-form h1 {
@@ -39,6 +39,7 @@
   width: 350px;
   background: #eee;
   padding: 15px;
+  padding-top: 35px;
 }
 
 .annotation-show:last-child {
@@ -103,7 +104,7 @@
   border: 3px solid #ad0047;
   position: absolute;
   top: 0;
-  right: 18px;
+  left: 0;
   width: 30px;
   font-weight: bold;
   background: #aaa;
@@ -152,4 +153,8 @@
 .reply-list-item {
   border-top: 2px solid #aaa;
   margin-top: 10px;
+}
+
+.sign-in-link {
+  color: #ee2346;
 }
