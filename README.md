@@ -1,66 +1,25 @@
 # SmartCookie
-[Heroku link][heroku]
-(Note: For now, SmartCookie is best experienced in Chrome.  Compatibility with other browsers is an ongoing project.)
+SmartCookie is a collaborative recipe development platform.  Users can add recipes, and can annotate each other's recipes with text and photos.  Users can also reply to annotations, browse all recipes, filter recipes by primary tag, or search for particular title, ingredient, or author name.
 
-[heroku]: https://smartcookie.herokuapp.com
+SmartCookie is made up of a Rails back end that serves up a RESTful JSON API to a Backbone front end.  Other technologies include jQuery, Rangy, Paperclip, PGSearch, and Kaminari.
 
-## Minimum Viable Product
-SmartCookie is a Genius clone geared toward annotating recipes built on Rails and Backbone.  Users can:
+[Check it out!](http://www.smart-cookie.co/)
+(Note: For now, SmartCookie is best experienced in Chrome or Safari.  Achieving full compatibility with other browsers is an ongoing project.)
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create recipes
-- [x] Create annotations
-- [x] Filter recipes by primary tag
-- [x] View recipes and their annotations
-- [x] Upvote/Downvote annotations
-- [x] Reply to annotations
-- [x] Search for recipes
-- [x] Have multiple sessions  at once
-- [x] Log in with Twitter
+## Some Implementation Details
+### Annotations
+First off, annotations belong to a polymorphic annotatable object - this allows me to treat recipes and their ingredients interchangeably, and will eventually extend to recipes once I get those up and running.
 
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
+I use [rangy](https://github.com/timdown/rangy) to get the indices of the user's selection relative to the beginning of the selection's parent element.  Annotation models store their start and end indices; I use these indices to wrap sections of text in links on the front end.  Because inserting html into the plain text of the recipe changes the number of characters in the text, I store the annotations in backwards start index order, so that I can render each annotation onto the page without updating the indices of the other annotations.
 
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
+I also support nested and overlapping annotations.  This requires some processing on the back end, as overlapping or nested a tags are not allowed.  I convert overlapping intervals (each corresponding to one annotation) to a hash whose keys are the corresponding elementary intervals, and whose values are arrays of the annotation id(s) that the elementary intervals point to.  On the front end, each annotation link stores this array of ids.  When a user hovers over a link, I use jQuery to parse that array from the html, and Backbone to fetch the relevant annotation models.
 
-## To Do
+## Future To Dos
 Short Term
-- [ ] User avatars
+- [ ] Firefox/IE browser compatibility
+- [ ] User avatar uploads
 - [ ] User followings
-- [ ] Work on browser compatibility - annotations in browsers other than chrome
+- [ ] Recipe taggings
 
 Long Term
 - [ ] Organize recipes into menus - side by side recipes search results drag and droppable into a new menu view.
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Recipe Creation (~1 day)
-Implement basic Auth. By the end of this phase, users will be able to create recipes using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
-
-[Details][phase-one]
-
-### Phase 2: Viewing Recipes (~1 days)
-First things first, I need to sort out saving ingredients and recipes_ingredients table entries when I save recipes.  I will then add API routes to serve menu and recipe data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to create menus and view both menus and recipes. I'd also like to add the ability for users to upload photos to attach to their recipes/menus, which will involve choosing and integrating a photo uploading library.
-
-[Details][phase-two]
-
-### Phase 3: Annotations and Replies (~3 days)
-I'll implement Genius' main feature, annotations.  On the Rails side, this will involve polymorphic associations, since users can annotate recipes and their ingredients. On the front end, I'll write Backbone views for new annotations and to display existing ones.  I'll spend a little time styling here.
-
-[Details][phase-three]
-
-### Phase 4: Search/Filter/Browse Recipes and Menus (~3 days)
-I'll add the ability for users to search recipes, and also the ability to filter by primary tag and browse.  I'll add search routes to the recipes and menus controllers.  I'll add a Backbone composite view that displays search results by fetching the collections returned by searching.  I'll also add filter routes to the recipes and menu controllers and a composite view for displaying filter results.
-
-[Details][phase-four]
-
-### Phase 5: Style/Polish/Contingency (~2 days)
-I'll make sure everything is styled well, and polish all the front-end stuff.  I think at this point in the project, I'll have a sense of where UI could be snappier and I'd like to reserve this time to make the snappy happen.
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
