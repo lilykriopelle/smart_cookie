@@ -9,7 +9,7 @@
   - <a href="<%= userUrl %>"> <%= annotation.author().escape("name") %> </a>
   </p>
 
-  <% if (annotation.author().id != CookingGenius.currentUser.id) { %>
+  <% if (CookingGenius.currentUser.id && annotation.author().id != CookingGenius.currentUser.id) {%>
   <button class="toggle-annotation-upvote">
     <p class="num-votes"> <%= annotation.get("num_votes") %> </p>
     <p class="arrow">
@@ -17,7 +17,12 @@
     </p>
   </button>
   <% } else { %>
-    <div class="upvotes"> <%= annotation.get("num_votes") %> &#8607; </div>
+    <div class="toggle-annotation-upvote">
+      <p class="num-votes"> <%= annotation.get("num_votes") %> </p>
+      <p class="arrow">
+        &#8607;
+      </p>
+    </div>
   <% } %>
 </div>
 
@@ -27,9 +32,10 @@
   <% } %>
 </div>
 
+<% if (CookingGenius.currentUser.id) { %>
 <form class="reply-form group">
   <textarea class="reply-text" rows="1" cols="150"></textarea>
   <button class="reply">Reply</button>
 </form>
-
+<% } %>
 <ul class="replies"> </ul>

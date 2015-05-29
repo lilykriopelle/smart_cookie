@@ -14,13 +14,13 @@
   bottom: 10px;
 }
 
-div.toggle-recipe-upvote {
+div.toggle-recipe-upvote, div.toggle-user-upvote, div.toggle-annotation-upvote, div.toggle-reply-upvote {
   box-sizing: border-box;
-  padding-left: 10px;
+  padding-left: 7px;
   border: 1px solid black;
 }
 
-.toggle-annotation-upvote:hover, .toggle-reply-upvote:hover {
+button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
   background: #eee;
 }
 
@@ -44,16 +44,4 @@ div.toggle-recipe-upvote {
 
 .toggle-recipe-upvote, .toggle-user-upvote {
   float: none;
-}
-
-.upvotes {
-  box-sizing: border-box;
-  padding-top: 5px;
-  padding-left: 7px;
-  width: 35px;
-  height: 35px;
-  background: white;
-  border: 1px solid black;
-  border-radius: 3px;
-  margin-top: 20px;
 }

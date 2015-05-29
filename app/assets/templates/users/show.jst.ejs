@@ -2,15 +2,20 @@
 
 <h1 class="user-name group"> <%= user.escape("name") %> </h1>
 
-<% if (user.id == CookingGenius.currentUser.id) { %>
-  <p> Upvotes: <%= user.get("num_votes") %> </p>
-<% } else { %>
-  <button class="toggle-user-upvote group">
+<% if (CookingGenius.currentUser.id && this.model.id != CookingGenius.currentUser.id) {%>
+<button class="toggle-user-upvote">
   <p class="num-votes"> <%= user.get("num_votes") %> </p>
   <p class="arrow">
     &#8607;
   </p>
-  </button>
+</button>
+<% } else { %>
+  <div class="toggle-user-upvote">
+    <p class="num-votes"> <%= user.get("num_votes") %> </p>
+    <p class="arrow">
+      &#8607;
+    </p>
+  </div>
 <% } %>
 </div>
 

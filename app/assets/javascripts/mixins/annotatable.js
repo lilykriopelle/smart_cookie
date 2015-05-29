@@ -13,7 +13,6 @@ CookingGenius.Mixins.Annotatable = {
     if (! window.CookingGenius.currentUser.id) {
       return;
     }
-
     $(".annotation-pop-up").addClass("active");
     var selection = rangy.getSelection();
     var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
@@ -69,6 +68,7 @@ CookingGenius.Mixins.Annotatable = {
   displayAnnotation: function(event) {
     event.preventDefault();
     $(".annotation-pop-up").empty();
+    $(".annotation-pop-up").addClass("active");
     var ids = $(event.currentTarget).data("ids");
     for (var i = 0; i < ids.length; i++) {
       var annotation = this.model.annotations().get(ids[i]);
