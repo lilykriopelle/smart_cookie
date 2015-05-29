@@ -1,15 +1,18 @@
 class Api::RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.where(nil);
+    @recipes = Recipe.includes(:votes)
+                     .where(nil)
+                     .sort { |a,b| b.votes().size <=> a.votes().size}
     filters.each do |k, v|
       @recipes = @recipes.send(k, v) if v.present?
     end
 
     if (params[:page])
-      @recipes = @recipes.page(params[:page]).per(5)
+      @recipes = Kaminari.paginate_array(@recipes)
+      .page(params[:page])
+      .per(5)
     end
-
     render :index
   end
 

@@ -8,11 +8,11 @@ SmartCookie is made up of a Rails back end that serves up a RESTful JSON API to 
 
 ## Some Implementation Details
 ### Annotations
-First off, annotations belong to a polymorphic annotatable object - this allows me to treat recipes and their ingredients interchangeably, and will eventually extend to recipes once I get those up and running.
+First off, annotations belong to a polymorphic "annotatable"  - this allows me to treat recipes and their ingredients interchangeably, and will eventually extend to menus once I get those up and running.
 
-I use [rangy](https://github.com/timdown/rangy) to get the indices of the user's selection relative to the beginning of the selection's parent element.  Annotation models store their start and end indices; I use these indices to wrap sections of text in links on the front end.  Because inserting html into the plain text of the recipe changes the number of characters in the text, I store the annotations in backwards start index order, so that I can render each annotation onto the page without updating the indices of the other annotations.
+I use [rangy](https://github.com/timdown/rangy) to get the indices of the user's selection relative to the beginning of the selection's parent element.  Annotation models store their start and end indices; I use these indices to wrap sections of text in links on the front end.  Because inserting html into the plain text of the recipe changes the number of characters in the text, I sort the annotations for each annotatable in backwards start index order; this enables me to render each annotation onto the page without needing to update the indices of other annotations.
 
-I also support nested and overlapping annotations.  This requires some processing on the back end, as overlapping or nested a tags are not allowed.  I convert overlapping intervals (each corresponding to one annotation) to a hash whose keys are the corresponding elementary intervals, and whose values are arrays of the annotation id(s) that the elementary intervals point to.  On the front end, each annotation link stores this array of ids.  When a user hovers over a link, I use jQuery to parse that array from the html, and Backbone to fetch the relevant annotation models.
+I also support nested and overlapping annotations.  This requires some processing on the back end, as overlapping or nested a tags are not allowed.  I convert overlapping intervals (each corresponding to one annotation) to a hash whose keys are the corresponding elementary intervals, and whose values are arrays of the annotation id(s) that the elementary intervals point to.  On the front end, each annotation link stores this array of ids.  When a user hovers over a link, I use jQuery to parse that array from the html, and Backbone to fetch and display the relevant annotation models.
 
 ## Future To Dos
 Short Term

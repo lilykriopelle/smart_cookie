@@ -7,7 +7,6 @@
   padding: 10px;
 }
 
-
 .recipe-feed-item, .user-list-item {
   position: relative;
   width: 760px;
@@ -43,6 +42,13 @@
   height: 77px;
   margin-right: 20px;
   overflow: hidden;
+}
+
+.recipe-upvotes {
+  float: none;
+  position: absolute;
+  right: 100px;
+  top: 0;
 }
 
 .recipes-feed {
