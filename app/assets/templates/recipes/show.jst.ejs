@@ -1,37 +1,42 @@
 <div class="recipe-image">
   <img src="<%= recipe.get("image_url") %>">
-<div class="header-text">
+  <div class="header-text">
 
-<h1 class="group recipe-title">
-  <strong>
-    <%= recipe.escape("title") %>
-  </strong>
-</h1>
+  <h1 class="group recipe-title">
+    <strong>
+      <%= recipe.escape("title") %>
+    </strong>
+  </h1>
 
-<h2 class="category group">
-  <strong>
-    category: <%= recipe.get("primary_tag") %>
-  </strong>
-</h2>
-<% var userURL = "#users/" + recipe.author().id %>
+  <h2 class="category group">
+    <strong>
+      category: <%= recipe.get("primary_tag") %>
+    </strong>
+  </h2>
+  <% var userURL = "#users/" + recipe.author().id %>
 
-<h3 class="author group">
-  <strong>
-    by <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a>
-  </strong>
-</h3>
-</div>
+  <h3 class="author group">
+    <strong>
+      by <a href="<%= userURL %>"> <%= recipe.author().escape("name") %> </a>
+    </strong>
+  </h3>
+  </div>
 
-<% if (this.model.get("author_id") != CookingGenius.currentUser.id) {%>
-<button class="toggle-recipe-upvote">
-  <p class="num-votes"> <%= recipe.get("num_votes") %> </p>
-  <p class="arrow">
-    &#8607;
-  </p>
-</button>
-<% } else { %>
-  <div class="upvotes"> <%= recipe.get("num_votes") %> &#8607; </div>
-<% } %>
+  <% if (CookingGenius.currentUser.id && this.model.get("author_id") != CookingGenius.currentUser.id) {%>
+  <button class="toggle-recipe-upvote">
+    <p class="num-votes"> <%= recipe.get("num_votes") %> </p>
+    <p class="arrow">
+      &#8607;
+    </p>
+  </button>
+  <% } else { %>
+    <div class="toggle-recipe-upvote">
+      <p class="num-votes"> <%= recipe.get("num_votes") %> </p>
+      <p class="arrow">
+        &#8607;
+      </p>
+    </div>
+  <% } %>
 </div>
 
 <h3 class="servings"> Serves <%= recipe.escape("servings") %> </h3>

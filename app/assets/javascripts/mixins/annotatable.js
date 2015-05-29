@@ -5,6 +5,7 @@ CookingGenius.Mixins.Annotatable = {
   hideAnnotation: function(event) {
     event.preventDefault();
     $(event.currentTarget).parent().empty();
+    $(".annotation-pop-up").removeClass("active");
     this.render();
   },
 
@@ -13,6 +14,7 @@ CookingGenius.Mixins.Annotatable = {
       return;
     }
 
+    $(".annotation-pop-up").addClass("active");
     var selection = rangy.getSelection();
     var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
 

@@ -12,6 +12,13 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
+  // z-index: 5;
+}
+
+div.toggle-recipe-upvote {
+  box-sizing: border-box;
+  padding-left: 10px;
+  border: 1px solid black;
 }
 
 .toggle-annotation-upvote:hover, .toggle-reply-upvote:hover {

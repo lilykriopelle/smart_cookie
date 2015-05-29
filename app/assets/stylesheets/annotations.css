@@ -22,6 +22,11 @@
   height: 600px;
   max-height: 600px;
   overflow: auto;
+  display: none;
+}
+
+.annotation-pop-up.active {
+  display: block;
 }
 
 .show-annotation {
