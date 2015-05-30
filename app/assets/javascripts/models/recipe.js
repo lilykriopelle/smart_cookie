@@ -24,7 +24,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
       delete response.annotations;
     }
 
-    debugger
     return response;
   },
 
