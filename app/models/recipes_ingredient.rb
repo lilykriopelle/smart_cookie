@@ -19,5 +19,5 @@ class RecipesIngredient < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :ingredient
 
-  UNITS = %w(units cups tablespoons teaspoons pints quarts gallons pounds ounces loaves slices dash)
+  UNITS = %w(units cups tablespoons teaspoons pints quarts gallons pounds ounces cans loaves slices dash)
 end
