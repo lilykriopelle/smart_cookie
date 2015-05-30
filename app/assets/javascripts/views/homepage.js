@@ -48,6 +48,7 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
         page: 1
       },
       success: function() {
+        filtered.sort();
         var recipeFeed = new CookingGenius.Views.RecipeFeed({
           collection: filtered,
           primary_tag: tag,
