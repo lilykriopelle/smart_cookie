@@ -2,11 +2,9 @@ class Api::RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.includes(:votes).where(nil)
-
     filters.each do |k, v|
       @recipes = @recipes.send(k, v) if v.present?
     end
-
     @recipes = @recipes.sort { |a,b| b.votes().size <=> a.votes().size }
 
     if (params[:page])
@@ -19,7 +17,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:ingredients, :annotations, :votes).find(params[:id])
+    @recipe = Recipe.includes(:author, :ingredients, :annotations, :votes).find(params[:id])
     render :show
   end
 
