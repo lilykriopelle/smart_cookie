@@ -27,12 +27,9 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
     var newName = this.$(".user-name").val();
     if (newName != this.model.escape("name")) {
       this.model.set({name: newName});
-      this.model.save({}, {
-        success: function() {
-          this.$(".user-name").replaceWith('<h1 class="user-name group">' + this.model.escape("name") + '</h1>');
-        }.bind(this)
-      });
+      this.model.save({});
     }
+    this.$(".user-name").replaceWith('<h1 class="user-name group">' + this.model.escape("name") + '</h1>');
   },
 
   displayRecipeForm: function() {
