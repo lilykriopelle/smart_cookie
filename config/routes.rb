@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :annotation_replies, only: [:index, :create, :destroy, :show]
     end
 
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
     resource :session, only: [:show]
 
     get "search", to: "static_pages#search"
