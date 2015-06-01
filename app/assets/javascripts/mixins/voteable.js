@@ -2,9 +2,13 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 
 CookingGenius.Mixins.Voteable = {
   toggleUpvote: function() {
-    if (CookingGenius.currentUser.id == null) {
+    if (!CookingGenius.currentUser.id == null) {
       return;
     }
+    if (this.model instanceof CookingGenius.Models.Recipe && this.model.author().id == CookingGenius.currentUser.id) {
+      return;
+    }
+
     if (this.model.get("can_vote") == true) {
       this.upvote();
     } else {
