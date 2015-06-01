@@ -18,7 +18,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.includes(:author, :ingredients, :annotations, :votes).find(params[:id])
+    @recipe = Recipe.includes(:author, :ingredients, :votes, annotations: [:author, replies: :author]).find(params[:id])
     render :show
   end
 
