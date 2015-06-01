@@ -6,7 +6,7 @@ class Api::RecipesController < ApplicationController
       @recipes = @recipes.send(k, v) if v.present?
     end
 
-    # @recipes = @recipes.sort { |a,b| b.votes().size <=> a.votes().size }
+    @recipes = @recipes.sort { |a,b| b.votes().size <=> a.votes().size }
 
     if (params[:page])
       @recipes = Kaminari.paginate_array(@recipes)

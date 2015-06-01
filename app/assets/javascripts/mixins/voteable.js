@@ -5,12 +5,14 @@ CookingGenius.Mixins.Voteable = {
     if (!CookingGenius.currentUser.id == null) {
       return;
     }
+
     if ((this.model instanceof CookingGenius.Models.Recipe
       || this.model instanceof CookingGenius.Models.AnnotationReply
       || this.model instanceof CookingGenius.Models.Annotation)
       && this.model.author().id == CookingGenius.currentUser.id) {
       return;
     }
+
     if (this.model instanceof CookingGenius.Models.User && this.model.id == CookingGenius.currentUser.id) {
       return;
     }
