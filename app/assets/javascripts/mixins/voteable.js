@@ -8,6 +8,9 @@ CookingGenius.Mixins.Voteable = {
     if (this.model instanceof CookingGenius.Models.Recipe && this.model.author().id == CookingGenius.currentUser.id) {
       return;
     }
+    if (this.model instanceof CookingGenius.Models.User && this.model.id == CookingGenius.currentUser.id) {
+      return;
+    }
 
     if (this.model.get("can_vote") == true) {
       this.upvote();
