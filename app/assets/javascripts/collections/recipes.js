@@ -33,7 +33,7 @@ CookingGenius.Collections.Recipes = Backbone.Collection.extend({
   },
 
   comparator: function(recipe) {
-    return -recipe.num_votes;
+    return -recipe.get("num_votes");
   }
 
 });

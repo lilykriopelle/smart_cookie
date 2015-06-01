@@ -8,7 +8,7 @@ class Api::StaticPagesController < ApplicationController
 
     @search_results = Kaminari.paginate_array(@search_results)
       .page(params[:page])
-      .per(10)
+      .per(5)
   end
 
 end
