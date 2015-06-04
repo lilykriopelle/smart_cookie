@@ -11,7 +11,6 @@ CookingGenius.Mixins.Annotatable = {
 
   stripHTML: function(event) {
     if (! $(event.target).is("a")) {
-      // var $li = $(event.currentTarget);
       $(event.currentTarget).html($(event.currentTarget).text());
     }
   },
@@ -93,8 +92,12 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   wrapIntervalInLink: function(interval) {
-    var element = this.$(this.annotatableSelector),
-        keys = Object.keys(interval),
+    var element = this.$(this.annotatableSelector);
+    if (element.length === 0) {
+      element = $(event.currentTarget);
+    }
+
+    var keys = Object.keys(interval),
         indices = JSON.parse(keys),
         startIdx = indices[0],
         endIdx = indices[1],
@@ -116,7 +119,6 @@ CookingGenius.Mixins.Annotatable = {
   },
 
   highlightAnnotationLinks: function(event) {
-    this.displayAnnotation(event);
     var $link = $(event.currentTarget);
     $link.addClass("active opaque");
     var ids = $link.data("ids");
