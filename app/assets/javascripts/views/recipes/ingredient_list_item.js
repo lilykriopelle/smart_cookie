@@ -21,13 +21,6 @@ CookingGenius.Views.IngredientListItem = Backbone.CompositeView.extend({
     this.parentView = options.parentView;
   },
 
-  stripHTML: function(event) {
-    if (! $(event.target).is("a")) {
-      var $li = $(event.currentTarget);
-      $li.html($(event.currentTarget).text());
-    }
-  },
-
   render: function() {
     this.$el.html(this.template({ingredient: this.model}));
     this.renderAnnotations();

@@ -9,6 +9,13 @@ CookingGenius.Mixins.Annotatable = {
     this.render();
   },
 
+  stripHTML: function(event) {
+    if (! $(event.target).is("a")) {
+      // var $li = $(event.currentTarget);
+      $(event.currentTarget).html($(event.currentTarget).text());
+    }
+  },
+
   popUpAnnotation: function(event) {
     $(".annotation-pop-up").empty();
     $(".annotation-pop-up").addClass("active");
