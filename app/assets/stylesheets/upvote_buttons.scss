@@ -6,6 +6,7 @@
   border-radius: 5px;
   float: left;
   margin-top: 20px;
+  border: 1px solid black;
 }
 
 .toggle-recipe-upvote {
@@ -26,7 +27,7 @@ button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
 
 
 .toggle-annotation-upvote p, .toggle-reply-upvote p,
-.toggle-recipe-upvote p, .toggle-user-upvote p, .recipe-upvotes p  {
+.toggle-recipe-upvote p, .toggle-user-upvote p, .user-upvotes p, .recipe-upvotes p  {
   font-size: 15px;
   float: left;
 }
@@ -36,8 +37,15 @@ button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
   cursor: default;
 }
 
+.user-upvotes {
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-left: 8px;
+}
+
 .toggle-annotation-upvote .arrow, .toggle-reply-upvote .arrow,
-.toggle-recipe-upvote .arrow, .toggle-user-upvote .arrow, .recipe-upvotes .arrow {
+.toggle-recipe-upvote .arrow, .toggle-user-upvote .arrow,
+.user-upvotes .arrow, .recipe-upvotes .arrow {
   float: right;
   font-size: 25px;
   padding-top: 5px;
