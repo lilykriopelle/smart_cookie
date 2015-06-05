@@ -19,6 +19,7 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
     this.model.save(formData, {
       success: function() {
         this.collection.add(this.model);
+        this.remove();
       }.bind(this),
 
       error: function(model, response) {

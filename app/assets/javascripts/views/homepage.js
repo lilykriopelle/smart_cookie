@@ -8,11 +8,21 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     "click .tag-nav-link": "displayFilteredRecpies",
     "click .search": "search",
     "keypress #query": "searchIfEnter",
-    "click #query": "clearPrompt"
+    "click #query": "clearPrompt",
+    "click .add-recipe a": "displayRecipeForm"
   },
 
   initialize: function() {
     this.displayFilteredRecpies();
+  },
+
+  displayRecipeForm: function() {
+    this.$(".new-recipe").empty();
+    var recipeForm = new CookingGenius.Views.RecipeForm({
+      model: new CookingGenius.Models.Recipe(),
+      collection: CookingGenius.currentUser.authoredRecipes()
+    });
+    this.addSubview(".new-recipe", recipeForm);
   },
 
   search: function (event) {

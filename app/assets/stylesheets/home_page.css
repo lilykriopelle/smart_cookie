@@ -6,6 +6,22 @@
   borderbottom: 1px solid #eee;
 }
 
+.add-recipe {
+  margin-left: 22px;
+}
+
+.add-recipe a {
+  color: #ee2346
+}
+
+.add-recipe a:hover {
+  color: #fbad18
+}
+
+.add-recipe a:active {
+  color: #ad0047
+}
+
 .recipe-tag-nav-bar {
   width: 800px;
   height: 31px;
