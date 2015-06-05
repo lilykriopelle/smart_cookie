@@ -6,9 +6,9 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
 
   events: {
     "click .display-recipe-form": "displayRecipeForm",
-    "click .toggle-user-upvote": "toggleUpvote",
-    "dblclick .user-name": "editProfile",
-    "blur .user-name": "updateProfile"
+    "click .toggle-user-upvote": "toggleUpvote"
+    // "dblclick .user-name": "editProfile",
+    // "blur .user-name": "updateProfile"
   },
 
   initialize: function() {

@@ -16,8 +16,8 @@
 .annotation-pop-up {
   text-align: right;
   position: fixed;
-  right: 125px;
-  top: 125px;
+  right: 50px;
+  top: 50px;
   width: 400px;
   height: 600px;
   max-height: 600px;

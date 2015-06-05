@@ -31,6 +31,11 @@ button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
   float: left;
 }
 
+.toggle-user-upvote.inactive, .toggle-recipe-upvote.inactive,
+.toggle-annotation-upvote.inactive, .toggle-reply-upvote.inactive {
+  cursor: default;
+}
+
 .toggle-annotation-upvote .arrow, .toggle-reply-upvote .arrow,
 .toggle-recipe-upvote .arrow, .toggle-user-upvote .arrow, .recipe-upvotes .arrow {
   float: right;
