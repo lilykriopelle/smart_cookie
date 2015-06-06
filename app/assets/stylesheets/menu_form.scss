@@ -4,6 +4,7 @@
   margin-top: 20px;
   width: 802px;
   padding: 20px;
+  position: relative;
 }
 
 .menu-form input {
@@ -58,5 +59,14 @@
   width: 335px;
   border: 1px solid black;
   padding: 10px;
+}
 
+.minimize-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.menu-form button:hover {
+  background: #eee;
 }
