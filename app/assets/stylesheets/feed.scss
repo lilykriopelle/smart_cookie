@@ -7,7 +7,7 @@
   padding: 10px;
 }
 
-.recipe-feed-item, .user-list-item {
+.recipe-feed-item, .user-list-item, .menu-feed-item {
   position: relative;
   width: 760px;
   height: 100px;
@@ -15,10 +15,12 @@
   border: 1px solid black;
   border-radius: 3px;
   margin-bottom: 20px;
+  margin-left: 0;
   overflow: hidden;
+  background: white;
 }
 
-.recipe-feed-item a, .user-list-item a {
+.recipe-feed-item a, .user-list-item a, .menu-feed-item a {
   display: block;
   float: left;
   text-transform: uppercase;
@@ -29,7 +31,8 @@
   padding-top: 40px;
 }
 
-.recipe-feed-item a:hover, .user-list-item a:hover {
+.recipe-feed-item a:hover, .user-list-item a:hover,
+.menu-feed-item a:hover {
   background-color: #eee;
 }
 
@@ -44,7 +47,7 @@
   overflow: hidden;
 }
 
-.recipe-upvotes, .user-upvotes {
+.recipe-upvotes, .user-upvotes, .menu-upvotes {
   float: none;
   position: absolute;
   right: 100px;

@@ -1,0 +1,62 @@
+.menu-form {
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin-top: 20px;
+  width: 802px;
+  padding: 20px;
+}
+
+.menu-form input {
+  border: 1px solid black;
+  height: 30px;
+}
+
+.menu-form #query {
+  margin-right: 10px;
+  padding-top: 2px;
+  height: 30px;
+}
+
+.menu-form .right-panel input {
+  width: 355px;
+}
+
+.menu-form #search-results {
+  margin-left: 0;
+}
+
+.menu-form .left-panel {
+  float: left;
+  width: 50%;
+}
+
+.menu-form .right-panel {
+  float: left;
+}
+
+.menu-form .recipe-feed-item {
+  width: 325px;
+  margin-left: 0;
+  font-size: 11px;
+}
+
+.menu-form .recipe-feed-item a {
+  color: black;
+}
+
+.menu-form .recipe-feed-item .recipe-upvotes {
+  width: 30px;
+  height: 40px;
+}
+
+.menu-form .recipe-feed-item .recipe-upvotes p {
+  font-size: 12px;
+}
+
+.menus-recipes {
+  min-height: 100px;
+  width: 335px;
+  border: 1px solid black;
+  padding: 10px;
+
+}

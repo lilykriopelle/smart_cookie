@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :annotation_replies, only: [:index, :create, :destroy, :show]
     end
 
+    resources :menus, only: [:create, :show, :index, :destroy]
+
     resources :users, only: [:show, :update]
     resource :session, only: [:show]
 

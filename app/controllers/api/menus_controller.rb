@@ -6,11 +6,23 @@ class Api::MenusController < ApplicationController
   end
 
   def create
+    @menu = MenuParser.new.parse(menu_params)
+    @menu.author_id = current_user.id
+    if @menu.save
+      render :show
+    else
+      render json: @menu.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @menu = Menu.find(params[:id])
+    render json: @menu.destroy
   end
 
   private
     def menu_params
-      params.require(:menu).permit(:title, :author_id)
+      params.require(:menu).permit(:title, recipes: [:ord, :recipe_id])
     end
 
 end

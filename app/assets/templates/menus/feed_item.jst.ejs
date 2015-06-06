@@ -1,0 +1,10 @@
+<% var menuURL = "#/menus/" + menu.id %>
+
+<a href="<%= menuURL %>"> <%= menu.escape("title") %>
+  <div class="menu-upvotes">
+    <p class="votes"> <%= menu.get("num_votes") %> </p>
+    <p class="arrow">
+      &#8607;
+    </p>
+  </div>
+</a>

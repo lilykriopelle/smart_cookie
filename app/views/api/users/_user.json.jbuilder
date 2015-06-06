@@ -3,7 +3,12 @@ json.extract! user, :name, :id
 json.authored_recipes user.authored_recipes do |recipe|
   json.extract! recipe, :id, :title
   json.image_url asset_path(recipe.image.url)
-  json.num_votes recipe.votes().size
+  json.num_votes recipe.votes.size
+end
+
+json.menus user.menus do |menu|
+  json.extract! menu, :id, :title
+  json.num_votes menu.votes.size
 end
 
 json.num_votes user.votes.size

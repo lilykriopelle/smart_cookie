@@ -1,0 +1,10 @@
+<h1> <%= menu.escape("title") %> </h1>
+
+<% var authorURL = "#/users/" + menu.author().id %>
+<h2> by <a href="<%= authorURL %>"> <%= menu.author().escape("name") %></a></h2>
+
+<% if (CookingGenius.currentUser.id == menu.author().id) { %>
+  <button class="delete-menu">Delete This Menu</button>
+<% } %>
+
+<ul class="menus-recipes-list"></ul>

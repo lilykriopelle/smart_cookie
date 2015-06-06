@@ -8,7 +8,19 @@ CookingGenius.Models.User = Backbone.Model.extend({
       delete response.authored_recipes;
     }
 
+    if (response.menus) {
+      this.menus().set(response.menus, { parse: true });
+      delete response.menus;
+    }
     return response;
+  },
+
+  menus: function() {
+    if (!this._menus) {
+      this._menus = new CookingGenius.Collections.Menus([], { author: this });
+    }
+
+    return this._menus;
   },
 
   authoredRecipes: function() {

@@ -19,6 +19,12 @@
 <% } %>
 </div>
 
+
+<% if (user.id == CookingGenius.currentUser.id) { %>
+  <button class="display-recipe-form"> Add a Recipe </button>
+  <button class="display-menu-form"> Add a Menu </button>
+<% } %>
+
 <h2>
 <% if (user.authoredRecipes().length > 0) { %>
   <% if (user.id == CookingGenius.currentUser.id) { %>
@@ -37,8 +43,22 @@
 
 <div class="new-recipe"></div>
 
-<% if (user.id == CookingGenius.currentUser.id) { %>
-<button class="display-recipe-form"> Add a Recipe </button>
+<ul class="authored-recipes"></ul>
+
+<h2>
+<% if (user.menus().length > 0) { %>
+  <% if (user.id == CookingGenius.currentUser.id) { %>
+    My Menus
+  <% } else { %>
+    <%= user.escape("name") %>'s Menus
+  <% } %>
+</h2>
+<% } else { %>
+  <%   if (user.id == CookingGenius.currentUser.id) { %>
+    You haven't added any menus!
+  <% } else { %>
+    <%= user.escape("name") %> has not added any menus!
+  <% } %>
 <% } %>
 
-<ul class="authored-recipes"></ul>
+<ul class="menus"></ul>

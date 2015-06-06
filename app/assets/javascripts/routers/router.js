@@ -8,7 +8,8 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "homepage",
     "users/:id": "showUser",
-    "recipes/:id": "showRecipe"
+    "recipes/:id": "showRecipe",
+    "menus/:id": "showMenu"
   },
 
   homepage: function() {
@@ -26,6 +27,12 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
     var recipe = CookingGenius.recipes.getOrFetch(id);
     var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
     this._swapView(recipeShow);
+  },
+
+  showMenu: function(id) {
+    var menu = CookingGenius.menus.getOrFetch(id);
+    var menuShow = new CookingGenius.Views.MenuShow({model: menu});
+    this._swapView(menuShow);
   },
 
   _swapView: function(view) {

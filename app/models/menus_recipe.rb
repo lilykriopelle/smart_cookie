@@ -11,8 +11,8 @@
 #
 
 class MenusRecipe < ActiveRecord::Base
-  validates :menu, :recipe_id, :ord, presence: true
+  validates :menu, :recipe, :ord, presence: true
 
-  belongs_to :menu
+  belongs_to :menu, inverse_of: :menus_recipes
   belongs_to :recipe
 end

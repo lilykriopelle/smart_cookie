@@ -21,21 +21,21 @@ input.user-name {
   padding-top: 0;
 }
 
-.display-recipe-form {
+.display-recipe-form, .display-menu-form {
   margin-top: 10px;
   padding: 10px;
 }
 
-.display-recipe-form:hover {
+.display-recipe-form:hover, .display-recipe-form:hover {
   background: #eee;
 }
 
-.authored-recipes {
+.authored-recipes, .menus {
   width: 800px;
   margin: auto;
 }
 
-.authored-recipes .recipe-feed-item {
+.authored-recipes .recipe-feed-item, .menus .menu-feed-item {
   margin: 0;
   margin-top: 20px;
 }
