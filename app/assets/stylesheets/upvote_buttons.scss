@@ -1,6 +1,6 @@
 .toggle-annotation-upvote, .toggle-reply-upvote,
-.toggle-recipe-upvote, .toggle-user-upvote, .recipe-upvotes,
-.user-upvotes, .menu-upvotes {
+.toggle-recipe-upvote, .toggle-user-upvote, .toggle-menu-upvote,
+.recipe-upvotes, .user-upvotes, .menu-upvotes {
   height: 55px;
   width: 40px;
   background: white;
@@ -16,7 +16,9 @@
   bottom: 10px;
 }
 
-div.toggle-recipe-upvote, div.toggle-user-upvote, div.toggle-annotation-upvote, div.toggle-reply-upvote, .recipe-upvotes {
+div.toggle-menu-upvote, div.toggle-recipe-upvote,
+div.toggle-user-upvote, div.toggle-annotation-upvote,
+div.toggle-reply-upvote, .recipe-upvotes {
   box-sizing: border-box;
   padding-left: 7px;
   border: 1px solid black;
@@ -27,8 +29,9 @@ button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
 }
 
 .toggle-annotation-upvote p, .toggle-reply-upvote p,
-.toggle-recipe-upvote p, .toggle-user-upvote p, .user-upvotes p,
-.recipe-upvotes p, .menu-upvotes p  {
+.toggle-recipe-upvote p, .toggle-user-upvote p,
+.toggle-menu-upvote p,
+.user-upvotes p, .recipe-upvotes p, .menu-upvotes p  {
   font-size: 15px;
   float: left;
 }
@@ -51,7 +54,8 @@ button.toggle-annotation-upvote:hover, button.toggle-reply-upvote:hover {
 
 .toggle-annotation-upvote .arrow, .toggle-reply-upvote .arrow,
 .toggle-recipe-upvote .arrow, .toggle-user-upvote .arrow,
-.user-upvotes .arrow, .recipe-upvotes .arrow, .menu-upvotes .arrow {
+.toggle-menu-upvote .arrow, .user-upvotes .arrow, .recipe-upvotes .arrow,
+.menu-upvotes .arrow {
   float: right;
   font-size: 25px;
   padding-top: 5px;

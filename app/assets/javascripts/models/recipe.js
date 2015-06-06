@@ -54,7 +54,6 @@ CookingGenius.Models.Recipe = Backbone.Model.extend({
     if (this._image) {
       json.recipe.image = this._image;
     }
-
     return json;
   }
 

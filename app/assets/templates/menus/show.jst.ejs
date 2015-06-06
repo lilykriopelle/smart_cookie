@@ -3,8 +3,28 @@
 <% var authorURL = "#/users/" + menu.author().id %>
 <h2> by <a href="<%= authorURL %>"> <%= menu.author().escape("name") %></a></h2>
 
-<% if (CookingGenius.currentUser.id == menu.author().id) { %>
-  <button class="delete-menu">Delete This Menu</button>
-<% } %>
+<div class="group">
+
+  <% if (CookingGenius.currentUser.id && menu.author().id != CookingGenius.currentUser.id) {%>
+  <button class="toggle-menu-upvote">
+    <p class="num-votes"> <%= menu.get("num_votes") %> </p>
+    <p class="arrow">
+      &#8607;
+    </p>
+  </button>
+  <% } else { %>
+    <div class="toggle-menu-upvote">
+      <p class="num-votes"> <%= menu.get("num_votes") %> </p>
+      <p class="arrow">
+        &#8607;
+      </p>
+    </div>
+  <% } %>
+
+  <% if (CookingGenius.currentUser.id == menu.author().id) { %>
+    <button class="delete-menu">Delete This Menu</button>
+  <% } %>
+
+</div>
 
 <ul class="menus-recipes-list"></ul>

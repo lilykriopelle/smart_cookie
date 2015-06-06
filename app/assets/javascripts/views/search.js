@@ -36,6 +36,8 @@ CookingGenius.Views.Search = Backbone.View.extend({
 				view = new CookingGenius.Views.UserListItem({ model: result });
 			} else if (result instanceof CookingGenius.Models.Recipe) {
 				view = new CookingGenius.Views.RecipeFeedItem({ model: result });
+			} else if (result instanceof CookingGenius.Models.Menu) {
+				view = new CookingGenius.Views.MenuFeedItem({model: result});
 			}
 
 			$container.append(view.render().$el);

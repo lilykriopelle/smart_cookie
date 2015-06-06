@@ -10,11 +10,13 @@
 #
 
 class Menu < ActiveRecord::Base
-  include Voteable
+  include Voteable, PgSearch
 
   validates :author_id, :title, presence: true
 
   belongs_to :author, class_name: "User"
   has_many :menus_recipes, class_name: "MenusRecipe", inverse_of: :menu
   has_many :recipes, through: :menus_recipes, source: :recipe
+
+  multisearchable against: :title
 end

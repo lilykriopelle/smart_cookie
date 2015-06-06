@@ -3,10 +3,12 @@ CookingGenius.Views.MenuShow = Backbone.CompositeView.extend({
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.recipes(), "sync", this.render);
+    this.voteableType = "Menu";
   },
 
   events: {
-    "click .delete-menu": "delete"
+    "click .delete-menu": "delete",
+    "click .toggle-menu-upvote": "toggleUpvote"
   },
 
   template: JST["menus/show"],
@@ -30,3 +32,8 @@ CookingGenius.Views.MenuShow = Backbone.CompositeView.extend({
     return this;
   }
 });
+
+_.extend(
+  CookingGenius.Views.MenuShow.prototype,
+  CookingGenius.Mixins.Voteable
+);
