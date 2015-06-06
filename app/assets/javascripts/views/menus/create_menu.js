@@ -58,7 +58,8 @@ CookingGenius.Views.CreateMenu = Backbone.CompositeView.extend({
 
   makeDraggable: function(event) {
     $(event.currentTarget).draggable({
-      connectToSortable: ".droppable"
+      connectToSortable: ".droppable",
+      revert: "invalid"
     });
   },
 
