@@ -1,3 +1,5 @@
+<ul id="search-results" class="droppable"></ul>
+
 <% if (totalPages > 0) { %>
 <p>
   Page <%= page %> of <%= totalPages %>
@@ -13,5 +15,3 @@
 <% if (page < totalPages) { %>
   <a href="javascript:void(0)" class="next-page page"> Next Page </a>
 <% } %>
-
-<ul id="search-results" class="droppable"></ul>
