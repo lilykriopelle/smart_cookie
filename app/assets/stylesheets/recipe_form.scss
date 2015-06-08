@@ -1,11 +1,14 @@
 .recipe-form {
+  box-sizing: border-box;
   border: 1px solid black;
   border-radius: 3px;
   font-family: sans-serif;
+  margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   width: 800px;
   position: relative;
+  padding: 20px
 }
 
 .header-text {
@@ -130,7 +133,7 @@
    padding-left: 5px;
 }
 
-.minimize {
+.minimize, .minimize-menu {
   float: right;
   position: absolute;
   top: -7px;
@@ -144,12 +147,24 @@
   padding-right: 7px;
 }
 
-.add-ingredient, .minimize {
+.add-ingredient, .minimize, .minimize-menu {
   width: 30px;
   font-weight: bold;
   border-radius: 50%;
   padding-left: 7px;
   padding-right: 7px;
+}
+
+.menu-form .minimize-menu {
+  box-sizing: border-box;
+  height: 30px;
+  padding-top: 3px;
+  padding-left: 10px;
+  color: black;
+}
+
+.menu-form .minimize-menu:hover {
+  color: black;
 }
 
 .recipe-form textarea {

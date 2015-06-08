@@ -6,6 +6,7 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
 
   events: {
     "click .display-recipe-form": "displayRecipeForm",
+    "click .display-menu-form": "displayMenuForm",
     "click .toggle-user-upvote": "toggleUpvote"
   },
 
@@ -16,19 +17,15 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
     this.voteableType = "User";
   },
 
-  editProfile: function() {
-    if (CookingGenius.currentUser && this.model.id == CookingGenius.currentUser.id) {
-      this.$(".user-name").replaceWith('<input class="user-name" type="text" value="' + this.model.escape("name") + '">');
-    }
-  },
-
-  updateProfile: function() {
-    var newName = this.$(".user-name").val();
-    if (newName != this.model.escape("name")) {
-      this.model.set({name: newName});
-      this.model.save({});
-    }
-    this.$(".user-name").replaceWith('<h1 class="user-name group">' + this.model.escape("name") + '</h1>');
+  displayMenuForm: function() {
+    this.$(".new-menu").empty();
+    var menuForm = new CookingGenius.Views.CreateMenu({
+      model: new CookingGenius.Models.Menu(),
+      collection: this.model.menus()
+    });
+    this.addSubview(".new-menu", menuForm);
+    this.$(".sortable").sortable();
+    this.$(".draggable").draggable();
   },
 
   displayRecipeForm: function() {

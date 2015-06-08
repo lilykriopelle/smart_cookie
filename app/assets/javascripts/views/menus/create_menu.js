@@ -13,6 +13,7 @@ CookingGenius.Views.CreateMenu = Backbone.CompositeView.extend({
 
   minimize: function() {
     this.remove();
+    Backbone.history.navigate("#", {trigger: true});
   },
 
   search: function (event) {
@@ -49,6 +50,10 @@ CookingGenius.Views.CreateMenu = Backbone.CompositeView.extend({
     }.bind(this));
     this.model.save(attrs, {
       success: function() {
+        if (this.collection) {
+          this.collection.add(this);
+        }
+        Backbone.history.navigate("#", { trigger: true });
         this.remove();
       }.bind(this),
       error: function(model, response) {

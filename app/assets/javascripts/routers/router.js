@@ -8,7 +8,9 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "homepage",
     "users/:id": "showUser",
+    "recipes/new": "newRecipe",
     "recipes/:id": "showRecipe",
+    "menus/new": "newMenu",
     "menus/:id": "showMenu"
   },
 
@@ -27,6 +29,24 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
     var recipe = CookingGenius.recipes.getOrFetch(id);
     var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
     this._swapView(recipeShow);
+  },
+
+  newMenu: function() {
+    var menuForm = new CookingGenius.Views.CreateMenu({
+      model: new CookingGenius.Models.Menu()
+    });
+    this._swapView(menuForm);
+    menuForm.$(".sortable").sortable();
+    menuForm.$(".draggable").draggable();
+  },
+
+  newRecipe: function() {
+    var recipeForm = new CookingGenius.Views.RecipeForm({
+      model: new CookingGenius.Models.Recipe(),
+      collection: CookingGenius.currentUser.authoredRecipes()
+    });
+    this._swapView(recipeForm);
+    // this.addSubview(".new-recipe", recipeForm);
   },
 
   showMenu: function(id) {

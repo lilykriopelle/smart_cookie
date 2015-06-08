@@ -56,8 +56,8 @@ CookingGenius.Views.RecipeForm = Backbone.CompositeView.extend({
   },
 
   minimize: function(event) {
-    event.preventDefault();
     this.remove();
+    Backbone.history.navigate("#", {trigger: true});
   },
 
   render: function() {
