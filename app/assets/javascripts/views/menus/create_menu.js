@@ -23,6 +23,7 @@ CookingGenius.Views.CreateMenu = Backbone.CompositeView.extend({
     if ($input.val().length > 0 && $input.val() != "search!") {
       this.$(".recipes").empty();
       this.results.searchInfo.page = 1;
+      this.results.searchInfo.only_recipes = true;
       this.results.fetch({
   			data: this.results.searchInfo,
         success: function() {
