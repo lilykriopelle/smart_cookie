@@ -24,7 +24,6 @@ CookingGenius.Views.Search = Backbone.View.extend({
 		return this;
 	},
 
-
 	renderResults: function () {
 		this.renderSearchInfo();
 		var $container = this.$("#search-results");

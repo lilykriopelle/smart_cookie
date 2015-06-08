@@ -53,6 +53,7 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
             collection: this.results
           });
           this.addSubview(".recipe-feed-container", searchResults);
+          searchResults.onRender();
         }.bind(this)
   		});
     }

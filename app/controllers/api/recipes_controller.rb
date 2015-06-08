@@ -17,6 +17,11 @@ class Api::RecipesController < ApplicationController
     render :index
   end
 
+  def search
+    @recipes = Recipe.where('title ~ ?', params[:query])
+    render :index
+  end
+
   def show
     @recipe = Recipe.includes(:author, :votes, :ingredients, recipes_ingredients: [annotations: [:author, replies: :author]], annotations: [:author, replies: :author]).find(params[:id])
     render :show
