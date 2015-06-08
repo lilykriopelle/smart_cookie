@@ -12,8 +12,8 @@ class Api::StaticPagesController < ApplicationController
         .per(5)
     else
       @search_results = Recipe.where('UPPER(title) ~ ?', params[:query].upcase)
-                              .page(params[:page])
-                              .per(5)
+        .page(params[:page])
+        .per(5)
     end
   end
 
