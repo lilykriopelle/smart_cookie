@@ -46,7 +46,7 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
       collection: CookingGenius.currentUser.authoredRecipes()
     });
     this._swapView(recipeForm);
-    // this.addSubview(".new-recipe", recipeForm);
+    // this.addSubview(".recipe-form", recipeForm);
   },
 
   showMenu: function(id) {

@@ -17,12 +17,12 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
   },
 
   displayRecipeForm: function() {
-    this.$(".new-recipe").empty();
+    this.$(".recipe-form").empty();
     var recipeForm = new CookingGenius.Views.RecipeForm({
       model: new CookingGenius.Models.Recipe(),
       collection: CookingGenius.currentUser.authoredRecipes()
     });
-    this.addSubview(".new-recipe", recipeForm);
+    this.addSubview(".recipe-form", recipeForm);
   },
 
   search: function (event) {

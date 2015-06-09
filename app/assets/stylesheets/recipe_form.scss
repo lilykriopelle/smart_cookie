@@ -29,25 +29,27 @@
   margin: 0;
 }
 
-.new-recipe label {
+.recipe-form label {
   font-weight: bold;
   margin: 10px;
 }
 
-.new-recipe h1 {
+.recipe-form h1 {
   font-weight: bold;
   text-align: center;
   font-size: 24px;
 }
 
-.new-recipe .servings {
+.recipe-form .servings {
   width: 50px;
   height: 7px;
   font-size: 16px;
 }
 
-.new-recipe .title {
-  width: 594px;
+.recipe-form .title {
+  width: 562px;
+  height: 30px;
+  box-sizing: border-box;
 }
 
 .recipe-form .primary-tags {
@@ -97,7 +99,7 @@
 }
 
 .recipe-form .ingredients input {
-  width: 245px;
+  width: 218px;
   border: 1px solid black;
   border-radius: 3px;
   height: 25px;
@@ -128,9 +130,9 @@
    width: 80px;
    height: 30px;
    border: 1px solid black;
-   font-weight: bold;
    text-align: center;
    padding-left: 5px;
+   font-size: 12px;
 }
 
 .minimize, .minimize-menu {
@@ -168,7 +170,7 @@
 }
 
 .recipe-form textarea {
-  width: 770px;
+  width: 730px;
   margin-left: 10px;
   border: 1px solid black;
   border-radius: 3px;
