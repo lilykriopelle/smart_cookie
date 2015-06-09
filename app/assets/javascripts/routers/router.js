@@ -2,7 +2,7 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(CookingGenius.currentUser, "sync", this.render);
   },
 
   routes: {

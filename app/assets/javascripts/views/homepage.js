@@ -9,11 +9,11 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
     "click .search": "search",
     "keypress #query": "searchIfEnter",
     "click #query": "clearPrompt",
-    // "click .recipe-form-link": "displayRecipeForm",
   },
 
   initialize: function() {
     this.displayFilteredRecpies();
+    this.listenTo(CookingGenius.currentUser, "sync", this.render);
   },
 
   displayRecipeForm: function() {

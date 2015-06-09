@@ -6,7 +6,6 @@ CookingGenius.Models.Session = Backbone.Model.extend({
       this.authoredRecipes().set(response.authored_recipes, { parse: true });
       delete response.authored_recipes;
     }
-
     return response;
   },
 
