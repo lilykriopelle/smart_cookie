@@ -5,16 +5,16 @@ class ApplicationController < ActionController::Base
 
   def sign_in!(user)
     session[:session_token] = Session.generate_session_token
-    user.sessions.create!({session_token: session[:session_token]})
+    user.sessions.create!({ session_token: session[:session_token] })
   end
 
   def log_out!(user)
-    @session = Session.find_by({session_token: session[:session_token]})
+    @session = Session.find_by({ session_token: session[:session_token] })
     @session.destroy
   end
 
   def current_user
-    current_session = Session.find_by({session_token: session[:session_token]})
+    current_session = Session.find_by({ session_token: session[:session_token] })
     current_session ? current_session.user : nil
   end
 

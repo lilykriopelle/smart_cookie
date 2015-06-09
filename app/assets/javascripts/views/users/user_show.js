@@ -18,28 +18,15 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   displayMenuForm: function() {
-    this.$(".new-menu").empty();
-    var menuForm = new CookingGenius.Views.CreateMenu({
-      model: new CookingGenius.Models.Menu(),
-      collection: this.model.menus()
-    });
-    this.addSubview(".new-menu", menuForm);
-    this.$(".sortable").sortable();
-    this.$(".draggable").draggable();
+    Backbone.history.navigate("#/menus/new", {trigger: true});
   },
 
   displayRecipeForm: function() {
-    this.$(".new-recipe").empty();
-    var recipeForm = new CookingGenius.Views.RecipeForm({
-      model: new CookingGenius.Models.Recipe(),
-      collection: this.model.authoredRecipes()
-    });
-    this.addSubview(".new-recipe", recipeForm);
+    Backbone.history.navigate("#/recipes/new", {trigger: true});
   },
 
   render: function() {
     this.$el.html(this.template({user: this.model}));
-
     this.model.authoredRecipes().each(function(recipe) {
       var indexItem = new CookingGenius.Views.RecipeFeedItem({model : recipe});
       this.addSubview(".authored-recipes", indexItem);

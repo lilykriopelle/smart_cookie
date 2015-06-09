@@ -12,6 +12,7 @@ CookingGenius.Views.CreateMenu = Backbone.CompositeView.extend({
   template: JST["menus/new"],
 
   minimize: function() {
+    event.preventDefault();
     this.remove();
     Backbone.history.navigate("#", {trigger: true});
   },
