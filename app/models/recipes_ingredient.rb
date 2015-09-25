@@ -14,7 +14,7 @@
 
 class RecipesIngredient < ActiveRecord::Base
   include Annotatable
-  
+
   validates :recipe, :ingredient, presence: true
   belongs_to :recipe
   belongs_to :ingredient
