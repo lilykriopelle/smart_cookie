@@ -23,6 +23,7 @@
 //= require wrappedrange
 //= require wrappedselection
 //= require composite_view
+//= require masonry
 //= require cooking_genius
 //= require_tree ../templates
 //= require_tree ./mixins
