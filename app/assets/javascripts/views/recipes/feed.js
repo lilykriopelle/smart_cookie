@@ -62,6 +62,15 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         page: this.page
       }
 		});
+    
+    $(window).load(function() {
+      this.$el.find('.recipes-feed').masonry({
+        isAnimated: true,
+        gutter: 10,
+        isFitWidth: true,
+        itemSelector: '.recipe-feed-item'
+      });
+    }.bind(this));
   },
 
 });
