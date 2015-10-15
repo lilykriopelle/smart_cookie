@@ -63,7 +63,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         page: this.page
       },
       success: function() {
-        $(window).imagesLoaded(function() {
+        this.$el.find('.recipes-feed').imagesLoaded(function() {
           this.$el.find('.recipes-feed').masonry({
             isAnimated: true,
             gutter: 10,
