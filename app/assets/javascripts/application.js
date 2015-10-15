@@ -24,6 +24,7 @@
 //= require wrappedselection
 //= require composite_view
 //= require masonry
+//= require images_loaded
 //= require cooking_genius
 //= require_tree ../templates
 //= require_tree ./mixins
