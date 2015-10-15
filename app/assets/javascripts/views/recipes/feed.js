@@ -15,17 +15,6 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
     this.primaryTag = options.primary_tag;
     this.page = options.page;
     this.listenTo(this.collection, "sync", this.render);
-
-    $(window).load(function() {
-      window.setTimeout(function() {
-          this.$el.find('.recipes-feed').masonry({
-            isAnimated: true,
-            gutter: 10,
-            isFitWidth: true,
-            itemSelector: '.recipe-feed-item'
-          });
-        }.bind(this), 0);
-      }.bind(this));
   },
 
   render: function() {
@@ -44,6 +33,15 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         });
         this.addSubview(".recipes-feed", recipeFeedItem);
       }
+    }.bind(this));
+
+    $(window).load(function() {
+      this.$el.find('.recipes-feed').masonry({
+        isAnimated: true,
+        gutter: 10,
+        isFitWidth: true,
+        itemSelector: '.recipe-feed-item'
+      });
     }.bind(this));
 
     return this;
@@ -65,16 +63,14 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         page: this.page
       },
       success: function() {
-        $(window).load(function() {
-          window.setTimeout(function() {
-              this.$el.find('.recipes-feed').masonry({
-                isAnimated: true,
-                gutter: 10,
-                isFitWidth: true,
-                itemSelector: '.recipe-feed-item'
-              });
-            }.bind(this), 0);
-          }.bind(this));
+        window.setTimeout(function() {
+          this.$el.find('.recipes-feed').masonry({
+            isAnimated: true,
+            gutter: 10,
+            isFitWidth: true,
+            itemSelector: '.recipe-feed-item'
+          });
+        }.bind(this), 1000);
       }.bind(this)
 		});
   },

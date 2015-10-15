@@ -11,7 +11,7 @@ class Api::RecipesController < ApplicationController
     if (params[:page])
       @recipes = Kaminari.paginate_array(@recipes)
       .page(params[:page])
-      .per(10)
+      .per(4)
     end
 
     render :index
