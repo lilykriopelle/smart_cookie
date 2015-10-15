@@ -2,7 +2,7 @@ CookingGenius.Views.RecipeFeedItem = Backbone.View.extend({
 
   tagName: "li",
 
-  className: "recipe-feed-item",
+  className: "recipe-feed-item group",
 
   template: JST["recipes/feed_item"],
 

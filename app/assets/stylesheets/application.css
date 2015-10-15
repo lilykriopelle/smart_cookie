@@ -16,7 +16,7 @@
 
  html, body, ul, li, p, form,
  button, h1, h2, h3, h4, a,
- input, div, pre, nav {
+ input, div, pre, nav, figure {
    margin: none;
    padding: none;
    border: none;

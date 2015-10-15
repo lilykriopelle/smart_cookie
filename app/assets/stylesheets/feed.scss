@@ -9,15 +9,14 @@
 
 .recipe-feed-item, .user-list-item, .menu-feed-item {
   position: relative;
-  width: 760px;
-  height: 100px;
+  width: 250px;
   margin: auto;
   border: 1px solid black;
   border-radius: 3px;
   margin-bottom: 20px;
   margin-left: 0;
-  overflow: hidden;
   background: white;
+  transition: top 1s, left 1s;
 }
 
 .recipe-feed-item a, .user-list-item a, .menu-feed-item a {
@@ -27,8 +26,6 @@
   width: 100%;
   height: 100%;
   margin: 0;
-  padding-left: 20px;
-  padding-top: 40px;
 }
 
 .recipe-feed-item a:hover, .user-list-item a:hover,
@@ -37,30 +34,36 @@
 }
 
 .recipe-feed-item .recipe-title {
-  width: 50%;
-  margin-top: -5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: transparent;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.recipe-feed-item .recipe-title:hover {
+  background: rgba(100,100,100,.75);
+  color: white;
 }
 
 .recipe-feed-item .image-thumb {
-  position: absolute;
-  top: -5px;
-  right: -5px;
   display: block;
-  width: 77px;
-  height: 77px;
-  margin-right: 20px;
-  overflow: hidden;
+  width: 250px;
+  height: auto;
+  margin: 0;
 }
 
 .recipe-upvotes, .user-upvotes, .menu-upvotes {
   float: none;
   position: absolute;
-  right: 100px;
-  top: 0;
+  right: 10px;
+  bottom: 10px;
 }
 
 .recipes-feed {
-  max-height: 1000px;
+  max-height: 800px;
   overflow: auto;
 }
 
