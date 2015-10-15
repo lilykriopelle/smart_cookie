@@ -36,6 +36,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
     }.bind(this));
 
     $(window).load(function() {
+      debugger
       this.$el.find('.recipes-feed').masonry({
         isAnimated: true,
         gutter: 10,
@@ -62,8 +63,9 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         page: this.page
       }
 		});
-    
+
     $(window).load(function() {
+      debugger
       this.$el.find('.recipes-feed').masonry({
         isAnimated: true,
         gutter: 10,
