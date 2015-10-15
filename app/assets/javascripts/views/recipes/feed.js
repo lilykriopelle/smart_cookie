@@ -35,14 +35,14 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
       }
     }.bind(this));
 
-    $(window).load(function() {
+    window.setTimeout(function() {
       this.$el.find('.recipes-feed').masonry({
         isAnimated: true,
         gutter: 10,
         isFitWidth: true,
         itemSelector: '.recipe-feed-item'
       });
-    }.bind(this));
+    }.bind(this), 1000);
 
     return this;
   },
