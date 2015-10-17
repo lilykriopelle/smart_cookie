@@ -38,10 +38,22 @@ CookingGenius.Views.Search = Backbone.View.extend({
 			} else if (result instanceof CookingGenius.Models.Menu) {
 				view = new CookingGenius.Views.MenuFeedItem({model: result});
 			}
-
+			this.triggerMasonry();
 			$container.append(view.render().$el);
-		});
+		}.bind(this));
 	},
+
+	triggerMasonry: function() {
+    this.$el.imagesLoaded(function() {
+      this.$el.masonry({
+        isAnimated: true,
+        gutter: 10,
+        isFitWidth: true,
+        itemSelector: '.recipe-feed-item'
+      });
+      this.$el.find('.recipe-feed-item').show();
+    }.bind(this));
+  },
 
 	previousPage: function() {
 		this.changePage(-1);

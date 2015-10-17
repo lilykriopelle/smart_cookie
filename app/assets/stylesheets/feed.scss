@@ -19,6 +19,10 @@
   transition: top 1s, left 1s;
 }
 
+.user-list-item {
+  min-height: 250px;
+}
+
 .recipe-feed-item a, .user-list-item a, .menu-feed-item a {
   display: block;
   float: left;
