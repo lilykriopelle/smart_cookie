@@ -38,7 +38,7 @@ CookingGenius.Views.Search = Backbone.View.extend({
 			} else if (result instanceof CookingGenius.Models.Menu) {
 				view = new CookingGenius.Views.MenuFeedItem({model: result});
 			}
-			this.waitAndMasonry();
+			this.triggerMasonry();
 			$container.append(view.render().$el);
 		}.bind(this));
 	},
@@ -59,7 +59,7 @@ CookingGenius.Views.Search = Backbone.View.extend({
 
 		var interval = window.setInterval(function() {
 			if (numLoaded == imageObjects.length) {
-				this.$el.find('.recipes-feed').masonry({
+				this.$el.masonry({
 					isAnimated: true,
 					gutter: 10,
 					isFitWidth: true,
