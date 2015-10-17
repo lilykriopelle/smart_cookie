@@ -82,7 +82,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         page: this.page
       },
       success: function() {
-        this.waitAndMasonry();
+        // this.waitAndMasonry();
       }.bind(this)
 		});
   },
