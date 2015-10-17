@@ -38,22 +38,38 @@ CookingGenius.Views.Search = Backbone.View.extend({
 			} else if (result instanceof CookingGenius.Models.Menu) {
 				view = new CookingGenius.Views.MenuFeedItem({model: result});
 			}
-			this.triggerMasonry();
+			this.waitAndMasonry();
 			$container.append(view.render().$el);
 		}.bind(this));
 	},
 
-	triggerMasonry: function() {
-    this.$el.imagesLoaded(function() {
-      this.$el.masonry({
-        isAnimated: true,
-        gutter: 10,
-        isFitWidth: true,
-        itemSelector: '.recipe-feed-item'
-      });
-      this.$el.find('.recipe-feed-item').show();
-    }.bind(this));
-  },
+	waitAndMasonry: function() {
+		var imageObjects = [];
+		var numLoaded = 0;
+
+		var images = this.$el.find('img');
+		for (var i = 0; i < images.length; i++) {
+			var image = new Image();
+			image.onload = function() {
+				numLoaded += 1;
+			}
+			image.src = $(images[i]).attr('src');
+			imageObjects.push(image);
+		}
+
+		var interval = window.setInterval(function() {
+			if (numLoaded == imageObjects.length) {
+				this.$el.find('.recipes-feed').masonry({
+					isAnimated: true,
+					gutter: 10,
+					isFitWidth: true,
+					itemSelector: '.recipe-feed-item'
+				});
+				this.$el.find('.recipe-feed-item').show();
+				window.clearInterval(interval);
+			}
+		}.bind(this), 20);
+	},
 
 	previousPage: function() {
 		this.changePage(-1);

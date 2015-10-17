@@ -34,6 +34,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
         this.addSubview(".recipes-feed", recipeFeedItem);
       }
     }.bind(this));
+
     this.waitAndMasonry();
     return this;
   },
@@ -80,10 +81,7 @@ CookingGenius.Views.RecipeFeed = Backbone.CompositeView.extend({
 			data: {
         primary_tag: this.primaryTag == "all" ? "" : this.primaryTag,
         page: this.page
-      },
-      success: function() {
-        // this.waitAndMasonry();
-      }.bind(this)
+      }
 		});
   },
 
