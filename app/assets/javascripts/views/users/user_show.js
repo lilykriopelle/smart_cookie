@@ -64,6 +64,13 @@ CookingGenius.Views.UserShow = Backbone.CompositeView.extend({
 					itemSelector: '.recipe-feed-item'
 				});
 				this.$el.find('.recipe-feed-item').show();
+
+        this.$el.find('.menus').masonry({
+					isAnimated: true,
+					gutter: 10,
+					isFitWidth: true,
+					itemSelector: '.menu-feed-item'
+				});
 				window.clearInterval(interval);
 			}
 		}.bind(this), 20);
