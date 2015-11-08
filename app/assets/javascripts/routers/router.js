@@ -10,8 +10,8 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
     "users/:id": "showUser",
     "recipes/new": "newRecipe",
     "recipes/:id": "showRecipe",
-    "menus/new": "newMenu",
-    "menus/:id": "showMenu"
+    // "menus/new": "newMenu",
+    // "menus/:id": "showMenu"
   },
 
   homepage: function() {

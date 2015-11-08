@@ -105,6 +105,11 @@
   float: left;
 }
 
+.menu-form .recipe-feed-item .image-thumb {
+  height: 100px;
+  width: 100px;
+}
+
 .menu-form .recipe-feed-item {
   width: 325px;
   margin-left: 0;
@@ -157,4 +162,13 @@
 
 .menu-form button:hover {
   background: #eee;
+}
+
+.menu-form .recipe-feed-item a:hover {
+  background: white;
+}
+
+.menu-form .recipe-feed-item {
+  border: 1px solid black;
+  border-radius: 3px;
 }

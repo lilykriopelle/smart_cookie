@@ -11,9 +11,7 @@
   position: relative;
   width: 250px;
   margin: auto;
-  border: 1px solid black;
-  border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-left: 0;
   background: white;
   transition: top 1s, left 1s;
@@ -90,6 +88,8 @@
   width: 34px;
   padding: 4px;
   border: 0;
+  border-left: 1px solid black;
+  border-radius: 0px;
   background: asset-url("search.png");
   background-repeat: no-repeat;
   background-size: 25px;
