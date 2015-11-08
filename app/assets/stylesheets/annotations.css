@@ -33,17 +33,16 @@
   text-align: left;
 }
 
+
 .annotation-show {
-  border-left: 3px solid  #ad0047;
-  border-bottom: 1px solid #aaa;
+  position: absolute;
+  right: 0;
+  border-left: 1px solid  black;
   width: 350px;
-  background: #eee;
+  background: white;;
   padding: 15px;
   padding-top: 35px;
-}
-
-.annotation-show:last-child {
-  border-bottom: 0;
+  overflow: scroll;
 }
 
 .annotation-form textarea {
@@ -101,18 +100,19 @@
 }
 
 .minimize-annotation {
-  border: 3px solid #ad0047;
+  border: 1px solid black;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 3px;;
+  left: 3px;
   width: 30px;
   font-weight: bold;
-  background: #aaa;
-  color: white;
+  background: white;
+  color: black;
+
 }
 
 .minimize-annotation:hover {
-  background: #ad0047;
+  background: #ccc;
 }
 
 .reply-form {
