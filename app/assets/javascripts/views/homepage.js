@@ -13,7 +13,6 @@ CookingGenius.Views.Homepage = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.displayFilteredRecpies();
-    this.listenTo(CookingGenius.currentUser, "sync", this.render);
   },
 
   displayRecipeForm: function() {
