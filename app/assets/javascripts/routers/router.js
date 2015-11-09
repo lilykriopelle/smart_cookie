@@ -21,14 +21,18 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
 
   showUser: function(id) {
     var user = CookingGenius.users.getOrFetch(id);
-    var userShow = new CookingGenius.Views.UserShow({model: user});
-    this._swapView(userShow);
+    user.on('sync', function() {
+      var userShow = new CookingGenius.Views.UserShow({model: user});
+      this._swapView(userShow);
+    }.bind(this));
   },
 
   showRecipe: function(id) {
     var recipe = CookingGenius.recipes.getOrFetch(id);
-    var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
-    this._swapView(recipeShow);
+    recipe.on('sync', function() {
+        var recipeShow = new CookingGenius.Views.RecipeShow({model: recipe});
+        this._swapView(recipeShow);
+    }.bind(this));
   },
 
   newMenu: function() {
@@ -46,7 +50,6 @@ CookingGenius.Routers.Router = Backbone.Router.extend({
       collection: CookingGenius.currentUser.authoredRecipes()
     });
     this._swapView(recipeForm);
-    // this.addSubview(".recipe-form", recipeForm);
   },
 
   showMenu: function(id) {
