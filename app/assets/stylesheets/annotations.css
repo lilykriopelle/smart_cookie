@@ -1,12 +1,12 @@
 .annotation-form {
   display: block;
   position: fixed;
-  right: 125px;
+  right: 0px;
   top: 125px;
   width: 300px;
-  background: #eee;
+  background: white;
   padding: 15px;
-  border-left: 3px solid  #ad0047;
+  border-left: 1px solid  black;
 }
 
 .annotation-form h1 {
@@ -151,7 +151,7 @@
 }
 
 .reply-list-item {
-  border-top: 2px solid #aaa;
+  border-top: 1px solid #aaa;
   margin-top: 10px;
 }
 

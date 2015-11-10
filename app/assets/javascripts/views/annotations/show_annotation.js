@@ -7,13 +7,18 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
     "click .upvote-annotation": "upvoteAnnotation",
     "click .remove-upvote": "removeUpvote",
     "click .toggle-annotation-upvote": "toggleUpvote",
-    "click .reply": "submitReply"
+    "click .reply": "submitReply",
+    "click": "stopPropagation"
   },
 
   initialize: function() {
     this.voteableType = "Annotation";
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.replies(), "add", this.render);
+  },
+
+  stopPropagation: function(event) {
+    event.stopPropagation();
   },
 
   submitReply: function(event) {

@@ -8,7 +8,8 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
 
   events: {
     "click .create-annotation": "submit",
-    "change #annotation-image": "fileInputChange"
+    "change #annotation-image": "fileInputChange",
+    "click": "stopPropagation"
   },
 
   initialize: function(options) {
@@ -16,6 +17,10 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     this.annotatable_type = options.annotatable_type;
     this.$node = options.$node;
     this.$text = options.$text;
+  },
+
+  stopPropagation: function(event) {
+    event.stopPropagation();
   },
 
   submit: function(event) {
@@ -32,7 +37,6 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
       }.bind(this),
 
       error: function(model, response) {
-        debugger;
       }
     });
 
