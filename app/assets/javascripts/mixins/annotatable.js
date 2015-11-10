@@ -6,8 +6,9 @@ CookingGenius.Mixins.Annotatable = {
     if (!$(event.target).is('.author a') && !$(event.target).hasClass("annotationRecipe") && !$(event.target).hasClass("annotationRecipesIngredient")) {
       event.preventDefault();
       $(".annotation-pop-up").removeClass("active");
+      this.render();
     }
-    this.render();
+    // debugger
   },
 
   stripHTML: function(event) {
