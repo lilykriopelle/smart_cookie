@@ -9,7 +9,7 @@ CookingGenius.Views.IngredientListItem = Backbone.CompositeView.extend({
     "mouseup": "popUpAnnotation",
     "click .annotationRecipesIngredient": "displayAnnotation",
     'mouseenter .annotationRecipesIngredient': "highlightAnnotationLinks",
-    'mouseleave .annotationRecipesIngredient': "removeHighlighting"
+    'mouseleave .annotationRecipesIngredient': "removeHighlighting",
   },
 
   initialize: function(options) {

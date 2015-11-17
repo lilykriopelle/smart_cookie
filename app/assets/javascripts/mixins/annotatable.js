@@ -3,12 +3,14 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 CookingGenius.Mixins.Annotatable = {
 
   hideAnnotation: function(event) {
-    if (!$(event.target).is('.author a') && !$(event.target).hasClass("annotationRecipe") && !$(event.target).hasClass("annotationRecipesIngredient")) {
+    // debugger
+    if (!$(event.target).is('.author a') &&
+        !$(event.target).hasClass("annotationRecipe") &&
+        !$(event.target).hasClass("annotationRecipesIngredient")) {
       event.preventDefault();
       $(".annotation-pop-up").removeClass("active");
       this.render();
     }
-    // debugger
   },
 
   stripHTML: function(event) {

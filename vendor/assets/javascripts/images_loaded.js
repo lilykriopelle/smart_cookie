@@ -272,7 +272,6 @@ function makeArray( obj ) {
   };
 
   LoadingImage.prototype.onerror = function( event ) {
-    debugger;
     this.confirm( false, 'onerror' );
     this.unbindProxyEvents( event );
   };
