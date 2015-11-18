@@ -3,7 +3,6 @@ CookingGenius.Mixins = (CookingGenius.Mixins || {});
 CookingGenius.Mixins.Annotatable = {
 
   hideAnnotation: function(event) {
-    // debugger
     if (!$(event.target).is('.author a') &&
         !$(event.target).hasClass("annotationRecipe") &&
         !$(event.target).hasClass("annotationRecipesIngredient")) {
@@ -22,6 +21,7 @@ CookingGenius.Mixins.Annotatable = {
   popUpAnnotation: function(event) {
     $(".annotation-pop-up").empty();
     $(".annotation-pop-up").addClass("active");
+    $(".annotation-pop-up").css('top', event.clientY + $(document).scrollTop());
     var selection = rangy.getSelection();
     var element = $(event.currentTarget).is("li") ? $(event.currentTarget) : this.$(this.annotatableSelector);
 

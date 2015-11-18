@@ -1,7 +1,6 @@
 .annotation-form {
   display: block;
-  position: fixed;
-  right: 0px;
+  right: 50px;
   top: 125px;
   width: 300px;
   background: white;
@@ -15,13 +14,11 @@
 
 .annotation-pop-up {
   text-align: right;
-  position: fixed;
+  position: absolute;
   right: 50px;
   top: 50px;
   width: 400px;
-  height: 600px;
-  max-height: 600px;
-  overflow: auto;
+  overflow: visible;
   display: none;
 }
 
@@ -42,7 +39,6 @@
   background: white;;
   padding: 15px;
   padding-top: 35px;
-  overflow: scroll;
 }
 
 .annotation-form textarea {
