@@ -9,7 +9,8 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
   events: {
     "click .create-annotation": "submit",
     "change #annotation-image": "fileInputChange",
-    "click": "stopPropagation"
+    "click": "stopPropagation",
+    "click textarea": "expand"
   },
 
   initialize: function(options) {
@@ -19,12 +20,21 @@ CookingGenius.Views.NewAnnotation = Backbone.View.extend({
     this.$text = options.$text;
   },
 
+  expand: function (e) {
+    $(e.target).addClass('expanded');
+    event.stopPropagation();
+  },
+
   stopPropagation: function(event) {
+    if (!$(event.target).is('textarea')) {
+      this.$el.find('textarea').removeClass('expanded');
+    }
     event.stopPropagation();
   },
 
   submit: function(event) {
     event.preventDefault();
+    event.stopPropagation();
     var formAttrs = this.$el.serializeJSON().annotation;
     this.model.save(formAttrs, {
       success: function() {

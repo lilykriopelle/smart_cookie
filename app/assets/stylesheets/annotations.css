@@ -15,7 +15,7 @@
 .annotation-pop-up {
   text-align: right;
   position: absolute;
-  right: 50px;
+  right: 25px;
   top: 50px;
   width: 400px;
   overflow: visible;
@@ -36,7 +36,7 @@
   right: 0;
   border-left: 1px solid  black;
   width: 350px;
-  background: white;;
+  background: white;
   padding: 15px;
   padding-top: 35px;
 }
@@ -51,7 +51,7 @@
 
 }
 
-.annotation-form textarea:focus {
+.annotation-form textarea.expanded {
   width: 200px;
   height: 250px;
 }
@@ -138,7 +138,7 @@
   transition: height .5s;
 }
 
-.reply-text:focus {
+.annotation-show .reply-text:focus {
   height: 150px;
 }
 

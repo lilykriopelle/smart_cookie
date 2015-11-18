@@ -23,6 +23,7 @@ CookingGenius.Views.AnnotationShow = Backbone.CompositeView.extend({
 
   submitReply: function(event) {
     event.preventDefault();
+    event.stopPropagation();
     var replyBody = this.$(".reply-text").val();
     if (replyBody.length > 0) {
       var attrs = {
